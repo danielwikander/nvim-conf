@@ -185,7 +185,8 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open float
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- treeSJ
--- vim.keymap.set('n', 'J', require('treesj').toggle)
+vim.keymap.set('n', 'J', '<CMD>TSJToggle<CR>', { desc = 'TSJ Toggle' })
+vim.keymap.set('n', '<leader>j', '<CMD>TSJToggle<CR>', { desc = 'TSJ Toggle' })
 
 -- Highlight yanked text for 200ms using the "Visual" highlight group
 vim.cmd [[

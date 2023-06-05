@@ -25,8 +25,6 @@ return
         { 'rafamadriz/friendly-snippets' }, -- Optional
     },
     config = function()
-        -- require('lsp-zero.settings').preset({})
-
         local lsp = require('lsp-zero')
         lsp.preset('recommended')
         lsp.ensure_installed({
