@@ -1,8 +1,8 @@
 return {
-    "folke/trouble.nvim",
-    cmd = { "TroubleToggle", "Trouble" },
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    'folke/trouble.nvim',
+    cmd = { 'TroubleToggle', 'Trouble' },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
-        require("trouble").setup {}
+        require('trouble').setup {}
     end
 }

@@ -5,15 +5,15 @@ return {
         { '<C-t>', '<cmd>ToggleTerm<cr>', mode = 't', desc = 'Toggle terminal' }
     },
     config = function()
-        require("toggleterm").setup({
+        require('toggleterm').setup({
             open_mapping = [[<C-t>]]
         })
         local Terminal = require('toggleterm.terminal').Terminal
         local lazygit  = Terminal:new(
             {
-                cmd = "lazygit",
+                cmd = 'lazygit',
                 hidden = true,
-                direction = "float"
+                direction = 'float'
             });
         function _lazygit_toggle()
             lazygit:toggle()

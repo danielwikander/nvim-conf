@@ -1,7 +1,7 @@
 return {
-    "norcalli/nvim-colorizer.lua",
-    cmd = "ColorizerToggle",
+    'norcalli/nvim-colorizer.lua',
+    cmd = 'ColorizerToggle',
     config = function()
-        require("colorizer").setup {}
+        require('colorizer').setup {}
     end
 }

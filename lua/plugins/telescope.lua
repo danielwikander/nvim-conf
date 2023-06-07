@@ -2,8 +2,8 @@ return
 {
     'nvim-telescope/telescope.nvim',
     dependencies = {
-        "nvim-lua/plenary.nvim",
-        "debugloop/telescope-undo.nvim",
+        'nvim-lua/plenary.nvim',
+        'debugloop/telescope-undo.nvim',
     },
     lazy = false,
     config = function()
@@ -17,11 +17,11 @@ return
                 layout_strategy = 'no_title',
                 mappings = {
                     i = {
-                        ["<C-j>"] = actions.move_selection_next,
-                        ["<C-k>"] = actions.move_selection_previous,
-                        ["<C-n>"] = actions.cycle_history_next,
-                        ["<C-p>"] = actions.cycle_history_prev,
-                        ["<esc>"] = actions.close,
+                        ['<C-j>'] = actions.move_selection_next,
+                        ['<C-k>'] = actions.move_selection_previous,
+                        ['<C-n>'] = actions.cycle_history_next,
+                        ['<C-p>'] = actions.cycle_history_prev,
+                        ['<esc>'] = actions.close,
                     }
                 }
             },
@@ -30,9 +30,9 @@ return
                     side_by_side = false,
                     mappings = {
                         i = {
-                            ["<cr>"] = undo.yank_additions,
-                            ["<S-cr>"] = undo.yank_deletions,
-                            ["<C-cr>"] = undo.restore,
+                            ['<cr>'] = undo.yank_additions,
+                            ['<S-cr>'] = undo.yank_deletions,
+                            ['<C-cr>'] = undo.restore,
                         },
                     },
                 },
@@ -53,7 +53,7 @@ return
             return layout
         end
         require('telescope').load_extension('undo')
-        vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
+        vim.keymap.set('n', '<leader>u', '<cmd>Telescope undo<cr>')
         vim.keymap.set('n', '<leader>E', require('telescope.builtin').diagnostics, { desc = 'Open diagnostics list' })
         vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = 'References' })
     end

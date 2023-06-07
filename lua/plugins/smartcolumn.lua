@@ -1,8 +1,8 @@
 return
 {
     event = {'BufReadPost', 'BufNewFile'},
-    "m4xshen/smartcolumn.nvim",
+    'm4xshen/smartcolumn.nvim',
     opts = {
-        scope = "line"
+        scope = 'line'
     }
 }

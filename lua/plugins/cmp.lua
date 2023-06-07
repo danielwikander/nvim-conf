@@ -1,40 +1,41 @@
 return {
-    "hrsh7th/nvim-cmp",
+    'hrsh7th/nvim-cmp',
     dependencies = {
-        "hrsh7th/cmp-nvim-lsp",
-        "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-        "saadparwaiz1/cmp_luasnip",
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'saadparwaiz1/cmp_luasnip',
+        'VonHeikemen/lsp-zero.nvim',
     },
     config = function()
         local cmp = require('cmp')
         local cmp_action = require('lsp-zero').cmp_action()
         local kind_icons = {
-            Text = "",
-            Method = "",
-            Function = "",
-            Constructor = "",
-            Field = "",
-            Variable = "",
-            Class = "ﴯ",
-            Interface = "",
-            Module = "",
-            Property = "ﰠ",
-            Unit = "",
-            Value = "",
-            Enum = "",
-            Keyword = "",
-            Snippet = "",
-            Color = "",
-            File = "",
-            Reference = "",
-            Folder = "",
-            EnumMember = "",
-            Constant = "",
-            Struct = "",
-            Event = "",
-            Operator = "",
-            TypeParameter = ""
+            Text = '',
+            Method = '',
+            Function = '',
+            Constructor = '',
+            Field = '',
+            Variable = '',
+            Class = 'ﴯ',
+            Interface = '',
+            Module = '',
+            Property = 'ﰠ',
+            Unit = '',
+            Value = '',
+            Enum = '',
+            Keyword = '',
+            Snippet = '',
+            Color = '',
+            File = '',
+            Reference = '',
+            Folder = '',
+            EnumMember = '',
+            Constant = '',
+            Struct = '',
+            Event = '',
+            Operator = '',
+            TypeParameter = ''
         }
         cmp.setup({
             mapping = {
@@ -55,7 +56,7 @@ return {
                 documentation = cmp.config.window.bordered({
                     border = 'single',
                     winhighlight =
-                    "Normal:NormalFloat,FloatBorder:CmpDocumentationBorder,CursorLine:PmenuSel,Search:None",
+                    'Normal:NormalFloat,FloatBorder:CmpDocumentationBorder,CursorLine:PmenuSel,Search:None',
                 })
             },
             formatting = {

@@ -8,9 +8,9 @@ return {
         { 'williamboman/mason-lspconfig.nvim' },
         {
             'williamboman/mason.nvim',
-            run = ":MasonUpdate",
+            run = ':MasonUpdate',
         },
-        { "j-hui/fidget.nvim" },
+        { 'j-hui/fidget.nvim' },
     },
     config = function()
         local lsp = require('lsp-zero')
