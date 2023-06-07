@@ -1,4 +1,5 @@
-return {
+return
+{
     'hrsh7th/nvim-cmp',
     dependencies = {
         'hrsh7th/cmp-nvim-lsp',
@@ -6,6 +7,7 @@ return {
         'hrsh7th/cmp-path',
         'saadparwaiz1/cmp_luasnip',
         'VonHeikemen/lsp-zero.nvim',
+        'windwp/nvim-autopairs',
     },
     config = function()
         local cmp = require('cmp')
@@ -37,6 +39,11 @@ return {
             Operator = '',
             TypeParameter = ''
         }
+        local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+        cmp.event:on(
+            'confirm_done',
+            cmp_autopairs.on_confirm_done()
+        )
         cmp.setup({
             mapping = {
                 ['<Tab>'] = cmp_action.luasnip_supertab(),

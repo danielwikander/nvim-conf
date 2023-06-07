@@ -1,4 +1,5 @@
-return {
+return
+{
     'RRethy/vim-illuminate',
     event = { 'BufReadPost', 'BufNewFile' },
     config = function()

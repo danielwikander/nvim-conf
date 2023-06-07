@@ -55,11 +55,20 @@ vim.o.cmdheight = 0
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
 
+-- Diagnostics styling
 vim.diagnostic.config({
     float = {
         border = 'none'
     },
 })
+vim.fn.sign_define("DiagnosticSignError",
+    { text = "E", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn",
+    { text = "󰔶", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo",
+    { text = "i", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint",
+    { text = "H", texthl = "DiagnosticSignHint" })
 
 -- Highlight yanked text for 200ms using the 'Visual' highlight group
 vim.cmd [[

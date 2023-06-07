@@ -1,8 +1,9 @@
-return {
+return
+{
     'sindrets/diffview.nvim',
     dependencies = 'nvim-lua/plenary.nvim',
     keys = {
-        { '<C-g>',     '<CMD>DiffviewOpen<CR>', mode = { 'n' } },
+        { '<C-g>',     '<CMD>DiffviewOpen<CR>',  mode = { 'n' } },
         { '<leader>4', '<CMD>DiffviewClose<CR>', mode = { 'n' } }
     },
     opts = {
@@ -16,7 +17,7 @@ return {
                 ['<C-g>'] = '<CMD>DiffviewClose<CR>',
                 ['<leader>4'] = '<CMD>DiffviewClose<CR>',
                 ['<leader>1'] = '<CMD>DiffviewToggleFiles<CR>',
-            },
-        },
+            }
+        }
     }
 }

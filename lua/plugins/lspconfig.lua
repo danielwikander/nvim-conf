@@ -1,14 +1,13 @@
 return {
     'neovim/nvim-lspconfig',
     cmd = 'LspInfo',
-    -- lazy = false,
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
         { 'hrsh7th/cmp-nvim-lsp' },
         { 'williamboman/mason-lspconfig.nvim' },
         {
             'williamboman/mason.nvim',
-            run = ':MasonUpdate',
+            build = ':MasonUpdate',
         },
         { 'j-hui/fidget.nvim' },
     },
