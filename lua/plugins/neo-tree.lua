@@ -33,24 +33,15 @@ return
         vim.g.loaded_netrw = 1 -- Disable netrw
         vim.g.loaded_netrwPlugin = 1
 
-        vim.fn.sign_define("DiagnosticSignError",
-            { text = "E", texthl = "DiagnosticSignError" })
-        vim.fn.sign_define("DiagnosticSignWarn",
-            { text = "󰔶", texthl = "DiagnosticSignWarn" })
-        vim.fn.sign_define("DiagnosticSignInfo",
-            { text = "i", texthl = "DiagnosticSignInfo" })
-        vim.fn.sign_define("DiagnosticSignHint",
-            { text = "H", texthl = "DiagnosticSignHint" })
-
-
         require('neo-tree').setup({
             default_component_configs = {
                 indent = {
                     with_markers = false
                 },
-                -- git_status = {
-                --     symbols = false
-                -- },
+                modified = {
+                    symbol = '+',
+                    highlight = 'NeoTreeModified'
+                },
                 symbols = {
                     -- Change type
                     added     = '+',
