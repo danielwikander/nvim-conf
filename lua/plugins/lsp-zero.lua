@@ -6,8 +6,13 @@ return
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         -- LSP Support
-        { 'neovim/nvim-lspconfig' },             -- Required
-        { 'williamboman/mason.nvim' },           -- Optional
+        { 'neovim/nvim-lspconfig' },   -- Required
+        {
+            'williamboman/mason.nvim', -- Optional
+            build = function()
+                pcall(vim.cmd, 'MasonUpdate')
+            end
+        },
         { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
         -- Autocompletion
@@ -42,6 +47,12 @@ return
                 }
             }
         })
+        lsp.on_attach(function(client, bufnr)
+            lsp.default_keymaps({ buffer = bufnr })
+        end)
+
+        require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+
         lsp.setup()
     end
 }
