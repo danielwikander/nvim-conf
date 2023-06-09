@@ -1,9 +1,14 @@
 return {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    event = {'BufReadPre', 'BufNewFile'},
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-        'windwp/nvim-ts-autotag'
+        {
+            'windwp/nvim-ts-autotag',
+            config = function()
+                require('nvim-ts-autotag').setup {}
+            end
+        }
     },
     config = function()
         local treesitter = require('nvim-treesitter.configs')

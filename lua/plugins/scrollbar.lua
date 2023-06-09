@@ -1,5 +1,6 @@
 return {
     'petertriho/nvim-scrollbar',
+    event = { 'BufReadPost', 'BufNewFile' },
     config = function()
         require('scrollbar').setup {
             show_in_active_only = true,
@@ -8,7 +9,6 @@ return {
                 cursor = false,
                 gitsigns = true
             }
-
         }
     end
 }

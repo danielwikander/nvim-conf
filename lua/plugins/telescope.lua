@@ -5,7 +5,16 @@ return
         'nvim-lua/plenary.nvim',
         'debugloop/telescope-undo.nvim',
     },
-    lazy = false,
+    cmd = 'Telescope',
+    keys = {
+        { '<leader>p', function() require('builtin.live_grep') end,                  { desc = 'Find string in repo' } },
+        { '<leader>P', function() require('builtin.find_files') end,                 { desc = 'Find file' } },
+        { '<C-p>',     function() require('builtin.git_files') end,                  { desc = 'Find file in git' } },
+        { '<leader>u', '<cmd>Telescope undo<cr>',                                    { desc = 'Undo tree' } },
+        { '<leader>E', function() require('telescope.builtin').diagnostics() end,    { desc = 'Show diagnostics' } },
+        { 'gr',        function() require('telescope.builtin').lsp_references() end, { desc = 'Show references' } },
+    },
+    lazy = true,
     config = function()
         local actions = require('telescope.actions')
         local undo = require('telescope-undo.actions')
@@ -38,10 +47,11 @@ return
                 },
             },
         })
+
         local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>pf', builtin.find_files, {}) -- Find file
-        vim.keymap.set('n', '<C-p>', builtin.git_files, {})       -- Find files in git
-        vim.keymap.set('n', '<leader>p', builtin.live_grep, {})   -- Find string in repo
+        vim.keymap.set('n', '<leader>P', builtin.find_files, {}) -- Find file
+        vim.keymap.set('n', '<C-p>', builtin.git_files, {})      -- Find files in git
+        vim.keymap.set('n', '<leader>p', builtin.live_grep, {})  -- Find string in repo
 
         require('telescope.pickers.layout_strategies').no_title = function(picker, max_columns, max_lines,
                                                                            layout_config)

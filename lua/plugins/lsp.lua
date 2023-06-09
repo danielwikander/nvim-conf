@@ -23,15 +23,9 @@ return
             { 'hrsh7th/cmp-cmdline' },                 -- Optional
         },
         config = function()
-            -- Here is where you configure the autocompletion settings.
-            -- The arguments for .extend() have the same shape as `manage_nvim_cmp`:
-            -- https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/api-reference.md#manage_nvim_cmp
-
             require('lsp-zero.cmp').extend()
 
-            -- And you can configure cmp even more, if you want to.
             local cmp = require('cmp')
-            -- local cmp_action = require('lsp-zero.cmp').action()
 
             local kind_icons = {
                 Text = "",
@@ -162,8 +156,6 @@ return
             },
         },
         config = function()
-            -- This is where all the LSP shenanigans will live
-
             local lsp = require('lsp-zero')
 
             lsp.on_attach(function(client, bufnr)
