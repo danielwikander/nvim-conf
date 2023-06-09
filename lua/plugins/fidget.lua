@@ -7,6 +7,12 @@ return
             text = {
                 spinner = 'dots',
                 done = ''
+            },
+            align = {
+                bottom = false
+            },
+            fmt = {
+                stack_upwards = false
             }
         }
     end
