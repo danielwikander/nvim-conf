@@ -6,6 +6,7 @@ return
     config = function()
         require('kanagawa').setup({
             theme = 'dragon',
+            compile = true,
             colors = { theme = { all = { ui = { bg_gutter = 'none' } } } },
             dimInactive = false,
             overrides = function(colors)

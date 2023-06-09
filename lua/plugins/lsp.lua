@@ -21,6 +21,7 @@ return
             { 'hrsh7th/cmp-buffer' },                  -- Optional
             { 'hrsh7th/cmp-path' },                    -- Optional
             { 'hrsh7th/cmp-cmdline' },                 -- Optional
+            { 'windwp/nvim-autopairs' },
         },
         config = function()
             require('lsp-zero.cmp').extend()
