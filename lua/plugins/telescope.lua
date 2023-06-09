@@ -64,7 +64,7 @@ return
         end
         require('telescope').load_extension('undo')
         vim.keymap.set('n', '<leader>u', '<cmd>Telescope undo<cr>')
-        vim.keymap.set('n', '<leader>E', require('telescope.builtin').diagnostics, { desc = 'Open diagnostics list' })
-        vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = 'References' })
+        vim.keymap.set('n', '<leader>E', builtin.diagnostics, { desc = 'Open diagnostics list' })
+        vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = 'References' })
     end
 }
