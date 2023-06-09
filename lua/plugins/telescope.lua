@@ -20,10 +20,34 @@ return
         local undo = require('telescope-undo.actions')
         require('telescope').setup({
             defaults = {
+                vimgrep_arguments = {
+                    "rg",
+                    "--color=never",
+                    "--no-heading",
+                    "--with-filename",
+                    "--line-number",
+                    "--column",
+                    "--smart-case",
+                },
                 prompt_prefix = ' ',
                 results_title = '',
                 prompt_title = '',
+                selection_caret = ' ',
+                file_ignore_patterns = { "node_modules" },
                 layout_strategy = 'no_title',
+                layout_config = {
+                    horizontal = {
+                        prompt_position = 'top',
+                        width = function(_, cols, _)
+                            if cols > 200 then
+                                return 200
+                            else
+                                return math.floor(cols * 0.92)
+                            end
+                        end,
+                    }
+                },
+                sorting_strategy = 'ascending',
                 mappings = {
                     i = {
                         ['<C-j>'] = actions.move_selection_next,
@@ -53,10 +77,18 @@ return
         vim.keymap.set('n', '<C-p>', builtin.git_files, {})      -- Find files in git
         vim.keymap.set('n', '<leader>p', builtin.live_grep, {})  -- Find string in repo
 
-        require('telescope.pickers.layout_strategies').no_title = function(picker, max_columns, max_lines,
-                                                                           layout_config)
-            local layout = require('telescope.pickers.layout_strategies').horizontal(picker, max_columns, max_lines,
-                layout_config)
+        require('telescope.pickers.layout_strategies').no_title = function(
+            picker,
+            max_columns,
+            max_lines,
+            layout_config
+        )
+            local layout = require('telescope.pickers.layout_strategies').horizontal(
+                picker,
+                max_columns,
+                max_lines,
+                layout_config
+            )
             layout.prompt.title = ''
             layout.results.title = ''
             layout.preview.title = ''
