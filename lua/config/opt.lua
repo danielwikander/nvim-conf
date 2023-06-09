@@ -62,13 +62,13 @@ vim.diagnostic.config({
     },
 })
 vim.fn.sign_define("DiagnosticSignError",
-    { text = "E", texthl = "DiagnosticSignError" })
+    { text = "✘", texthl = "DiagnosticSignError" })
 vim.fn.sign_define("DiagnosticSignWarn",
-    { text = "󰔶", texthl = "DiagnosticSignWarn" })
+    { text = "▲", texthl = "DiagnosticSignWarn" })
 vim.fn.sign_define("DiagnosticSignInfo",
-    { text = "i", texthl = "DiagnosticSignInfo" })
+    { text = "»", texthl = "DiagnosticSignInfo" })
 vim.fn.sign_define("DiagnosticSignHint",
-    { text = "H", texthl = "DiagnosticSignHint" })
+    { text = "⚑", texthl = "DiagnosticSignHint" })
 
 -- Highlight yanked text for 200ms using the 'Visual' highlight group
 vim.cmd [[

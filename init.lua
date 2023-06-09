@@ -16,7 +16,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup('plugins', {
-    install = { colorscheme = { 'kanagawa-dragon' } },
+    install = {
+        colorscheme = { 'kanagawa-dragon' },
+    },
     performance = {
         rtp = {
             disabled_plugins = {
