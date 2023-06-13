@@ -1,7 +1,8 @@
 return
 {
     'j-hui/fidget.nvim',
-    event = {'BufReadPre', 'BufNewFile'},
+    tag = 'legacy', -- Until j-hui has finished the rewrite
+    event = { 'BufReadPre', 'BufNewFile' },
     config = function()
         require('fidget').setup {
             text = {
