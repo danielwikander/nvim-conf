@@ -7,9 +7,6 @@ vim.g.maplocalleader = ' '
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- J stays in place
-vim.keymap.set("n", "J", "mzJ`z")
-
 -- Center cursor on scroll
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -23,7 +20,7 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "q", "<nop>")
 vim.keymap.set("v", "c", "<nop>")
 
--- Format (try == ?)
+-- Format
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 -- Splits
@@ -79,7 +76,6 @@ vim.keymap.set('t', '<C-k>', [[<C-\><C-N><C-w>k]], { noremap = true, silent = tr
 -- Code actions
 vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader><CR>", vim.lsp.buf.code_action, { noremap = true, silent = true })
-
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true })
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true, silent = true })
 
