@@ -26,7 +26,7 @@ opt.shiftwidth = 4         -- Size of an indent
 opt.shortmess:append { W = true, I = true, c = true }
 opt.showmode = false       -- Dont show mode since we have a statusline
 opt.sidescrolloff = 8      -- Columns of context
-opt.signcolumn = 'yes'     -- Always show the signcolumn, otherwise it would shift the text each time
+opt.signcolumn = 'yes:1'   -- Always show the signcolumn, otherwise it would shift the text each time
 opt.smartcase = true       -- Don't ignore case with capitals
 opt.smartindent = true     -- Insert indents automatically
 opt.softtabstop = 4
@@ -61,12 +61,20 @@ vim.diagnostic.config({
         border = 'none'
     },
 })
+-- vim.fn.sign_define("DiagnosticSignError",
+--     { text = "✘", texthl = "DiagnosticSignError" })
+-- vim.fn.sign_define("DiagnosticSignWarn",
+--     { text = "▲", texthl = "DiagnosticSignWarn" })
+-- vim.fn.sign_define("DiagnosticSignInfo",
+--     { text = "»", texthl = "DiagnosticSignInfo" })
+-- vim.fn.sign_define("DiagnosticSignHint",
+--     { text = "⚑", texthl = "DiagnosticSignHint" })
 vim.fn.sign_define("DiagnosticSignError",
-    { text = "✘", texthl = "DiagnosticSignError" })
+    { text = "▲", texthl = "DiagnosticSignError" })
 vim.fn.sign_define("DiagnosticSignWarn",
     { text = "▲", texthl = "DiagnosticSignWarn" })
 vim.fn.sign_define("DiagnosticSignInfo",
-    { text = "»", texthl = "DiagnosticSignInfo" })
+    { text = "⚑", texthl = "DiagnosticSignInfo" })
 vim.fn.sign_define("DiagnosticSignHint",
     { text = "⚑", texthl = "DiagnosticSignHint" })
 
