@@ -9,7 +9,7 @@ return
         { '<leader>5', function() require('harpoon.ui').nav_file(5) end,         { desc = 'Navigate to file 5' } },
         { '<leader>a', function() require('harpoon.mark').add_file() end,        { desc = 'Mark file' } },
         { '<leader>s', function() require('harpoon.ui').toggle_quick_menu() end, { desc = 'Toggle marked files menu' } },
-        { '<leader>S' },
+        { '<leader>S', '<cmd>Telescope harpoon marks<cr>',                       { desc = 'Harpoon marks' } },
     },
     config = function()
         require('harpoon').setup()

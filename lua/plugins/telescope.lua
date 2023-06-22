@@ -12,7 +12,6 @@ return
         { '<C-p>',     function() require('builtin.git_files') end,                  { desc = 'Find file in git' } },
         { '<leader>u', '<cmd>Telescope undo<cr>',                                    { desc = 'Undo tree' } },
         { '<leader>0', '<cmd>Telescope harpoon marks<cr>',                           { desc = 'Harpoon marks' } },
-        { '<leader>S', '<cmd>Telescope harpoon marks<cr>',                           { desc = 'Harpoon marks' } },
         { '<leader>E', function() require('telescope.builtin').diagnostics() end,    { desc = 'Show diagnostics' } },
         { 'gr',        function() require('telescope.builtin').lsp_references() end, { desc = 'Show references' } },
     },
