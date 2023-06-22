@@ -5,6 +5,7 @@ return
     opts = {
         scope = 'line',
         disabled_filetypes = {
+            'alpha',
             'help',
             'text',
             'markdown',
