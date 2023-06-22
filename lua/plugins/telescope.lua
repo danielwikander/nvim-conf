@@ -7,9 +7,9 @@ return
     },
     cmd = 'Telescope',
     keys = {
-        { '<leader>p', function() require('builtin.live_grep') end,                  { desc = 'Find string in repo' } },
-        { '<leader>P', function() require('builtin.find_files') end,                 { desc = 'Find file' } },
-        { '<C-p>',     function() require('builtin.git_files') end,                  { desc = 'Find file in git' } },
+        { '<leader>p', function() require('telescope.builtin').live_grep() end,      { desc = 'Find string in repo' } },
+        { '<leader>P', function() require('telescope.builtin').find_files() end,     { desc = 'Find file' } },
+        { '<C-p>',     function() require('telescope.builtin').git_files() end,      { desc = 'Find file in git' } },
         { '<leader>u', '<cmd>Telescope undo<cr>',                                    { desc = 'Undo tree' } },
         { '<leader>0', '<cmd>Telescope harpoon marks<cr>',                           { desc = 'Harpoon marks' } },
         { '<leader>E', function() require('telescope.builtin').diagnostics() end,    { desc = 'Show diagnostics' } },
@@ -73,11 +73,6 @@ return
             },
         })
 
-        local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>P', builtin.find_files, {}) -- Find file
-        vim.keymap.set('n', '<C-p>', builtin.git_files, {})      -- Find files in git
-        vim.keymap.set('n', '<leader>p', builtin.live_grep, {})  -- Find string in repo
-
         require('telescope.pickers.layout_strategies').no_title = function(
             picker,
             max_columns,
@@ -95,10 +90,8 @@ return
             layout.preview.title = ''
             return layout
         end
+
         require('telescope').load_extension('undo')
         require('telescope').load_extension('harpoon')
-        vim.keymap.set('n', '<leader>u', '<cmd>Telescope undo<cr>')
-        vim.keymap.set('n', '<leader>E', builtin.diagnostics, { desc = 'Open diagnostics list' })
-        vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = 'References' })
     end
 }

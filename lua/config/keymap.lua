@@ -1,5 +1,6 @@
 -- Leader
 vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -81,9 +82,3 @@ vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { noremap = true, silent =
 -- Diagnostics
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 
--- Reset space key
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
--- treeSJ
-vim.keymap.set('n', 'J', '<CMD>TSJToggle<CR>', { desc = 'TSJ Toggle' })
-vim.keymap.set('n', '<leader>j', '<CMD>TSJToggle<CR>', { desc = 'TSJ Toggle' })

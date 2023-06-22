@@ -13,11 +13,8 @@ return
                     autoselect_one = true,
                     include_current = false,
                     filter_rules = {
-                        -- filter using buffer options
                         bo = {
-                            -- if the file type is one of following, the window will be ignored
                             filetype = { 'neo-tree', 'neo-tree-popup', 'notify' },
-                            -- if the buffer type is one of following, the window will be ignored
                             buftype = { 'terminal', 'quickfix' },
                         },
                     },
@@ -27,7 +24,7 @@ return
         }
     },
     keys = {
-        { '<leader>§', '<cmd>Neotree toggle<CR>', desc = 'NeoTree' }
+        { '<leader><tab>', '<cmd>Neotree toggle<CR>', desc = 'NeoTree' }
     },
     config = function()
         vim.g.loaded_netrw = 1 -- Disable netrw
@@ -43,12 +40,10 @@ return
                     highlight = 'NeoTreeModified'
                 },
                 symbols = {
-                    -- Change type
                     added     = '+',
                     deleted   = '-',
                     modified  = '+',
                     renamed   = 'r',
-                    -- Status type
                     untracked = '?',
                     ignored   = '',
                     unstaged  = '',
@@ -61,7 +56,6 @@ return
                         modified  = "",  -- or "", but this is redundant info if you use git_status_colors on the name
                         deleted   = "X", -- this can only be used in the git_status source
                         renamed   = "r", -- this can only be used in the git_status source
-                        -- Status type
                         untracked = "",
                         ignored   = "",
                         unstaged  = "",
@@ -69,7 +63,6 @@ return
                         conflict  = "C",
                     }
                 }
-
             },
             filesystem = {
                 follow_current_file = true,
@@ -88,16 +81,6 @@ return
                         end
                     end
                 },
-                -- Add harpoon index
-                -- renderers = {
-                --     file = {
-                --         { "icon" },
-                --         { "name",         use_git_status_colors = true },
-                --         { "harpoon_index" }, --> This is what actually adds the component in where you want it
-                --         { "diagnostics" },
-                --         { "git_status",   highlight = "NeoTreeDimText" },
-                --     }
-                -- }
             },
             window = {
                 mappings = {
