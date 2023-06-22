@@ -12,6 +12,10 @@ return
         { '<leader>S', '<cmd>Telescope harpoon marks<cr>',                       { desc = 'Harpoon marks' } },
     },
     config = function()
-        require('harpoon').setup()
+        require('harpoon').setup({
+            menu = {
+                borderchars = { '', '', '', '', '', '', '', '' },
+            },
+        })
     end
 }

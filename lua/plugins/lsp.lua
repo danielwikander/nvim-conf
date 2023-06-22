@@ -116,7 +116,6 @@ return
             cmp.setup({
                 mapping = custom_mapping,
                 sources = {
-                    -- { name = 'buffer' },
                     { name = 'path' },
                     { name = 'luasnip',                keyword_length = 2 },
                     { name = 'nvim_lsp' },
@@ -180,7 +179,6 @@ return
                 lsp.default_keymaps({ buffer = bufnr })
             end)
 
-            -- (Optional) Configure lua language server for neovim
             require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
             lsp.setup()

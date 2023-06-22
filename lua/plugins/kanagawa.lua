@@ -36,6 +36,13 @@ return
                     CmpDocumentationBorder = { bg = theme.ui.bg_p1, fg = theme.ui.bg_p1 },
                     Todo = { bg = theme.ui.bg, fg = theme.diag.warning },
                     IndentBlankLineChar = { fg = theme.ui.bg_p1 },
+                    TabLine = { bg = theme.ui.bg_m3 },
+                    TabLineSel = { bg = theme.ui.bg },
+                    TabLineFill = { bg = theme.ui.bg_m3 },
+                    BufferTabpageFill = { bg = theme.ui.bg_m3 },
+                    WinSeparator = { fg = theme.ui.bg_p1 },
+                    HarpoonWindow = { fg = theme.ui.shade0, bg = theme.ui.bg_m1},
+                    HarpoonBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1},
                 }
             end,
         })
