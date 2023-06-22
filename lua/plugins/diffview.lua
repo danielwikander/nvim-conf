@@ -9,11 +9,11 @@ return
         keymaps = {
             view = {
                 ['<C-g>'] = '<CMD>DiffviewClose<CR>',
-                ['<leader>1'] = '<CMD>DiffviewToggleFiles<CR>',
+                ['<leader><tab>'] = '<CMD>DiffviewToggleFiles<CR>',
             },
             file_panel = {
                 ['<C-g>'] = '<CMD>DiffviewClose<CR>',
-                ['<leader>1'] = '<CMD>DiffviewToggleFiles<CR>',
+                ['<leader><tab>'] = '<CMD>DiffviewToggleFiles<CR>',
             }
         }
     }
