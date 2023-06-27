@@ -3,7 +3,7 @@ return
     'sindrets/diffview.nvim',
     dependencies = 'nvim-lua/plenary.nvim',
     keys = {
-        { '<C-g>',     '<CMD>DiffviewOpen<CR>',  mode = { 'n' } },
+        { '<C-g>', '<CMD>DiffviewOpen<CR>', desc = 'Open diffview' },
     },
     opts = {
         keymaps = {

@@ -1,8 +1,8 @@
 return
 {
     keys = {
-        { 'u' },
-        { '<C-r>' }
+        { 'u',     desc = 'Undo' },
+        { '<C-r>', desc = 'Redo' }
     },
     'tzachar/highlight-undo.nvim',
     config = function()
