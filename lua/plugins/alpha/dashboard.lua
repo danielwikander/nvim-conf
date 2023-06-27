@@ -1,24 +1,32 @@
 local alpha = require "alpha"
 
 local headers = {
-    ["nvim"] = {
-        "                                                     ",
-        "                                                     ",
-        "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
-        "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
-        "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
-        "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-        "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-        "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+    nvim_1 = {
+        [[                                         ]],
+        [[    _ __   ___  _____   _(_)_ __ ___     ]],
+        [[   | '_ \ / _ \/ _ \ \ / / | '_ ` _ \    ]],
+        [[   | | | |  __/ (_) \ V /| | | | | | |   ]],
+        [[   |_| |_|\___|\___/ \_/ |_|_| |_| |_|   ]],
+        [[                                         ]],
+    },
+    nvim_2 = {
+        [[                               __                ]],
+        [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
+        [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
+        [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
+        [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
+        [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+        [[                                                 ]],
     }
+
 }
 
 local dashboard = require "alpha.themes.dashboard"
-dashboard.section.header.val = headers.nvim
+dashboard.section.header.val = headers.nvim_1
 
 dashboard.section.buttons.val = {
-    dashboard.button("f", "  Find File", ":Telescope find_files<CR>"),
-    dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
+    dashboard.button("p", "  Find File", ":Telescope find_files<CR>"),
+    dashboard.button("a", "  New file", ":ene <BAR> startinsert <CR>"),
     dashboard.button("r", "󰄉  Recent Files", ":Telescope oldfiles<CR>"),
     dashboard.button("t", "󰷾  Find Text", ":Telescope live_grep<CR>"),
     dashboard.button("c", "  Configuration", ":e $MYVIMRC<CR>"),
