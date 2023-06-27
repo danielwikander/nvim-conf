@@ -24,7 +24,8 @@ return
         }
     },
     keys = {
-        { '<leader><tab>', '<cmd>Neotree toggle<CR>', desc = 'NeoTree' }
+        { '<leader><tab>', '<cmd>Neotree toggle<CR>', desc = 'NeoTree' },
+        { '<C-e>', '<cmd>Neotree toggle<CR>', desc = 'NeoTree' }
     },
     config = function()
         vim.g.loaded_netrw = 1 -- Disable netrw

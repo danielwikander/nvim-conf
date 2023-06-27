@@ -59,8 +59,6 @@ return
             )
 
             local custom_mapping = {
-                -- ['<Tab>'] = cmp_action.luasnip_supertab(),
-                -- ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
                 ['<Tab>'] = cmp.mapping(function(fallback)
                     -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
                     if cmp.visible() then
@@ -95,7 +93,6 @@ return
             }
 
             local cmdline_mapping = {
-                -- ['<CR>'] = cmp.mapping.confirm({ select = true }),
                 ['<CR>'] = cmp.mapping({
                     i = function(fallback)
                         if cmp.visible() and cmp.get_active_entry() then

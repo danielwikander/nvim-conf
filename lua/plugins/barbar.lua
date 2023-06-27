@@ -11,9 +11,6 @@ return
                 button = '',
                 modified = {
                     button = ''
-                },
-                current = {
-                    separator = { left = '█' }
                 }
             },
             sidebar_filetypes = {
