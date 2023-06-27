@@ -6,6 +6,8 @@ return
     keys = {
         { '<leader>q', '<CMD>BufferClose<CR>',              desc = 'Close buffer' },
         { '<leader>Q', '<CMD>BufferCloseAllButVisible<CR>', desc = 'Close all buffers except visible' },
+        { '<S-h>',     '<CMD>BufferPrevious<CR>',           desc = 'Navigate to previous buffer' },
+        { '<S-l>',     '<CMD>BufferNext<CR>',               desc = 'Navigate to previous buffer' },
     },
     config = function()
         require('bufferline').setup({
