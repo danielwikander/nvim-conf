@@ -44,11 +44,8 @@ opt.winminwidth = 5                -- Minimum window width
 opt.wrap = false                   -- Disable line wrap
 opt.hlsearch = true
 opt.incsearch = true
-
-if vim.fn.has('nvim-0.9.0') == 1 then
-    opt.splitkeep = 'screen'
-    opt.shortmess:append { C = true }
-end
+opt.splitkeep = 'screen'
+opt.shortmess:append { C = true }
 
 vim.o.cmdheight = 0
 
@@ -59,7 +56,7 @@ vim.g.markdown_recommended_style = 0
 vim.diagnostic.config({
     float = {
         border = 'none'
-    },
+    }
 })
 vim.fn.sign_define("DiagnosticSignError",
     { text = "▲", texthl = "DiagnosticSignError" })
