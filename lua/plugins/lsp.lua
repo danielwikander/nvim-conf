@@ -18,6 +18,7 @@ return
             { 'hrsh7th/cmp-path' },                    -- Optional
             { 'hrsh7th/cmp-cmdline' },                 -- Optional
             { 'windwp/nvim-autopairs' },
+            { 'folke/neodev.nvim' },
         },
         config = function()
             require('lsp-zero.cmp').extend()
@@ -168,8 +169,10 @@ return
                     pcall(vim.cmd, 'MasonUpdate')
                 end,
             },
+            { 'folke/neodev.nvim' },
         },
         config = function()
+            require('neodev').setup()
             local lsp = require('lsp-zero')
 
             lsp.on_attach(function(client, bufnr)
