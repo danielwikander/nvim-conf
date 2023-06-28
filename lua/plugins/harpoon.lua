@@ -15,7 +15,7 @@ return
         require('harpoon').setup({
             menu = {
                 borderchars = { '', '', '', '', '', '', '', '' },
-            },
+            }
         })
     end
 }
