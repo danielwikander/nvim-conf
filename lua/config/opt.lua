@@ -58,6 +58,9 @@ vim.diagnostic.config({
         border = 'none'
     }
 })
+
+
+
 vim.fn.sign_define("DiagnosticSignError",
     { text = "▲", texthl = "DiagnosticSignError" })
 vim.fn.sign_define("DiagnosticSignWarn",

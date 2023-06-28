@@ -27,8 +27,8 @@ map("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move lines up' })
 map("n", "<leader>f", vim.lsp.buf.format, { desc = 'Format file' })
 
 -- Splits
-map("n", "<leader>v", ":vsplit<CR>", { desc = 'Split vertically' })
-map("n", "<leader>h", ":split<CR>", { desc = 'Split horizontally' })
+map("n", "<leader>v", ":vsplit<CR>", { desc = 'Split vertically', silent = true })
+map("n", "<leader>h", ":split<CR>", { desc = 'Split horizontally', silent = true })
 
 -- Navigate
 map("n", "<C-k>", "<cmd>cnext<CR>zz")
