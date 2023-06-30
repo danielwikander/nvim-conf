@@ -11,6 +11,7 @@ return
     {
         'hrsh7th/nvim-cmp',
         event = 'InsertEnter',
+        keys = { ':', desc = 'Enter command mode' },
         dependencies = {
             { 'L3MON4D3/LuaSnip' },
             { 'hrsh7th/cmp-nvim-lsp-signature-help' }, -- Optional
