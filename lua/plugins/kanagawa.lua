@@ -29,6 +29,8 @@ return
                     NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
                     LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
                     MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+                    DiagnosticError = { fg = theme.vcs.removed },
+                    DiagnosticSignError = { fg = theme.vcs.removed },
                     TreeDiagnosticSignHint = { bg = theme.ui.bg, fg = theme.diag.hint },
                     TreeDiagnosticSignInfo = { bg = theme.ui.bg, fg = theme.diag.info },
                     TreeDiagnosticSignWarn = { bg = theme.ui.bg, fg = theme.diag.warning },
