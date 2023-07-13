@@ -77,3 +77,6 @@ map("n", "gi", vim.lsp.buf.implementation, { desc = 'Go to implementation', nore
 
 -- Diagnostics
 map('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+
+-- Open scratchpad
+map('n', '<leader>-', ':e ~/.scratch.md<cr>', { noremap = true, silent = true })
