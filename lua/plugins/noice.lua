@@ -44,7 +44,7 @@ return
                 view = 'mini',
                 view_warn = 'mini',
                 view_error = 'mini',
-                view_history = 'mini',
+                view_history = 'messages',
                 view_search = 'mini',
             },
             lsp = {
