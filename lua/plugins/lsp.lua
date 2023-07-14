@@ -27,31 +27,31 @@ return
             local cmp = require('cmp')
 
             local kind_icons = {
-                Text = "",
-                Method = "󰆧",
-                Function = "󰊕",
-                Constructor = "",
-                Field = "󰇽",
-                Variable = "󰂡",
-                Class = "󰠱",
-                Interface = "",
-                Module = "",
-                Property = "󰜢",
-                Unit = "",
-                Value = "󰎠",
-                Enum = "",
-                Keyword = "󰌋",
-                Snippet = "",
-                Color = "󰏘",
-                File = "󰈙",
-                Reference = "",
-                Folder = "󰉋",
-                EnumMember = "",
-                Constant = "󰏿",
-                Struct = "",
-                Event = "",
-                Operator = "󰆕",
-                TypeParameter = "󰅲",
+                Text = '',
+                Method = '󰆧',
+                Function = '󰊕',
+                Constructor = '',
+                Field = '󰇽',
+                Variable = '󰂡',
+                Class = '󰠱',
+                Interface = '',
+                Module = '',
+                Property = '󰜢',
+                Unit = '',
+                Value = '󰎠',
+                Enum = '',
+                Keyword = '󰌋',
+                Snippet = '',
+                Color = '󰏘',
+                File = '󰈙',
+                Reference = '',
+                Folder = '󰉋',
+                EnumMember = '',
+                Constant = '󰏿',
+                Struct = '',
+                Event = '',
+                Operator = '󰆕',
+                TypeParameter = '󰅲',
             }
 
             local cmp_autopairs = require('nvim-autopairs.completion.cmp')
@@ -74,7 +74,7 @@ return
                         fallback()
                     end
                 end, { 'i', 's', 'c' }),
-                ["<CR>"] = cmp.mapping({
+                ['<CR>'] = cmp.mapping({
                     i = function(fallback)
                         if cmp.visible() and cmp.get_active_entry() then
                             cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })

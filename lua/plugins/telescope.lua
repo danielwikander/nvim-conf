@@ -22,19 +22,19 @@ return
         require('telescope').setup({
             defaults = {
                 vimgrep_arguments = {
-                    "rg",
-                    "--color=never",
-                    "--no-heading",
-                    "--with-filename",
-                    "--line-number",
-                    "--column",
-                    "--smart-case",
+                    'rg',
+                    '--color=never',
+                    '--no-heading',
+                    '--with-filename',
+                    '--line-number',
+                    '--column',
+                    '--smart-case',
                 },
                 prompt_prefix = ' ',
                 results_title = '',
                 prompt_title = '',
                 selection_caret = ' ',
-                file_ignore_patterns = { "node_modules" },
+                file_ignore_patterns = { 'node_modules' },
                 layout_strategy = 'no_title',
                 layout_config = {
                     horizontal = {

@@ -2,7 +2,7 @@ return
 {
     'romgrk/barbar.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
-    event = "BufReadPost",
+    event = 'BufReadPost',
     keys = {
         { '<leader>q', '<CMD>BufferClose<CR>',              desc = 'Close buffer' },
         { '<leader>Q', '<CMD>BufferCloseAllButVisible<CR>', desc = 'Close all buffers except visible' },

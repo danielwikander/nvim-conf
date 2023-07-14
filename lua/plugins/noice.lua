@@ -1,21 +1,21 @@
 return
 {
-    "folke/noice.nvim",
-    event = "VeryLazy",
+    'folke/noice.nvim',
+    event = 'VeryLazy',
     dependencies = {
-        "MunifTanjim/nui.nvim",
+        'MunifTanjim/nui.nvim',
     },
     config = function()
         require('noice').setup({
             views = {
                 cmdline_popup = {
                     border = {
-                        style = "none",
+                        style = 'none',
                         padding = { 1, 2 },
                     },
                     filter_options = {},
                     win_options = {
-                        winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+                        winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder',
                     },
                 },
                 confirm = {
@@ -24,13 +24,13 @@ return
                         padding = { 1, 2 },
                     },
                     win_options = {
-                        winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+                        winhighlight = 'NormalFloat:NormalFloat,FloatBorder:FloatBorder',
                     },
                 },
                 mini = {
                     reverse = false,
                     win_options = {
-                        winhighlight = "NormalFloat:Normal,FloatBorder:FloatBorder",
+                        winhighlight = 'NormalFloat:Normal,FloatBorder:FloatBorder',
                         winblend = 0
                     },
                     position = { row = 0 },
