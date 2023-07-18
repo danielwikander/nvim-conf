@@ -9,6 +9,10 @@ return
         require('noice').setup({
             views = {
                 cmdline_popup = {
+                    position = {
+                        row = "15%",
+                        col = "50%",
+                    },
                     border = {
                         style = 'none',
                         padding = { 1, 2 },
