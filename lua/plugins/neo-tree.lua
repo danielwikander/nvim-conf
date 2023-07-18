@@ -67,7 +67,9 @@ return
                 }
             },
             filesystem = {
-                follow_current_file = true,
+                follow_current_file = {
+                    enabled = true
+                },
                 components = {
                     harpoon_index = function(config, node, state)
                         local Marked = require("harpoon.mark")
