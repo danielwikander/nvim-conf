@@ -33,10 +33,10 @@ return
             y = { bg = theme.ui.bg_p2, fg = theme.ui.fg },
         }
         kanagawa.inactive = {
-            a = { bg = theme.ui.bg, fg = theme.ui.fg_dim },
-            b = { bg = theme.ui.bg, fg = theme.ui.fg_dim, gui = 'bold' },
-            c = { bg = theme.ui.bg, fg = theme.syn.comment },
-            z = { bg = theme.ui.bg, fg = theme.syn.comment },
+            a = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+            b = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim, gui = 'bold' },
+            c = { bg = theme.ui.bg_m3, fg = theme.syn.comment },
+            z = { bg = theme.ui.bg_m3, fg = theme.syn.comment },
         }
         if vim.g.kanagawa_lualine_bold then
             for _, mode in pairs(kanagawa) do

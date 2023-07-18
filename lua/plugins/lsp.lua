@@ -2,11 +2,15 @@ return
 {
     {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
+        branch = 'dev-v3',
         lazy = true,
-        config = function()
-            require('lsp-zero.settings').preset({})
-        end
+        config = false
+    },
+    {
+        'williamboman/mason.nvim',
+        cmd = { 'Mason', 'MasonInstall', 'MasonUpdate' },
+        lazy = true,
+        config = true,
     },
     {
         'hrsh7th/nvim-cmp',
@@ -19,10 +23,9 @@ return
             { 'hrsh7th/cmp-path' },                    -- Optional
             { 'hrsh7th/cmp-cmdline' },                 -- Optional
             { 'windwp/nvim-autopairs' },
-            { 'folke/neodev.nvim' },
         },
         config = function()
-            require('lsp-zero.cmp').extend()
+            require('lsp-zero').extend_cmp()
 
             local cmp = require('cmp')
 
@@ -158,31 +161,29 @@ return
         end
     },
     {
-        'neovim/nvim-lspconfig',
-        cmd = 'LspInfo',
+        'williamboman/mason-lspconfig.nvim',
+        cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
         event = { 'BufReadPre', 'BufNewFile' },
         dependencies = {
+            { 'neovim/nvim-lspconfig' },
             { 'hrsh7th/cmp-nvim-lsp' },
-            { 'williamboman/mason-lspconfig.nvim' },
-            {
-                'williamboman/mason.nvim',
-                build = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
-            { 'folke/neodev.nvim' },
         },
         config = function()
-            require('neodev').setup()
-            local lsp = require('lsp-zero')
+            local lsp = require('lsp-zero').preset({})
 
             lsp.on_attach(function(client, bufnr)
                 lsp.default_keymaps({ buffer = bufnr })
             end)
 
-            require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
-            lsp.setup()
+            require('mason-lspconfig').setup({
+                ensure_installed = { 'lua_ls' },
+                handlers = {
+                    lsp.default_setup,
+                    lua_ls = function()
+                        require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+                    end,
+                }
+            })
         end
-    }
+    },
 }
