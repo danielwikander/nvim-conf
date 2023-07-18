@@ -37,10 +37,7 @@ return {
             dashboard.button('q', '  Quit Neovim', ':qa!<CR>'),
         }
 
-        dashboard.config.opts.leader = "ABC"
         dashboard.config.opts.noautocmd = true
-        dashboard.opts.noautocmd = true
-        dashboard.opts.leader = 'ABC'
 
         alpha.setup(dashboard.opts)
 
