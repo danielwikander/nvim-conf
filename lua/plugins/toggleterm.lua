@@ -16,6 +16,7 @@ return {
             float_opts = {
                 border = 'none',
             },
+            start_in_insert = true,
             -- function to run on opening the terminal
             on_open = function(term)
                 vim.cmd('startinsert!')
