@@ -22,7 +22,6 @@ return
             { 'hrsh7th/cmp-buffer' },                  -- Optional
             { 'hrsh7th/cmp-path' },                    -- Optional
             { 'hrsh7th/cmp-cmdline' },                 -- Optional
-            { 'windwp/nvim-autopairs' },
         },
         config = function()
             require('lsp-zero').extend_cmp()
@@ -56,12 +55,6 @@ return
                 Operator = '󰆕',
                 TypeParameter = '󰅲',
             }
-
-            local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-            cmp.event:on(
-                'confirm_done',
-                cmp_autopairs.on_confirm_done()
-            )
 
             local custom_mapping = {
                 ['<Tab>'] = cmp.mapping(function(fallback)
