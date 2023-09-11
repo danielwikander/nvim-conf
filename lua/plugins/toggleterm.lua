@@ -6,7 +6,8 @@ return {
     },
     config = function()
         require('toggleterm').setup({
-            open_mapping = [[<C-t>]]
+            open_mapping = [[<C-t>]],
+            start_in_insert = true
         })
         local terminal = require('toggleterm.terminal').Terminal
         local lazygit  = terminal:new({

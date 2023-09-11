@@ -45,6 +45,8 @@ return
                     WinSeparator = { fg = theme.ui.bg_p1 },
                     HarpoonWindow = { fg = theme.ui.shade0, bg = theme.ui.bg_m1},
                     HarpoonBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1},
+                    NeoTreeTitleBar = { fg = theme.ui.fg },
+                    NeoTreeFloatTitle = { fg = theme.ui.fg }
                 }
             end,
         })
