@@ -1,5 +1,6 @@
 local opt = vim.opt
 opt.autowrite = true           -- Enable auto write
+opt.autoread = true            -- Enable auto read (on external filechange)
 opt.clipboard = 'unnamedplus'  -- Sync with system clipboard
 opt.colorcolumn = '80'         -- Colored column
 opt.completeopt = 'menu,menuone,noselect'
