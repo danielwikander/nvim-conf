@@ -54,7 +54,16 @@ return
                 lualine_a = { 'mode' },
                 lualine_b = { 'branch' },
                 lualine_c = {},
-                lualine_x = {},
+                lualine_x = { 'encoding',
+                    {
+                        'fileformat',
+                        symbols = {
+                            unix = 'LF',
+                            dos = 'CRLF',
+                            mac = 'CR',
+                        }
+                    }
+                },
                 lualine_y = {
                     {
                         'diagnostics',
