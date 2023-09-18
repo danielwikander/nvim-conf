@@ -72,7 +72,6 @@ map('t', '<c-down>', '<Cmd>horizontal resize -5<CR>', { desc = 'Resize window: h
 map('t', '<c-up>', '<Cmd>horizontal resize +5<CR>', { desc = 'Resize window: horizontal++' })
 
 -- Code actions
-map('n', '<leader><CR>', vim.lsp.buf.code_action, { desc = 'See code actions', noremap = true, silent = true })
 map('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to definition', noremap = true, silent = true })
 map('n', 'gi', vim.lsp.buf.implementation, { desc = 'Go to implementation', noremap = true, silent = true })
 

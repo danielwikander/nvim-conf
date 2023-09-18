@@ -3,6 +3,7 @@ return {
     build = ':TSUpdate',
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
+        'JoosepAlviste/nvim-ts-context-commentstring',
         {
             'windwp/nvim-ts-autotag',
             config = function()
@@ -12,7 +13,12 @@ return {
     },
     config = function()
         local treesitter = require('nvim-treesitter.configs')
+        require('ts_context_commentstring').setup {}
         treesitter.setup {
+            context_commentstring = {
+                enable = true,
+                enable_autocmd = false,
+            },
             ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'vimdoc', 'cmake', 'vim' },
             highlight = {
                 enable = true
