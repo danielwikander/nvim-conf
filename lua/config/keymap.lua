@@ -80,3 +80,4 @@ map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnos
 
 -- Open scratch buffer
 map('n', '<leader>-', ':e ~/.scratch.md<cr>', { desc = 'Open scratch buffer', noremap = true, silent = true })
+
