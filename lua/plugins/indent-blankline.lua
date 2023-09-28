@@ -3,8 +3,14 @@ return
     'lukas-reineke/indent-blankline.nvim',
     event = { 'BufReadPost', 'BufNewFile' },
     config = function()
-        require('indent_blankline').setup {
-            show_current_context = true
+        require('ibl').setup {
+            show_current_context = true,
+            indent = {
+                highlight = { "IndentBlankLineChar" }
+            },
+            scope = {
+                show_start = false
+            }
         }
     end
 }

@@ -37,7 +37,7 @@ return
                     TreeDiagnosticSignError = { bg = theme.ui.bg, fg = theme.diag.error },
                     CmpDocumentationBorder = { bg = theme.ui.bg_p1, fg = theme.ui.bg_p1 },
                     Todo = { bg = theme.ui.bg, fg = theme.diag.warning },
-                    IndentBlankLineChar = { fg = theme.ui.bg_p1 },
+                    IndentBlankLineChar = { fg = theme.ui.bg_p2 },
                     TabLine = { bg = theme.ui.bg_m3 },
                     TabLineSel = { bg = theme.ui.bg },
                     TabLineFill = { bg = theme.ui.bg_m3 },
