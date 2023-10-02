@@ -4,7 +4,6 @@ return
     event = { 'BufReadPost', 'BufNewFile' },
     config = function()
         require('ibl').setup {
-            show_current_context = true,
             scope = {
                 show_start = false
             }
