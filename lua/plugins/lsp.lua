@@ -2,7 +2,7 @@ return
 {
     {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'dev-v3',
+        branch = 'v3.x',
         lazy = true,
         config = false
     },
