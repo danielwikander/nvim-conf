@@ -34,7 +34,7 @@ return
                 results_title = '',
                 prompt_title = '',
                 selection_caret = ' ',
-                file_ignore_patterns = { 'node_modules' },
+                file_ignore_patterns = { 'node_modules', 'package%-lock.json' },
                 layout_strategy = 'no_title',
                 layout_config = {
                     horizontal = {
@@ -45,7 +45,7 @@ return
                             else
                                 return math.floor(cols * 0.92)
                             end
-                        end,
+                        end
                     }
                 },
                 sorting_strategy = 'ascending',
@@ -87,7 +87,6 @@ return
             )
             layout.prompt.title = ''
             layout.results.title = ''
-            layout.preview.title = ''
             return layout
         end
 

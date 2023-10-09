@@ -1,8 +1,8 @@
 return {
     'akinsho/toggleterm.nvim',
     keys = {
-        { '<C-t>', '<cmd>ToggleTerm<cr>',            mode = { 'n', 't' }, desc = 'Toggle terminal' },
-        { '<C-g>', '<cmd>lua _lazygit_toggle()<CR>', mode = { 'n', 't' }, desc = 'Toggle lazygit' },
+        { '<C-t>', '<cmd>ToggleTerm<cr>',          mode = { 'n', 't' }, desc = 'Toggle terminal' },
+        { '<C-g>', '<cmd>lua ToggleLazygit()<CR>', mode = { 'n', 't' }, desc = 'Toggle lazygit' },
     },
     config = function()
         require('toggleterm').setup({
@@ -30,7 +30,7 @@ return {
                 vim.cmd('startinsert!')
             end,
         })
-        function _lazygit_toggle()
+        function ToggleLazygit()
             lazygit:toggle()
         end
     end
