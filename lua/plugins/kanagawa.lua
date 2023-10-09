@@ -33,10 +33,10 @@ return
                     FloatTitle = { bg = 'none' },
 
                     -- Lazy
-                    LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg },
+                    LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
 
                     -- Mason
-                    MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg },
+                    MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
 
                     -- Diagnostics
                     DiagnosticError = { fg = theme.vcs.removed },
