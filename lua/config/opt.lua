@@ -53,6 +53,8 @@ vim.o.statuscolumn = '%s%l'
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
 
+vim.g.dap_virtual_text = true
+
 -- Diagnostics styling
 vim.diagnostic.config({
     float = {

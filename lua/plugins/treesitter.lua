@@ -19,7 +19,19 @@ return {
                 enable = true,
                 enable_autocmd = false,
             },
-            ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'vimdoc', 'cmake', 'vim' },
+            ensure_installed = {
+                'c',
+                'cpp',
+                'go',
+                'lua',
+                'python',
+                'rust',
+                'javascript',
+                'typescript',
+                'vimdoc',
+                'cmake',
+                'vim',
+            },
             highlight = {
                 enable = true
             },
@@ -30,7 +42,7 @@ return {
                     node_incremental = 'ö',
                     node_decremental = 'Ö',
                 },
-            },
+            }
         }
     end
 }

@@ -23,9 +23,6 @@ map('n', 'N', 'Nzzzv', { desc = 'Previous result' })
 map('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move lines down' })
 map('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move lines up' })
 
--- Format
-map('n', '<leader>f', vim.lsp.buf.format, { desc = 'Format file' })
-map('n', '==', vim.lsp.buf.format, { desc = 'Format file' })
 
 -- Splits
 map('n', '<leader>v', ':vsplit<CR>', { desc = 'Split vertically', silent = true })
@@ -71,13 +68,8 @@ map('t', '<c-right>', '<Cmd>vertical resize -5<CR>', { desc = 'Resize window: ve
 map('t', '<c-down>', '<Cmd>horizontal resize -5<CR>', { desc = 'Resize window: horizontal--' })
 map('t', '<c-up>', '<Cmd>horizontal resize +5<CR>', { desc = 'Resize window: horizontal++' })
 
--- Code actions
-map('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to definition', noremap = true, silent = true })
-map('n', 'gi', vim.lsp.buf.implementation, { desc = 'Go to implementation', noremap = true, silent = true })
-
--- Diagnostics
-map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-
 -- Open scratch buffer
 map('n', '<leader>-', ':e ~/.scratch.md<cr>', { desc = 'Open scratch buffer', noremap = true, silent = true })
+
+map('n', '<leader>nh', ':nohl<CR>', { desc = 'Clear search highlights' })
 
