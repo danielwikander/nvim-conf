@@ -21,16 +21,16 @@ return {
             },
             ensure_installed = {
                 'c',
+                'cmake',
                 'cpp',
                 'go',
+                'javascript',
                 'lua',
                 'python',
                 'rust',
-                'javascript',
                 'typescript',
-                'vimdoc',
-                'cmake',
                 'vim',
+                'vimdoc',
             },
             highlight = {
                 enable = true
@@ -46,3 +46,4 @@ return {
         }
     end
 }
+

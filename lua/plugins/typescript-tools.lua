@@ -13,6 +13,7 @@ return
                 }
             }
         })
-        vim.keymap.set('n', '<leader>o', '<cmd>TSToolsOrganizeImports<CR>', { desc = 'Organize imports (typescript)' })
+        vim.keymap.set('n', '<leader>o', '<cmd>TSToolsOrganizeImports<CR>', { desc = 'Organize imports' })
+        vim.keymap.set('n', '<leader>O', '<cmd>TSToolsAddMissingImports<CR>', { desc = 'Add missing imports' })
     end
 }

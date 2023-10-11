@@ -15,8 +15,6 @@ return
         local keymap = vim.keymap
         local opts = { noremap = true, silent = true }
 
-        -- TODO: Create additional for typescript with add missing imports and optimize imports
-
         local on_attach = function(client, bufnr)
             opts.buffer = bufnr
 
@@ -36,11 +34,6 @@ return
             opts.desc = 'Show LSP type definitions'
             keymap.set('n', 'gt', '<cmd>Telescope lsp_type_definitions<CR>', opts) -- show lsp type definitions
 
-            opts.desc = 'See available code actions'
-            keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)   -- see available code actions, in visual mode will apply to selection
-            keymap.set({ 'n', 'v' }, '<leader><CR>', vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
-
-            -- TODO: Rename doesnt work?
             opts.desc = 'Smart rename'
             keymap.set('n', '<leader>r', vim.lsp.buf.rename, opts) -- smart rename
 
@@ -58,10 +51,6 @@ return
 
             opts.desc = 'Restart LSP'
             keymap.set('n', '<leader>z', ':LspRestart<CR>', opts) -- mapping to restart lsp if necessary
-
-            opts.desc = 'Format file'
-            keymap.set('n', '<leader>f', vim.lsp.buf.format, opts)
-            keymap.set('n', '==', vim.lsp.buf.format, opts)
         end
 
         -- Used to enable autocompletion
@@ -72,12 +61,6 @@ return
             capabilities = capabilities,
             on_attach = on_attach,
         })
-
-        -- Typescript
-        -- lspconfig.tsserver.setup({
-        --     capabilities = capabilities,
-        --     on_attach = on_attach,
-        -- })
 
         -- Css
         lspconfig.cssls.setup({
@@ -135,6 +118,12 @@ return
                 'less',
                 'svelte',
             }
+        })
+
+        -- Rust
+        lspconfig.rust_analyzer.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
         })
 
         -- Lua
