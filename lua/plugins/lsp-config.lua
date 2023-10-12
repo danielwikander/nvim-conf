@@ -132,12 +132,6 @@ return
             }
         })
 
-        -- Rust
-        lspconfig.rust_analyzer.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
-
         -- Lua
         lspconfig.lua_ls.setup({
             capabilities = capabilities,
