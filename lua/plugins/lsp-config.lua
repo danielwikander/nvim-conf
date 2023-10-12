@@ -8,6 +8,11 @@ return
         'williamboman/mason-lspconfig.nvim',
         'b0o/schemastore.nvim'
     },
+    opts = {
+        inlay_hints = {
+            enabled = true
+        }
+    },
     config = function()
         local lspconfig = require('lspconfig')
         local cmp_nvim_lsp = require('cmp_nvim_lsp')
@@ -17,6 +22,13 @@ return
 
         local on_attach = function(client, bufnr)
             opts.buffer = bufnr
+
+            if client.server_capabilities.inlayHintProvider then
+                vim.lsp.buf.inlay_hint(bufnr, true)
+                keymap.set("n", "<leader>ch", function()
+                    vim.lsp.buf.inlay_hint(0, nil)
+                end, { desc = "Toggle Inlay Hints" })
+            end
 
             -- Keybinds
             opts.desc = 'Show LSP references'
