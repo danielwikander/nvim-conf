@@ -48,6 +48,7 @@ return
             options = {
                 component_separators = { left = '', right = '' },
                 section_separators = { left = '', right = '' },
+                disabled_filetypes = { statusline = { "dashboard", "alpha" } },
                 theme = kanagawa
             },
             sections = {
@@ -92,3 +93,4 @@ return
         }
     end
 }
+
