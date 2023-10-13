@@ -5,11 +5,11 @@ return
     opts = function()
         local logo =
         [[
-                _ __   ___  _____   _(_)_ __ ___
-               | '_ \ / _ \/ _ \ \ / / | '_ ` _ \
-               | | | |  __/ (_) \ V /| | | | | | |
-               |_| |_|\___|\___/ \_/ |_|_| |_| |_|
-        ]]
+_ __   ___  _____   _(_)_ __ ___
+| '_ \ / _ \/ _ \ \ / / | '_ ` _ \
+| | | |  __/ (_) \ V /| | | | | | |
+|_| |_|\___|\___/ \_/ |_|_| |_| |_|
+]]
 
         logo = string.rep('\n', 8) .. logo .. '\n\n'
 
@@ -25,11 +25,9 @@ return
                     { action = 'ene | startinsert', desc = ' New file', icon = ' ', key = 'a' },
                     { action = 'Telescope oldfiles', desc = ' Recent files', icon = ' ', key = 'r' },
                     { action = 'Telescope live_grep', desc = ' Find text', icon = ' ', key = 'p' },
-                    { action = 'e $MYVIMRC', desc = ' Config', icon = ' ', key = 'c' },
-                    -- TODO: Add persistance
-                    -- { action = 'lua require('persistence ').load()', desc = ' Restore Session', icon = ' ', key = 's' },
-                    { action = 'Lazy', desc = ' Lazy', icon = '󰒲 ', key = 'l' },
-                    { action = 'Mason', desc = ' Mason', icon = '󰒲 ', key = 'm' },
+                    { action = 'e $MYVIMRC | cd%:h', desc = ' Config', icon = ' ', key = 'c' },
+                    { action = "lua require('persistence').load()", desc = ' Restore Session', icon = ' ', key = 's' },
+                    { action = 'Lazy update', desc = ' Update', icon = ' ', key = 'u' },
                     { action = 'qa', desc = ' Quit', icon = ' ', key = 'q' },
                 },
                 footer = function()
