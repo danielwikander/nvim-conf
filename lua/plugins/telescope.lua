@@ -7,14 +7,46 @@ return
     },
     cmd = 'Telescope',
     keys = {
-        { '<leader>p', function() require('telescope.builtin').live_grep() end,      desc = 'Find string in repo' },
-        { '<leader>P', function() require('telescope.builtin').find_files() end,     desc = 'Find file' },
-        { '<C-p>',     function() require('telescope.builtin').git_files() end,      desc = 'Find file in git' },
-        { '<leader>u', '<cmd>Telescope undo<cr>',                                    desc = 'Undo tree' },
-        { '<leader>0', '<cmd>Telescope harpoon marks<cr>',                           desc = 'Harpoon marks' },
-        { '<leader>E', function() require('telescope.builtin').diagnostics() end,    desc = 'Show diagnostics' },
-        { 'gr',        function() require('telescope.builtin').lsp_references() end, desc = 'Show references' },
-        { '<leader>b', function() require('telescope.builtin').buffers() end,        desc = 'Show buffers' },
+        {
+            '<leader>p',
+            function() require('telescope.builtin').live_grep() end,
+            desc = 'Find string in repo'
+        },
+        {
+            '<leader>P',
+            function() require('telescope.builtin').find_files() end,
+            desc = 'Find file'
+        },
+        {
+            '<C-p>',
+            function() require('telescope.builtin').git_files({ show_untracked = true }) end,
+            desc = 'Find file in git'
+        },
+        {
+            '<leader>u',
+            '<cmd>Telescope undo<cr>',
+            desc = 'Undo tree'
+        },
+        {
+            '<leader>0',
+            '<cmd>Telescope harpoon marks<cr>',
+            desc = 'Harpoon marks'
+        },
+        {
+            '<leader>E',
+            function() require('telescope.builtin').diagnostics() end,
+            desc = 'Show diagnostics'
+        },
+        {
+            'gr',
+            function() require('telescope.builtin').lsp_references() end,
+            desc = 'Show references'
+        },
+        {
+            '<leader>b',
+            function() require('telescope.builtin').buffers() end,
+            desc = 'Show buffers'
+        },
     },
     lazy = true,
     config = function()

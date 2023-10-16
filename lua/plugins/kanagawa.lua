@@ -113,6 +113,8 @@ return
                     MiniFilesBorderModified = { fg = palette.surimiOrange, bg = theme.ui.bg_p1 },
                     MiniFilesTitle = { bg = theme.ui.bg_p1, fg = palette.katanaGray },
                     MiniFilesTitleFocused = { bg = theme.ui.bg_p1, fg = palette.waveRed, bold = true },
+
+                    DashboardDesc = { fg = palette.fujiWhite }
                 }
             end
         })
