@@ -107,6 +107,12 @@ return
                     CmpItemKindInterface = { fg = palette.lightBlue },
                     CmpItemKindColor = { fg = palette.lightBlue },
                     CmpItemKindTypeParameter = { fg = palette.lightBlue },
+
+                    MiniFilesNormal = { fg = palette.fujiWhite, bg = theme.ui.bg_p1 },
+                    MiniFilesBorder = { bg = theme.ui.bg_p1, fg = theme.ui.bg_p1 },
+                    MiniFilesBorderModified = { fg = palette.surimiOrange, bg = theme.ui.bg_p1 },
+                    MiniFilesTitle = { bg = theme.ui.bg_p1, fg = palette.katanaGray },
+                    MiniFilesTitleFocused = { bg = theme.ui.bg_p1, fg = palette.waveRed, bold = true },
                 }
             end
         })

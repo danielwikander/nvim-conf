@@ -14,6 +14,7 @@ return
         { '<leader>0', '<cmd>Telescope harpoon marks<cr>',                           desc = 'Harpoon marks' },
         { '<leader>E', function() require('telescope.builtin').diagnostics() end,    desc = 'Show diagnostics' },
         { 'gr',        function() require('telescope.builtin').lsp_references() end, desc = 'Show references' },
+        { '<leader>b', function() require('telescope.builtin').buffers() end,        desc = 'Show buffers' },
     },
     lazy = true,
     config = function()
@@ -94,3 +95,4 @@ return
         require('telescope').load_extension('harpoon')
     end
 }
+
