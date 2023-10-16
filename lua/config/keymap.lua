@@ -31,8 +31,10 @@ map('n', '<leader>h', ':split<CR>', { desc = 'Split horizontally', silent = true
 -- Navigate
 map('n', '<C-k>', '<cmd>cnext<CR>zz')
 map('n', '<C-j>', '<cmd>cprev<CR>zz')
-map('n', '<leader>k', '<cmd>lnext<CR>zz')
-map('n', '<leader>j', '<cmd>lprev<CR>zz')
+
+-- Buffers
+map('n', 'L', '<cmd>bn<CR>zz')
+map('n', 'H', '<cmd>bp<CR>zz')
 
 -- Make file executable
 map('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true, desc = 'Make file executable' })
