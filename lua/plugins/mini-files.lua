@@ -1,3 +1,22 @@
+local show_dotfiles = false
+
+local filter_show = function(_)
+    return true
+end
+local filter_hide = function(fs_entry)
+    return not vim.startswith(fs_entry.name, '.')
+end
+
+local toggle_dotfiles = function()
+    show_dotfiles = not show_dotfiles
+    New_filter = show_dotfiles and filter_show or filter_hide
+    MiniFiles.refresh({
+        content = {
+            filter = New_filter
+        }
+    })
+end
+
 return
 {
     'echasnovski/mini.files',
@@ -8,25 +27,6 @@ return
         { '<C-e>',         '<cmd>lua MiniFiles.open()<CR>', desc = 'Open filetree' }
     },
     config = function()
-        local show_dotfiles = true
-
-        local filter_show = function(_)
-            return true
-        end
-        local filter_hide = function(fs_entry)
-            return not vim.startswith(fs_entry.name, '.')
-        end
-
-        local toggle_dotfiles = function()
-            show_dotfiles = not show_dotfiles
-            local new_filter = show_dotfiles and filter_show or filter_hide
-            MiniFiles.refresh({
-                content = {
-                    filter = new_filter
-                }
-            })
-        end
-
         vim.api.nvim_create_autocmd('User', {
             pattern = 'MiniFilesBufferCreate',
             callback = function(args)
@@ -39,6 +39,11 @@ return
             end
         })
         require('mini.files').setup({
+            content = {
+                filter = function(fs_entry)
+                    return not vim.startswith(fs_entry.name, '.')
+                end
+            },
             mappings = {
                 go_in = 'L',
                 go_in_plus = 'l',
@@ -52,3 +57,4 @@ return
         })
     end
 }
+
