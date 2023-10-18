@@ -23,8 +23,8 @@ return
     version = false,
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     keys = {
-        { '<leader><tab>', '<cmd>lua MiniFiles.open()<CR>', desc = 'Open filetree' },
-        { '<C-e>',         '<cmd>lua MiniFiles.open()<CR>', desc = 'Open filetree' }
+        { '<leader><tab>', '<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>', desc = 'Open filetree' },
+        { '<C-e>',         '<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>', desc = 'Open filetree' }
     },
     config = function()
         vim.api.nvim_create_autocmd('User', {
@@ -57,4 +57,3 @@ return
         })
     end
 }
-
