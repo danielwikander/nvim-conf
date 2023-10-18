@@ -23,6 +23,7 @@ return {
                 'c',
                 'cmake',
                 'cpp',
+                'c_sharp',
                 'css',
                 'go',
                 'html',

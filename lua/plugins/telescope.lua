@@ -9,17 +9,23 @@ return
     keys = {
         {
             '<leader>p',
-            function() require('telescope.builtin').live_grep() end,
+            function()
+                require('telescope.builtin').live_grep()
+            end,
             desc = 'Find string in repo'
         },
         {
             '<leader>P',
-            function() require('telescope.builtin').find_files() end,
+            function()
+                require('telescope.builtin').find_files()
+            end,
             desc = 'Find file'
         },
         {
             '<C-p>',
-            function() require('telescope.builtin').git_files({ show_untracked = true }) end,
+            function()
+                require('telescope.builtin').git_files({ show_untracked = true })
+            end,
             desc = 'Find file in git'
         },
         {
@@ -67,6 +73,7 @@ return
                 results_title = '',
                 prompt_title = '',
                 selection_caret = ' ',
+                path_display = { "truncate", "smart" },
                 file_ignore_patterns = { 'node_modules', 'package%-lock.json' },
                 layout_strategy = 'no_title',
                 layout_config = {
@@ -86,8 +93,8 @@ return
                     i = {
                         ['<C-j>'] = actions.move_selection_next,
                         ['<C-k>'] = actions.move_selection_previous,
-                        ['<C-n>'] = actions.cycle_history_next,
-                        ['<C-p>'] = actions.cycle_history_prev,
+                        ['<down>'] = actions.cycle_history_next,
+                        ['<up>'] = actions.cycle_history_prev,
                         ['<esc>'] = actions.close,
                     }
                 }

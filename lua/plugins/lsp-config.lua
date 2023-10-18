@@ -80,6 +80,12 @@ return
             on_attach = on_attach,
         })
 
+        -- C#
+        lspconfig.csharp_ls.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
         -- Tailwind
         lspconfig.tailwindcss.setup({
             capabilities = capabilities,
@@ -153,4 +159,3 @@ return
         })
     end
 }
-
