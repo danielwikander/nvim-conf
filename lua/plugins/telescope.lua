@@ -22,6 +22,13 @@ return
             desc = 'String'
         },
         {
+            '<leader>fr',
+            function()
+                require('telescope.builtin').oldfiles()
+            end,
+            desc = 'Recent files'
+        },
+        {
             '<leader>ff',
             function()
                 require('telescope.builtin').find_files()
