@@ -15,11 +15,18 @@ return
             desc = 'Find string in repo'
         },
         {
-            '<leader>P',
+            '<leader>fw',
+            function()
+                require('telescope.builtin').live_grep()
+            end,
+            desc = 'String'
+        },
+        {
+            '<leader>ff',
             function()
                 require('telescope.builtin').find_files()
             end,
-            desc = 'Find file'
+            desc = 'Files'
         },
         {
             '<C-p>',
@@ -29,7 +36,7 @@ return
             desc = 'Find file in git'
         },
         {
-            '<leader>u',
+            '<leader>fu',
             '<cmd>Telescope undo<cr>',
             desc = 'Undo tree'
         },
@@ -44,14 +51,24 @@ return
             desc = 'Show diagnostics'
         },
         {
+            '<leader>fe',
+            function() require('telescope.builtin').diagnostics() end,
+            desc = 'Diagnostics'
+        },
+        {
             'gr',
             function() require('telescope.builtin').lsp_references() end,
-            desc = 'Show references'
+            desc = 'References'
         },
         {
             '<leader>b',
             function() require('telescope.builtin').buffers() end,
-            desc = 'Show buffers'
+            desc = 'Buffers'
+        },
+        {
+            '<leader>fb',
+            function() require('telescope.builtin').buffers() end,
+            desc = 'Buffers'
         },
     },
     lazy = true,

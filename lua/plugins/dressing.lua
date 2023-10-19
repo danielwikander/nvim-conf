@@ -3,7 +3,6 @@ return
     'stevearc/dressing.nvim',
     keys = {
         { '<leader><CR>', vim.lsp.buf.code_action, desc = 'See code actions', noremap = true, silent = true },
-        { '<leader>ca',   vim.lsp.buf.code_action, desc = 'See code actions', noremap = true, silent = true }
     },
     dependencies = {
         'MunifTanjim/nui.nvim'

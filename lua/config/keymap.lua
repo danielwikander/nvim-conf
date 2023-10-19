@@ -73,5 +73,5 @@ map('t', '<c-up>', '<Cmd>horizontal resize +5<CR>', { desc = 'Resize window: hor
 -- Open scratch buffer
 map('n', '<leader>-', ':e ~/.scratch.md<cr>', { desc = 'Open scratch buffer', noremap = true, silent = true })
 
-map('n', '<leader>nh', ':nohl<CR>', { desc = 'Clear search highlights' })
-
+-- Remove highlights after search
+map('n', '<leader>nh', ':nohl<CR>', { desc = 'Clear search highlights', noremap = true, silent = true })

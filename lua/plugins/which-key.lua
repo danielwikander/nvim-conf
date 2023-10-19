@@ -7,5 +7,13 @@ return {
     end,
     config = function()
         require('which-key').setup {}
+        require('which-key').register({
+            ["<leader>"] = {
+                f = {
+                    name = "find",
+                },
+            },
+        })
     end
 }
+

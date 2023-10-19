@@ -32,10 +32,10 @@ return
             callback = function(args)
                 local buf_id = args.data.buf_id
                 vim.keymap.set('n', 'H', toggle_dotfiles, { buffer = buf_id })
-                -- vim.keymap.set('n', '<CR>', '<cmd>lua MiniFiles.go_in()<CR><cmd>lua MiniFiles.close()<CR>',
-                --     { buffer = buf_id })
                 vim.keymap.set('n', '<leader><tab>', '<cmd>lua MiniFiles.close()<CR>', { buffer = buf_id })
                 vim.keymap.set('n', '<C-e>', '<cmd>lua MiniFiles.close()<CR>', { buffer = buf_id })
+                vim.keymap.set('n', '<tab>', '<nop>', { buffer = buf_id })
+                vim.keymap.set('n', '<S-tab>', '<nop>', { buffer = buf_id })
             end
         })
         require('mini.files').setup({
@@ -50,7 +50,6 @@ return
             },
             windows = {
                 max_number = 3,
-                -- preview = true,
                 width_focus = 50,
                 width_nofocus = 20,
             },
