@@ -1,13 +1,6 @@
 local on_attach = function(client, bufnr)
     local map = function(keys, func, desc)
-        vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
-    end
-
-    if client.server_capabilities.inlayHintProvider then
-        vim.lsp.buf.inlay_hint(bufnr, true)
-        map("<leader>ch", function()
-            vim.lsp.buf.inlay_hint(0, nil)
-        end, "Toggle Inlay Hints")
+        vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
     end
 
     -- Keybinds
@@ -16,59 +9,58 @@ local on_attach = function(client, bufnr)
     map('<leader>r', vim.lsp.buf.rename, 'Rename')
     map('<leader>e', vim.diagnostic.open_float, 'Line diagnostics')
     map('<leader>nl', ':LspRestart<CR>', 'Restart LSP')
-    map("<leader><CR>", vim.lsp.buf.code_action, "Code Actions")
+    map('<leader><CR>', vim.lsp.buf.code_action, 'Code Actions')
     map('K', vim.lsp.buf.hover, 'Hover documentation')
 
-    local telescope_builtin = require("lazy-require").require_on_exported_call("telescope.builtin")
-    map("gr", telescope_builtin.lsp_references, "References")
-    map("gi", telescope_builtin.lsp_implementations, "Implementations")
+    local telescope_builtin = require('lazy-require').require_on_exported_call('telescope.builtin')
+    map('gr', telescope_builtin.lsp_references, 'References')
+    map('gi', telescope_builtin.lsp_implementations, 'Implementations')
 end
 
-return {
+return
+{
     {
-        "williamboman/mason.nvim",
+        'williamboman/mason.nvim',
         cmd = { 'Mason', 'MasonInstall', 'MasonUpdate' },
         config = true,
     },
     {
-        "williamboman/mason-lspconfig.nvim",
-        event = "BufReadPre",
+        'williamboman/mason-lspconfig.nvim',
+        event = 'BufReadPre',
         dependencies = {
-            "neovim/nvim-lspconfig",
-            "jmederosalvarado/roslyn.nvim",
+            'neovim/nvim-lspconfig',
             'hrsh7th/cmp-nvim-lsp',
             'b0o/schemastore.nvim',
+            'jmederosalvarado/roslyn.nvim',
+            'simrat39/rust-tools.nvim',
         },
         config = function()
-            local cmp_nvim_lsp = require("cmp_nvim_lsp")
+            local cmp_nvim_lsp = require('cmp_nvim_lsp')
             local capabilities = vim.tbl_deep_extend(
-                "force",
+                'force',
                 vim.lsp.protocol.make_client_capabilities(),
                 cmp_nvim_lsp.default_capabilities()
             )
 
-            require("roslyn").setup({
-                on_attach = on_attach,
-                capabilities = capabilities,
-            })
-
-            require("mason-lspconfig").setup({
+            require('mason-lspconfig').setup({
+                automatic_installation = true,
                 ensure_installed = {
                     'lua_ls',
                     'rust_analyzer',
                 },
             })
-            require("mason-lspconfig").setup_handlers({
+
+            require('mason-lspconfig').setup_handlers({
                 -- The first entry (without a key) will be the default handler
                 function(server_name) -- default handler (optional)
-                    require("lspconfig")[server_name].setup({
+                    require('lspconfig')[server_name].setup({
                         on_attach = on_attach,
                         capabilities = capabilities,
                     })
                 end,
 
-                ["lua_ls"] = function()
-                    require("lspconfig").lua_ls.setup({
+                ['lua_ls'] = function()
+                    require('lspconfig').lua_ls.setup({
                         on_attach = on_attach,
                         capabilities = capabilities,
                         settings = {
@@ -90,14 +82,14 @@ return {
                     })
                 end,
 
-                ["rust_analyzer"] = function()
-                    require("lspconfig").rust_analyzer.setup({
+                ['rust_analyzer'] = function()
+                    require('lspconfig').rust_analyzer.setup({
                         on_attach = on_attach,
                         capabilities = capabilities,
                         settings = {
-                            ["rust-analyzer"] = {
+                            ['rust-analyzer'] = {
                                 checkOnSave = {
-                                    command = "clippy",
+                                    command = 'clippy',
                                     allTargets = false,
                                 },
                             },
@@ -105,8 +97,8 @@ return {
                     })
                 end,
 
-                ["jsonls"] = function()
-                    require("lspconfig").jsonls.setup({
+                ['jsonls'] = function()
+                    require('lspconfig').jsonls.setup({
                         capabilities = capabilities,
                         on_attach = on_attach,
                         settings = {
@@ -120,15 +112,15 @@ return {
                     })
                 end,
 
-                ["yamlls"] = function()
-                    require("lspconfig").yamlls.setup({
+                ['yamlls'] = function()
+                    require('lspconfig').yamlls.setup({
                         settings = {
                             yaml = {
                                 schemaStore = {
                                     -- Schemastore handled separately
                                     enable = false,
                                     -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
-                                    url = "",
+                                    url = '',
                                 },
                                 schemas = require('schemastore').yaml.schemas(),
                             },
@@ -137,6 +129,19 @@ return {
                 end
 
             })
+
+            require('rust-tools').setup({
+                server = {
+                    on_attach = on_attach,
+                    capabilities = capabilities
+                }
+            })
+
+            require('roslyn').setup({
+                on_attach = on_attach,
+                capabilities = capabilities,
+            })
+
         end,
     }
 }
