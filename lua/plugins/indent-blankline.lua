@@ -8,7 +8,7 @@ return
                 show_start = false,
                 include = {
                     node_type = {
-                        ["*"] = { "*" }
+                        ['*'] = { '*' }
                     }
                 }
             }

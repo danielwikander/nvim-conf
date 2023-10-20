@@ -113,7 +113,11 @@ return
                     MiniFilesTitle = { bg = theme.ui.bg_p1, fg = palette.katanaGray },
                     MiniFilesTitleFocused = { bg = theme.ui.bg_p1, fg = palette.waveRed, bold = true },
 
-                    DashboardDesc = { fg = palette.fujiWhite }
+                    DashboardDesc = { fg = palette.fujiWhite },
+
+                    MiniHipatternsTodo = { fg = palette.springGreen },
+                    MiniHipatternsNote = { fg = palette.springGreen },
+
                 }
             end
         })

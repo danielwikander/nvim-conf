@@ -1,6 +1,6 @@
 return
 {
-    "folke/twilight.nvim",
+    'folke/twilight.nvim',
     cmd = { 'Twilight', 'TwilightEnable', 'TwilightDisable' },
     opts = {}
 }

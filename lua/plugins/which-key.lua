@@ -8,9 +8,9 @@ return {
     config = function()
         require('which-key').setup {}
         require('which-key').register({
-            ["<leader>"] = {
+            ['<leader>'] = {
                 f = {
-                    name = "find",
+                    name = 'find',
                 },
             },
         })
