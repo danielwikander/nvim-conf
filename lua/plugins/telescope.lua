@@ -12,14 +12,14 @@ return
             function()
                 require('telescope.builtin').live_grep()
             end,
-            desc = 'Find string in repo'
+            desc = 'Search string'
         },
         {
             '<leader>fw',
             function()
                 require('telescope.builtin').live_grep()
             end,
-            desc = 'String'
+            desc = 'Search string'
         },
         {
             '<leader>fr',
@@ -40,7 +40,7 @@ return
             function()
                 require('telescope.builtin').git_files({ show_untracked = true })
             end,
-            desc = 'Find file in git'
+            desc = 'Search git files'
         },
         {
             '<leader>fu',
@@ -55,7 +55,7 @@ return
         {
             '<leader>E',
             function() require('telescope.builtin').diagnostics() end,
-            desc = 'Show diagnostics'
+            desc = 'Diagnostics'
         },
         {
             '<leader>fe',
