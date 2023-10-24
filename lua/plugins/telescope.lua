@@ -36,6 +36,13 @@ return
             desc = 'Files'
         },
         {
+            '<leader>fm',
+            function()
+                require('telescope.builtin').marks()
+            end,
+            desc = 'Marks'
+        },
+        {
             '<C-p>',
             function()
                 require('telescope.builtin').git_files({ show_untracked = true })

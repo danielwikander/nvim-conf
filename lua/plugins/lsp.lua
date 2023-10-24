@@ -4,8 +4,10 @@ local on_attach = function(_, bufnr)
     end
 
     -- Keybinds
-    map('gd', vim.lsp.buf.declaration, 'Declaration')
-    map('gD', '<cmd>Telescope lsp_definitions<CR>', 'Definitions')
+    map('gd', vim.lsp.buf.definition, 'Definition')
+    map('<leader>d', vim.lsp.buf.definition, 'Definition')
+    map('gD', vim.lsp.buf.declaration, 'Declaration')
+    map('<leader>d', vim.lsp.buf.type_definition, 'Type definition')
     map('<leader>r', vim.lsp.buf.rename, 'Rename')
     map('<leader>e', vim.diagnostic.open_float, 'Line diagnostics')
     map('<leader>nl', ':LspRestart<CR>', 'Restart LSP')
@@ -15,6 +17,8 @@ local on_attach = function(_, bufnr)
     local telescope_builtin = require('lazy-require').require_on_exported_call('telescope.builtin')
     map('gr', telescope_builtin.lsp_references, 'References')
     map('gi', telescope_builtin.lsp_implementations, 'Implementations')
+    -- map('gd', telescope_builtin.lsp_definitions, 'Definitions')
+    -- map('<leader>D', telescope_builtin.lsp_type_definitions, 'Type definitions')
 end
 
 return
@@ -28,11 +32,13 @@ return
         'williamboman/mason-lspconfig.nvim',
         event = 'BufReadPre',
         dependencies = {
+            'nvim-lua/plenary.nvim',
             'neovim/nvim-lspconfig',
             'hrsh7th/cmp-nvim-lsp',
             'b0o/schemastore.nvim',
             'jmederosalvarado/roslyn.nvim',
             'simrat39/rust-tools.nvim',
+            'pmizio/typescript-tools.nvim',
         },
         config = function()
             local cmp_nvim_lsp = require('cmp_nvim_lsp')
@@ -45,10 +51,14 @@ return
             require('mason-lspconfig').setup({
                 automatic_installation = true,
                 ensure_installed = {
-                    'lua_ls',
-                    'rust_analyzer',
+                    'cssls',
                     'emmet_language_server',
+                    'html',
                     'jsonls',
+                    'lua_ls',
+                    'marksman',
+                    'rust_analyzer',
+                    'yamlls',
                 },
             })
 
