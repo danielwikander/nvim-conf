@@ -1,3 +1,4 @@
+require('config.autocmd')
 require('config.opt')
 require('config.keymap')
 

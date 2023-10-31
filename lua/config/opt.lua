@@ -71,10 +71,3 @@ vim.fn.sign_define('DiagnosticSignInfo',
 vim.fn.sign_define('DiagnosticSignHint',
     { text = '⚑', texthl = 'DiagnosticSignHint' })
 
--- Highlight yanked text for 200ms using the 'Visual' highlight group
-vim.cmd [[
-augroup highlight_yank
-autocmd!
-au TextYankPost * silent! lua vim.highlight.on_yank({higroup='Visual', timeout=150})
-augroup END
-]]
