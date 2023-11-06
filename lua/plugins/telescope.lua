@@ -15,11 +15,18 @@ return
             desc = 'Search string'
         },
         {
-            '<leader>fw',
+            '<leader>fs',
             function()
                 require('telescope.builtin').live_grep()
             end,
             desc = 'Search string'
+        },
+        {
+            '<leader>fw',
+            function()
+                require('telescope.builtin').grep_string()
+            end,
+            desc = 'Search word'
         },
         {
             '<leader>fr',
