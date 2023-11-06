@@ -3,6 +3,8 @@ return
     'glepnir/dashboard-nvim',
     event = 'VimEnter',
     opts = function()
+
+        local version = 'v.' .. vim.version().major .. '.' .. vim.version().minor .. '.' .. vim.version().patch
         local logo = [[
 ⠀⠀⠀⢀⠔⡀⠀⠀⠀⠀⠀⠀⠀⠠⡀⠀⠀⠀
 ⠀⡠⠐⢅⢂⠂⡂⠀⠀⠀⠀⠀⠀⠐⡅⢕⠠⡀
@@ -14,7 +16,8 @@ return
 ⢕⢕⢜⢜⠄⠀⠀⠀⠀⠐⠰⠨⡊⡢⡑⢕⢕⢕
 ⠈⠘⢜⢜⠄⠀⠀⠀⠀⠀⠈⠨⡂⡪⡸⠰⠑⠁
 ⠀⠀⠀⠑⠅⠀⠀⠀⠀⠀⠀⠀⠈⠜⠈⠀⠀⠀
-]]
+
+]] .. version
 
         logo = string.rep('\n', 8) .. logo .. '\n\n'
 
@@ -27,7 +30,7 @@ return
                 header = vim.split(logo, '\n'),
                 center = {
                     {
-                        action = 'Telescope find_files',
+                        action = 'Telescope git_files',
                         desc = ' Find file',
                         icon = ' ',
                         key = 'f',
@@ -86,7 +89,7 @@ return
                 footer = function()
                     local stats = require('lazy').stats()
                     local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-                    return { '⚡ Loaded ' .. stats.loaded .. '/' .. stats.count .. ' plugins in ' .. ms .. 'ms' }
+                    return { stats.loaded .. '/' .. stats.count .. ' in ' .. ms .. 'ms' }
                 end,
             },
         }
