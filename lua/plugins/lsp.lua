@@ -17,8 +17,6 @@ local on_attach = function(_, bufnr)
     local telescope_builtin = require('lazy-require').require_on_exported_call('telescope.builtin')
     map('gr', telescope_builtin.lsp_references, 'References')
     map('gi', telescope_builtin.lsp_implementations, 'Implementations')
-    -- map('gd', telescope_builtin.lsp_definitions, 'Definitions')
-    -- map('<leader>D', telescope_builtin.lsp_type_definitions, 'Type definitions')
 end
 
 return
