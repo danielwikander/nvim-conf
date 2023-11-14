@@ -7,6 +7,7 @@ return
         require('kanagawa').setup({
             theme = 'dragon',
             colors = { theme = { all = { ui = { bg_gutter = 'none' } } } },
+            transparent = true,
             dimInactive = false,
             overrides = function(colors)
                 local theme = colors.theme
@@ -117,6 +118,9 @@ return
 
                     MiniHipatternsTodo = { fg = palette.springGreen },
                     MiniHipatternsNote = { fg = palette.springGreen },
+
+                    FidgetProgress = { fg = palette.dragonBlue2 },
+                    FidgetCompleted = { fg = palette.springGreen },
 
                 }
             end

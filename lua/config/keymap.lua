@@ -23,7 +23,6 @@ map('n', 'N', 'Nzzzv', { desc = 'Previous result' })
 map('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move lines down' })
 map('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move lines up' })
 
-
 -- Splits
 map('n', '<leader>v', ':vsplit<CR>', { desc = 'Split vertically', silent = true })
 map('n', '<leader>h', ':split<CR>', { desc = 'Split horizontally', silent = true })
@@ -53,12 +52,9 @@ map('n', '<c-k>', '<c-w>k', { desc = 'Navigate to window above' })
 map('n', '<c-l>', '<c-w>l', { desc = 'Navigate to window below' })
 
 -- Move between windows while in terminal mode
-map('t', '<C-h>', [[<C-\><C-N><C-w>h]],
-    { desc = 'Navigate to window on the left', noremap = true, silent = true })
-map('t', '<C-j>', [[<C-\><C-N><C-w>j]],
-    { desc = 'Navigate to window below', noremap = true, silent = true })
-map('t', '<C-k>', [[<C-\><C-N><C-w>k]],
-    { desc = 'Navigate to window above', noremap = true, silent = true })
+map('t', '<C-h>', [[<C-\><C-N><C-w>h]], { desc = 'Navigate to window on the left', noremap = true, silent = true })
+map('t', '<C-j>', [[<C-\><C-N><C-w>j]], { desc = 'Navigate to window below', noremap = true, silent = true })
+map('t', '<C-k>', [[<C-\><C-N><C-w>k]], { desc = 'Navigate to window above', noremap = true, silent = true })
 
 -- Window resize
 map('n', '<c-left>', '<Cmd>vertical resize +5<CR>', { desc = 'Resize window: vertical++' })
