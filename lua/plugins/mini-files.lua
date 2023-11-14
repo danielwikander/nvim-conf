@@ -38,8 +38,12 @@ return {
           { buffer = buf_id, desc = 'Close filetree' }
         )
         vim.keymap.set('n', '<C-e>', '<cmd>lua MiniFiles.close()<CR>', { buffer = buf_id, desc = 'Close filetree' })
+        -- Reset bindings that are not relevant here (prevent misclicks)
+        vim.keymap.set('n', '<CR>', '<nop>', { buffer = buf_id })
         vim.keymap.set('n', '<tab>', '<nop>', { buffer = buf_id })
         vim.keymap.set('n', '<S-tab>', '<nop>', { buffer = buf_id })
+        vim.keymap.set('n', 'J', '<nop>', { buffer = buf_id })
+        vim.keymap.set('n', 'K', '<nop>', { buffer = buf_id })
       end,
     })
     require('mini.files').setup({
