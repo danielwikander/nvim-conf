@@ -30,9 +30,14 @@ return {
       pattern = 'MiniFilesBufferCreate',
       callback = function(args)
         local buf_id = args.data.buf_id
-        vim.keymap.set('n', 'H', toggle_dotfiles, { buffer = buf_id })
-        vim.keymap.set('n', '<leader><tab>', '<cmd>lua MiniFiles.close()<CR>', { buffer = buf_id })
-        vim.keymap.set('n', '<C-e>', '<cmd>lua MiniFiles.close()<CR>', { buffer = buf_id })
+        vim.keymap.set('n', '<leader>th', toggle_dotfiles, { buffer = buf_id, desc = 'Toggle hidden files' })
+        vim.keymap.set(
+          'n',
+          '<leader><tab>',
+          '<cmd>lua MiniFiles.close()<CR>',
+          { buffer = buf_id, desc = 'Close filetree' }
+        )
+        vim.keymap.set('n', '<C-e>', '<cmd>lua MiniFiles.close()<CR>', { buffer = buf_id, desc = 'Close filetree' })
         vim.keymap.set('n', '<tab>', '<nop>', { buffer = buf_id })
         vim.keymap.set('n', '<S-tab>', '<nop>', { buffer = buf_id })
       end,
@@ -44,8 +49,10 @@ return {
         end,
       },
       mappings = {
-        go_in = 'L',
-        go_in_plus = 'l',
+        go_in = '',
+        go_in_plus = 'L',
+        go_out = '',
+        go_out_plus = 'H',
       },
       windows = {
         max_number = 3,
