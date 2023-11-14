@@ -1,18 +1,18 @@
 return {
-  "j-hui/fidget.nvim",
+  'j-hui/fidget.nvim',
   config = function()
-    require("fidget").setup({
+    require('fidget').setup({
       -- Options related to LSP progress subsystem
       progress = {
         display = {
-          done_icon = "✔", -- Icon shown when all LSP progress tasks are complete
-          done_style = "FidgetCompleted", -- Highlight group for completed LSP tasks
+          done_icon = '✔', -- Icon shown when all LSP progress tasks are complete
+          done_style = 'FidgetCompleted', -- Highlight group for completed LSP tasks
           -- Icon shown when LSP progress tasks are in progress
-          progress_icon = { pattern = "dots", period = 1 },
+          progress_icon = { pattern = 'dots', period = 1 },
           -- Highlight group for in-progress LSP tasks
-          progress_style = "FidgetProgress",
-          group_style = "Title", -- Highlight group for group name (LSP server name)
-          icon_style = "Question", -- Highlight group for group icons
+          progress_style = 'FidgetProgress',
+          group_style = 'Title', -- Highlight group for group name (LSP server name)
+          icon_style = 'Question', -- Highlight group for group icons
           priority = 30, -- Ordering priority for LSP notification group
         },
       },
