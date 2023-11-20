@@ -3,7 +3,6 @@ return {
   build = ':TSUpdate',
   event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
-    'JoosepAlviste/nvim-ts-context-commentstring',
     {
       'windwp/nvim-ts-autotag',
       config = function()
