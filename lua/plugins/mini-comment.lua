@@ -7,13 +7,16 @@ return {
     { 'gc', desc = 'Comment textobject' },
     { 'gc', mode = 'v', desc = 'Comment textobject' },
   },
-  dependencies = { 'JoosepAlviste/nvim-ts-context-commentstring' },
+  dependencies = {
+    {
+      'JoosepAlviste/nvim-ts-context-commentstring',
+      opts = {
+        enable_autocmd = false,
+      },
+    },
+  },
   config = function()
     vim.g.skip_ts_context_commentstring_module = true
-    require('ts_context_commentstring').setup({
-      enable_autocmd = false,
-    })
-
     require('mini.comment').setup({
       options = {
         custom_commentstring = function()
