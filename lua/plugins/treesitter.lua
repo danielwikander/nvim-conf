@@ -13,12 +13,8 @@ return {
   },
   config = function()
     local treesitter = require('nvim-treesitter.configs')
-    require('ts_context_commentstring').setup({})
+
     treesitter.setup({
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
-      },
       ensure_installed = {
         'c',
         'cmake',
