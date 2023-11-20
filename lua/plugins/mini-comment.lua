@@ -1,6 +1,12 @@
 return {
   'echasnovski/mini.comment',
   version = false,
+  keys = {
+    { 'cc', desc = 'Line comment' },
+    { 'cc', mode = 'v', desc = 'Line comment visual mode' },
+    { 'gc', desc = 'Comment textobject' },
+    { 'gc', mode = 'v', desc = 'Comment textobject' },
+  },
   dependencies = { 'JoosepAlviste/nvim-ts-context-commentstring' },
   config = function()
     require('mini.comment').setup({
