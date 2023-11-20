@@ -1,6 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
-  event = 'VimEnter',
+  event = 'UIEnter',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
     local theme = require('kanagawa.colors').setup().theme

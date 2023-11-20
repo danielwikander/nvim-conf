@@ -22,7 +22,8 @@ end
 return {
   {
     'williamboman/mason.nvim',
-    cmd = { 'Mason', 'MasonInstall', 'MasonUpdate' },
+    lazy = true,
+    cmd = { 'Mason', 'MasonInstall', 'MasonInstallAll', 'MasonUpdate' },
     config = true,
   },
   {

@@ -3,6 +3,21 @@ return {
   event = { 'BufReadPost', 'BufNewFile' },
   config = function()
     require('ibl').setup({
+      exclude = {
+        filetypes = {
+          'help',
+          'alpha',
+          'dashboard',
+          'neo-tree',
+          'Trouble',
+          'trouble',
+          'lazy',
+          'mason',
+          'notify',
+          'toggleterm',
+          'lazyterm',
+        },
+      },
       scope = {
         show_start = false,
         include = {

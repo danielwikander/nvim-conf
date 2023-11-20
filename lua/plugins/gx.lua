@@ -1,6 +1,6 @@
 return {
   'chrishrb/gx.nvim',
-  event = { 'BufEnter' },
+  event = { 'BufReadPost' },
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = true, -- default settings
 }

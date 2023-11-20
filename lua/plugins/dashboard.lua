@@ -1,6 +1,6 @@
 return {
   'glepnir/dashboard-nvim',
-  event = 'VimEnter',
+  event = 'UIEnter',
   opts = function()
     local version = 'v.' .. vim.version().major .. '.' .. vim.version().minor .. '.' .. vim.version().patch
     local logo = [[
