@@ -115,6 +115,8 @@ return {
 
           DashboardDesc = { fg = palette.fujiWhite },
 
+          WhichKeyFloat = { bg = theme.ui.bg_p3 },
+
           MiniHipatternsTodo = { fg = palette.springGreen },
           MiniHipatternsNote = { fg = palette.springGreen },
 
