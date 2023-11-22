@@ -28,7 +28,7 @@ return {
   },
   {
     'williamboman/mason-lspconfig.nvim',
-    event = 'BufReadPre',
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
       'nvim-lua/plenary.nvim',
       'neovim/nvim-lspconfig',

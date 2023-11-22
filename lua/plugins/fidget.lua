@@ -1,13 +1,12 @@
 return {
   'j-hui/fidget.nvim',
-  event = { 'BufReadPre', 'BufNewFile' },
+  event = { 'BufReadPost', 'BufNewFile' },
   config = function()
     require('fidget').setup({
       progress = {
         display = {
-          done_icon = '✔',
+          done_icon = '󰸞',
           done_style = 'FidgetCompleted',
-          progress_icon = { pattern = 'dots', period = 1 },
           progress_style = 'FidgetProgress',
         },
       },
