@@ -28,7 +28,7 @@ return {
         header = vim.split(logo, '\n'),
         center = {
           {
-            action = 'Telescope git_files',
+            action = 'Telescope find_files',
             desc = ' Find file',
             icon = ' ',
             key = 'f',
