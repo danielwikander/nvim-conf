@@ -47,6 +47,7 @@ return {
         automatic_installation = true,
         ensure_installed = {
           'cssls',
+          'omnisharp',
           'emmet_language_server',
           'html',
           'jsonls',
@@ -134,6 +135,20 @@ return {
             },
           })
         end,
+
+        ['omnisharp'] = function()
+          require('lspconfig').omnisharp.setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+            enable_editorconfig_support = true,
+            enable_ms_build_load_projects_on_demand = false,
+            enable_roslyn_analyzers = false,
+            organize_imports_on_format = true,
+            enable_import_completion = true,
+            sdk_include_prereleases = true,
+            analyze_open_documents_only = false,
+          })
+        end,
       })
 
       require('rust-tools').setup({
@@ -141,11 +156,6 @@ return {
           on_attach = on_attach,
           capabilities = capabilities,
         },
-      })
-
-      require('roslyn').setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
       })
     end,
   },
