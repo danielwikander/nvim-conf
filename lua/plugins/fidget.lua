@@ -17,7 +17,7 @@ return {
         },
         window = {
           winblend = 0,
-          align_bottom = false,
+          align = 'bottom',
         },
       },
     })
