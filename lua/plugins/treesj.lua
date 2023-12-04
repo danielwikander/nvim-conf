@@ -5,7 +5,6 @@ return {
     { '<leader>j', '<Cmd>TSJToggle<CR>', desc = 'Join toggle' },
   },
   lazy = true,
-  dependencies = { 'nvim-treesitter/nvim-treesitter' },
   cmd = { 'TSJToggle', 'TSJSplit', 'TSJJoin' },
   config = function()
     require('treesj').setup({

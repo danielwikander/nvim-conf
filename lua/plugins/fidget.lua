@@ -1,6 +1,6 @@
 return {
   'j-hui/fidget.nvim',
-  event = { 'BufReadPost', 'BufNewFile' },
+  event = { 'BufReadPre', 'BufNewFile' },
   config = function()
     require('fidget').setup({
       progress = {
@@ -17,7 +17,7 @@ return {
         },
         window = {
           winblend = 0,
-          align = 'bottom',
+          align = 'top',
         },
       },
     })
