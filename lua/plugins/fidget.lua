@@ -1,6 +1,6 @@
 return {
   'j-hui/fidget.nvim',
-  event = { 'BufReadPre', 'BufNewFile' },
+  event = 'UIEnter',
   config = function()
     require('fidget').setup({
       progress = {
