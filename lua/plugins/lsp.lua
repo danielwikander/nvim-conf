@@ -36,7 +36,6 @@ return {
       'b0o/schemastore.nvim',
       'jmederosalvarado/roslyn.nvim',
       'simrat39/rust-tools.nvim',
-      'pmizio/typescript-tools.nvim',
     },
     config = function()
       local cmp_nvim_lsp = require('cmp_nvim_lsp')
