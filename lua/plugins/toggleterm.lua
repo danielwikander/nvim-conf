@@ -6,6 +6,7 @@ return {
   },
   config = function()
     require('toggleterm').setup({
+      size = 25,
       open_mapping = [[<C-t>]],
       start_in_insert = true,
     })

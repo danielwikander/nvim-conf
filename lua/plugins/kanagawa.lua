@@ -122,6 +122,8 @@ return {
 
           FidgetProgress = { fg = palette.dragonBlue2 },
           FidgetCompleted = { fg = palette.springGreen },
+
+          MatchParen = { fg = palette.springGreen },
         }
       end,
     })
