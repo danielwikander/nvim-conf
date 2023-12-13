@@ -12,8 +12,8 @@ return {
         },
       },
     })
-    vim.keymap.set('n', '<leader>o', '<cmd>TSToolsOrganizeImports<CR>', { desc = 'Organize imports' })
-    vim.keymap.set('n', '<leader>O', '<cmd>TSToolsAddMissingImports<CR>', { desc = 'Add missing imports' })
+    vim.keymap.set('n', '<leader>=o', '<cmd>TSToolsOrganizeImports<CR>', { desc = 'Organize imports' })
+    vim.keymap.set('n', '<leader>=O', '<cmd>TSToolsAddMissingImports<CR>', { desc = 'Add missing imports' })
     vim.keymap.set('n', '<leader>i', 'yiwoconsole.log();<left><left><esc>pb', { desc = 'Console log' })
     vim.keymap.set('v', '<leader>i', 'yoconsole.log();<left><left><esc>pb', { desc = 'Console log' })
   end,

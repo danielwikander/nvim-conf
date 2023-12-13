@@ -12,6 +12,15 @@ return {
         f = {
           name = 'find',
         },
+        o = {
+          name = 'obsidian',
+        },
+        g = {
+          name = 'github',
+        },
+        n = {
+          name = 'util',
+        },
       },
     })
   end,
