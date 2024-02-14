@@ -29,6 +29,8 @@ return {
           else
             cmp.confirm()
           end
+        elseif require("copilot.suggestion").is_visible() then
+            require("copilot.suggestion").accept()
         else
           fallback()
         end

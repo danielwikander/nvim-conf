@@ -11,6 +11,9 @@ map('n', 'Q', '<nop>')
 map('n', 'q', '<nop>')
 map('v', 'c', '<nop>')
 
+-- Required for C-i (forward in  jumplist) to work
+map('n', '<C-i>', '<C-i>')
+
 -- Center cursor on scroll
 map('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down' })
 map('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up' })
@@ -55,6 +58,7 @@ map('n', '<c-l>', '<c-w>l', { desc = 'Navigate to window below' })
 map('t', '<C-h>', [[<C-\><C-N><C-w>h]], { desc = 'Navigate to window on the left', noremap = true, silent = true })
 map('t', '<C-j>', [[<C-\><C-N><C-w>j]], { desc = 'Navigate to window below', noremap = true, silent = true })
 map('t', '<C-k>', [[<C-\><C-N><C-w>k]], { desc = 'Navigate to window above', noremap = true, silent = true })
+map('t', '<esc>', [[<C-\><C-n>]],       { desc = 'Exit terminal mode', noremap = true, silent = true })
 
 -- Window resize
 map('n', '<c-left>', '<Cmd>vertical resize +5<CR>', { desc = 'Resize window: vertical++' })

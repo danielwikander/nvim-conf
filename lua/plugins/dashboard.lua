@@ -28,8 +28,8 @@ return {
         header = vim.split(logo, '\n'),
         center = {
           {
-            action = 'Telescope find_files',
-            desc = ' Find file',
+            action = "lua require('telescope').extensions.projects.projects()",
+            desc = ' Find project',
             icon = ' ',
             key = 'f',
             key_format = ' %s',

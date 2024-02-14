@@ -7,11 +7,11 @@ local on_attach = function(_, bufnr)
   map('gd', vim.lsp.buf.definition, 'Definition')
   map('<leader>d', vim.lsp.buf.definition, 'Definition')
   map('gD', vim.lsp.buf.declaration, 'Declaration')
+  map('gR', vim.lsp.buf.references, 'References')
   map('<leader>D', vim.lsp.buf.type_definition, 'Type definition')
   map('<leader>r', vim.lsp.buf.rename, 'Rename')
   map('<leader>e', vim.diagnostic.open_float, 'Line diagnostics')
   map('<leader>nl', ':LspRestart<CR>', 'Restart LSP')
-  map('<leader><CR>', vim.lsp.buf.code_action, 'Code Actions')
   map('K', vim.lsp.buf.hover, 'Hover documentation')
 
   local telescope_builtin = require('lazy-require').require_on_exported_call('telescope.builtin')
@@ -48,7 +48,6 @@ return {
         ensure_installed = {
           'cssls',
           'omnisharp',
-          'emmet_language_server',
           'html',
           'jsonls',
           'lua_ls',

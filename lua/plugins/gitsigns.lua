@@ -5,6 +5,7 @@ return {
   keys = {
     { '<leader>w', '<cmd>Gitsigns preview_hunk_inline<CR>', desc = 'Preview hunk inline' },
     { '<leader>W', '<cmd>Gitsigns preview_hunk<CR>', desc = 'Preview hunk' },
+    { '<leader>tb', '<cmd>Gitsigns toggle_current_line_blame<CR>', desc = 'Toggle git blame inline' },
   },
   config = function()
     require('gitsigns').setup()

@@ -3,6 +3,13 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'debugloop/telescope-undo.nvim',
+    'nvim-telescope/telescope-ui-select.nvim',
+    {
+        'ahmedkhalf/project.nvim',
+        config = function()
+            require("project_nvim").setup()
+        end
+    },
   },
   cmd = 'Telescope',
   keys = {
@@ -103,6 +110,20 @@ return {
       end,
       desc = 'Buffers',
     },
+    {
+      '<leader><CR>',
+      function()
+          vim.lsp.buf.code_action()
+      end,
+      desc = 'Code actions',
+    },
+    {
+      '<leader>fp',
+      function()
+        require('telescope').extensions.projects.projects()
+      end,
+      desc = 'Buffers',
+    },
   },
   lazy = true,
   config = function()
@@ -150,6 +171,11 @@ return {
         },
       },
       extensions = {
+        ["ui-select"] = {
+            require("telescope.themes").get_dropdown {
+                -- even more opts
+            }
+        },
         undo = {
           side_by_side = false,
           mappings = {
@@ -173,5 +199,7 @@ return {
 
     require('telescope').load_extension('undo')
     require('telescope').load_extension('harpoon')
+    require('telescope').load_extension('ui-select')
+    require('telescope').load_extension('projects')
   end,
 }
