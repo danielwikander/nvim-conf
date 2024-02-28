@@ -11,27 +11,28 @@ local on_attach = function(_, bufnr)
   map('<leader>D', vim.lsp.buf.type_definition, 'Type definition')
   map('<leader>r', vim.lsp.buf.rename, 'Rename')
   map('<leader>e', vim.diagnostic.open_float, 'Line diagnostics')
-  map('<leader>nl', ':LspRestart<CR>', 'Restart LSP')
+  map('<leader>ul', ':LspRestart<CR>', 'Restart LSP')
   map('K', vim.lsp.buf.hover, 'Hover documentation')
 
-  local telescope_builtin = require('lazy-require').require_on_exported_call('telescope.builtin')
-  map('gr', telescope_builtin.lsp_references, 'References')
-  map('gi', telescope_builtin.lsp_implementations, 'Implementations')
+  -- local telescope_builtin = require('lazy-require').require_on_exported_call('telescope.builtin')
+  -- map('gr', telescope_builtin.lsp_references, 'References')
+  -- map('gi', telescope_builtin.lsp_implementations, 'Implementations')
 end
 
 return {
   {
-    'williamboman/mason.nvim',
-    lazy = true,
-    cmd = { 'Mason', 'MasonInstall', 'MasonInstallAll', 'MasonUpdate' },
-    config = true,
-  },
-  {
-    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
+      {
+        'williamboman/mason.nvim',
+        lazy = true,
+        cmd = { 'Mason', 'MasonInstall', 'MasonInstallAll', 'MasonUpdate' },
+        config = true,
+      },
+      'williamboman/mason-lspconfig.nvim',
+      'WhoIsSethDaniel/mason-tool-installer.nvim',
       'nvim-lua/plenary.nvim',
-      'neovim/nvim-lspconfig',
       'hrsh7th/cmp-nvim-lsp',
       'b0o/schemastore.nvim',
       'jmederosalvarado/roslyn.nvim',
@@ -39,9 +40,10 @@ return {
       'Decodetalkers/csharpls-extended-lsp.nvim',
     },
     config = function()
-      local cmp_nvim_lsp = require('cmp_nvim_lsp')
-      local capabilities =
-        vim.tbl_deep_extend('force', vim.lsp.protocol.make_client_capabilities(), cmp_nvim_lsp.default_capabilities())
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+
+      require('mason-tool-installer').setup({ ensure_installed = { 'stylua', 'prettierd', 'prettier', 'eslint' } })
 
       require('mason-lspconfig').setup({
         automatic_installation = true,
@@ -52,106 +54,107 @@ return {
           'jsonls',
           'lua_ls',
           'marksman',
-          'rust_analyzer',
           'yamlls',
         },
-      })
+        handlers = {
+          -- The first entry (without a key) will be the default handler
+          function(server_name) -- default handler (optional)
+            require('lspconfig')[server_name].setup({
+              on_attach = on_attach,
+              capabilities = capabilities,
+            })
+          end,
 
-      require('mason-lspconfig').setup_handlers({
-        -- The first entry (without a key) will be the default handler
-        function(server_name) -- default handler (optional)
-          require('lspconfig')[server_name].setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
-          })
-        end,
-
-        ['lua_ls'] = function()
-          require('lspconfig').lua_ls.setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
-            settings = {
-              Lua = {
-                format = { enable = false },
-                telemetry = { enable = false },
-                diagnostics = {
-                  globals = { 'vim', 'MiniFiles' },
-                },
-                workspace = {
-                  checkThirdParty = false,
-                  library = {
-                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-                    [vim.fn.stdpath('config') .. '/lua'] = true,
+          ['lua_ls'] = function()
+            require('lspconfig').lua_ls.setup({
+              on_attach = on_attach,
+              capabilities = capabilities,
+              settings = {
+                Lua = {
+                  format = { enable = false },
+                  telemetry = { enable = false },
+                  diagnostics = {
+                    globals = { 'vim', 'MiniFiles' },
+                  },
+                  workspace = {
+                    checkThirdParty = false,
+                    library = {
+                      [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                      [vim.fn.stdpath('config') .. '/lua'] = true,
+                    },
                   },
                 },
               },
-            },
-          })
-        end,
+            })
+          end,
 
-        ['rust_analyzer'] = function()
-          require('lspconfig').rust_analyzer.setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
-            settings = {
-              ['rust-analyzer'] = {
-                checkOnSave = {
-                  command = 'clippy',
-                  allTargets = false,
+          ['rust_analyzer'] = function()
+            require('lspconfig').rust_analyzer.setup({
+              on_attach = on_attach,
+              capabilities = capabilities,
+              settings = {
+                ['rust-analyzer'] = {
+                  checkOnSave = {
+                    command = 'clippy',
+                    allTargets = false,
+                  },
                 },
               },
-            },
-          })
-        end,
+            })
+          end,
 
-        ['jsonls'] = function()
-          require('lspconfig').jsonls.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            settings = {
-              json = {
-                schemas = require('schemastore').json.schemas(),
-                validate = {
-                  enable = true,
+          ['jsonls'] = function()
+            require('lspconfig').jsonls.setup({
+              capabilities = capabilities,
+              on_attach = on_attach,
+              settings = {
+                json = {
+                  schemas = require('schemastore').json.schemas(),
+                  validate = {
+                    enable = true,
+                  },
                 },
               },
-            },
-          })
-        end,
+            })
+          end,
 
-        ['yamlls'] = function()
-          require('lspconfig').yamlls.setup({
-            settings = {
-              yaml = {
-                schemaStore = {
-                  -- Schemastore handled separately
-                  enable = false,
-                  -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
-                  url = '',
+          ['yamlls'] = function()
+            require('lspconfig').yamlls.setup({
+              settings = {
+                yaml = {
+                  schemaStore = {
+                    -- Schemastore handled separately
+                    enable = false,
+                    -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+                    url = '',
+                  },
+                  schemas = require('schemastore').yaml.schemas(),
                 },
-                schemas = require('schemastore').yaml.schemas(),
               },
-            },
-          })
-        end,
+            })
+          end,
 
-        ['omnisharp'] = function()
-          require('lspconfig').omnisharp.setup({
-            cmd = { 'dotnet', '/Users/danielwikander/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll' },
-            on_attach = on_attach,
-            capabilities = capabilities,
-            handlers = {
-              ['textDocument/definition'] = require('csharpls_extended').handler,
-            },
-            enable_editorconfig_support = true,
-            enable_ms_build_load_projects_on_demand = true,
-            enable_roslyn_analyzers = true,
-            organize_imports_on_format = true,
-            enable_import_completion = true,
-            sdk_include_prereleases = true,
-            analyze_open_documents_only = false,
-          })
-        end,
+          ['omnisharp'] = function()
+            require('lspconfig').omnisharp.setup({
+              cmd = {
+                'dotnet',
+                '/Users/danielwikander/.local/share/nvim/mason/packages/omnisharp/libexec/OmniSharp.dll',
+              },
+              on_attach = on_attach,
+              capabilities = capabilities,
+              handlers = {
+                ['textDocument/definition'] = require('csharpls_extended').handler,
+              },
+              enable_editorconfig_support = true,
+              enable_ms_build_load_projects_on_demand = true,
+              enable_roslyn_analyzers = true,
+              organize_imports_on_format = true,
+              enable_import_completion = true,
+              sdk_include_prereleases = true,
+              analyze_open_documents_only = false,
+            })
+          end,
+        },
       })
 
       require('rust-tools').setup({

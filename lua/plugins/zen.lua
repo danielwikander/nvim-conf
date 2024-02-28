@@ -1,5 +1,8 @@
 return {
   'folke/zen-mode.nvim',
+  dependencies = {
+    'folke/twilight.nvim',
+  },
   keys = {
     { '<leader>z', '<cmd>ZenMode<cr>', mode = 'n', desc = 'Toggle ZenMode' },
   },
@@ -15,9 +18,8 @@ return {
       gitsigns = {
         enabled = false,
       },
-      alacritty = {
-        enabled = false,
-        font = '18',
+      twilight = {
+        enabled = true,
       },
     },
   },

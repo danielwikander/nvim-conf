@@ -10,16 +10,22 @@ return {
     require('which-key').register({
       ['<leader>'] = {
         f = {
-          name = 'find',
+          name = 'Find',
         },
         o = {
-          name = 'obsidian',
+          name = 'Obsidian',
         },
         g = {
-          name = 'github',
+          name = 'Github',
         },
-        n = {
-          name = 'util',
+        u = {
+          name = 'Util',
+        },
+        t = {
+          name = 'Toggle',
+        },
+        ['"'] = {
+          name = 'Format',
         },
       },
     })

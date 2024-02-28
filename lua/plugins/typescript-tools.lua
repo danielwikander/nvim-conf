@@ -1,11 +1,19 @@
 return {
   'pmizio/typescript-tools.nvim',
   event = { 'BufReadPost *.ts,*.tsx,*.js,*.jsx', 'BufNewFile *.ts,*.tsx,*.js,*.jsx' },
-  dependencies = { 'nvim-lua/plenary.nvim', 'nvim-lspconfig' },
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    'nvim-lspconfig',
+    { 'dmmulroy/ts-error-translator.nvim', config = true },
+  },
   config = function()
     require('typescript-tools').setup({
       settings = {
+        complete_function_calls = true,
+        publish_diagnostic_on = 'insert_leave',
         tsserver_file_preferences = {
+          includeCompletionsForModuleExports = true,
+          includeCompletionsForImportStatements = true,
           includeInlayParameterNameHints = 'literals',
           includeInlayVariableTypeHints = true,
           includeInlayFunctionLikeReturnTypeHints = true,

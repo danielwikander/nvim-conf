@@ -8,7 +8,7 @@ return {
   cmd = { 'TSJToggle', 'TSJSplit', 'TSJJoin' },
   config = function()
     require('treesj').setup({
-      opts = { use_default_keymaps = false },
+      use_default_keymaps = false,
     })
   end,
 }

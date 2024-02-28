@@ -13,10 +13,11 @@ opt.grepformat = '%f:%l:%c:%m'
 opt.grepprg = 'rg --vimgrep'
 opt.hlsearch = true
 opt.ignorecase = true -- Ignore case
-opt.inccommand = 'nosplit' -- preview incremental substitute
+opt.inccommand = 'split' -- preview incremental substitute
 opt.incsearch = true
 opt.laststatus = 0
 opt.list = true -- Show some invisible characters (tabs...
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 opt.mouse = 'a' -- Enable mouse mode
 opt.number = true -- Print line number
 opt.pumheight = 10 -- Maximum number of entries in a popup

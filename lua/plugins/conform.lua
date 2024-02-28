@@ -1,34 +1,55 @@
 return {
   'stevearc/conform.nvim',
   lazy = true,
-  event = { 'BufReadPre', 'BufNewFile' },
+  event = { 'BufWritePre' },
+  cmd = { 'ConformInfo' },
+  keys = {
+    {
+      '=',
+      '',
+      mode = { 'n', 'v' },
+      desc = 'Format',
+    },
+    {
+      '==',
+      function()
+        require('conform').format({
+          lsp_fallback = true,
+          async = true,
+          timeout_ms = 1000,
+        })
+      end,
+      mode = '',
+      desc = 'Format file or selection',
+    },
+  },
   config = function()
-    local conform = require('conform')
-
-    conform.setup({
+    require('conform').setup({
+      format_on_save = function(bufnr)
+        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+          return
+        end
+        return {
+          timeout_ms = 500,
+          lsp_fallback = true,
+          async = true,
+        }
+      end,
       formatters_by_ft = {
-        javascript = { 'prettier' },
-        typescript = { 'prettier' },
-        javascriptreact = { 'prettier' },
-        typescriptreact = { 'prettier' },
-        svelte = { 'prettier' },
-        css = { 'prettier' },
-        html = { 'prettier' },
-        json = { 'prettier' },
-        yaml = { 'prettier' },
-        markdown = { 'prettier' },
-        graphql = { 'prettier' },
+        javascript = { { 'prettierd', 'prettier' } },
+        typescript = { { 'prettierd', 'prettier' } },
+        javascriptreact = { { 'prettierd', 'prettier' } },
+        typescriptreact = { { 'prettierd', 'prettier' } },
+        svelte = { { 'prettierd', 'prettier' } },
+        css = { { 'prettierd', 'prettier' } },
+        html = { { 'prettierd', 'prettier' } },
+        json = { { 'prettierd', 'prettier' } },
+        yaml = { { 'prettierd', 'prettier' } },
+        markdown = { { 'prettierd', 'prettier' } },
+        graphql = { { 'prettierd', 'prettier' } },
         lua = { 'stylua' },
         rust = { 'rustfmt' },
       },
     })
-
-    vim.keymap.set({ 'n', 'v' }, '==', function()
-      conform.format({
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-      })
-    end, { desc = 'Format file or selection' })
   end,
 }
