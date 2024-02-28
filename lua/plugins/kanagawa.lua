@@ -124,6 +124,7 @@ return {
           FidgetCompleted = { fg = palette.springGreen },
 
           MatchParen = { fg = palette.springGreen },
+          YankHighlight = { fg = palette.springGreen, bg = theme.ui.bg_p2 },
         }
       end,
     })
