@@ -8,7 +8,7 @@ return {
       desc = 'Open link in browser',
     },
   },
-  init = function ()
+  init = function()
     vim.g.netrw_nogx = 1 -- disable netrw gx
   end,
   submodules = false, -- not needed, submodules are required only for tests

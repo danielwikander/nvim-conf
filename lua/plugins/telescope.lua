@@ -6,6 +6,23 @@ local function find_project_files()
   end
 end
 
+-- # Go to definition (in a split)
+local function go_to_definition_split()
+  vim.lsp.buf.definition({
+    on_list = function(options)
+      if #options.items > 1 then
+        vim.notify('Multiple items found, opening first one', vim.log.levels.WARN)
+      end
+
+      -- Open the first item in a vertical split
+      local item = options.items[1]
+      local cmd = 'vsplit +' .. item.lnum .. ' ' .. item.filename .. '|' .. 'normal ' .. item.col .. '|'
+
+      vim.cmd(cmd)
+    end,
+  })
+end
+
 return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
@@ -21,34 +38,6 @@ return {
   },
   cmd = 'Telescope',
   keys = {
-    -- local builtin = require 'telescope.builtin'
-    --       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-    --       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-    --       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-    --       vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
-    --       vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-    --       vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-    --       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-    --       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-    --       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-    --- Slightly advanced example of overriding default behavior and theme
-    -- vim.keymap.set('n', '<leader>/', function()
-    --   -- You can pass additional configuration to telescope to change theme, layout, etc.
-    --   builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    --     winblend = 10,
-    --     previewer = false,
-    --   })
-    -- end, { desc = '[/] Fuzzily search in current buffer' })
-    --
-    -- -- Also possible to pass additional configuration options.
-    -- --  See `:help telescope.builtin.live_grep()` for information about particular keys
-    -- vim.keymap.set('n', '<leader>s/', function()
-    --   builtin.live_grep {
-    --     grep_open_files = true,
-    --     prompt_title = 'Live Grep in Open Files',
-    --   }
-    -- end, { desc = '[S]earch [/] in Open Files' })-       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
-
     {
       '<leader>p',
       function()
@@ -189,7 +178,7 @@ return {
       function()
         require('telescope').extensions.projects.projects()
       end,
-      desc = 'Buffers',
+      desc = 'Projects',
     },
   },
   lazy = true,
@@ -246,6 +235,15 @@ return {
         },
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
+        },
+        project = {
+          -- default for on_project_selected = find project files
+          on_project_selected = function(prompt_bufnr)
+            require('telescope').extensions.projects.actions.project_actions.change_working_directory(
+              prompt_bufnr,
+              false
+            )
+          end,
         },
         undo = {
           side_by_side = false,

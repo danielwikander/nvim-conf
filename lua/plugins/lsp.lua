@@ -1,3 +1,20 @@
+-- # Go to definition (in a split)
+local function go_to_definition_split()
+  vim.lsp.buf.definition({
+    on_list = function(options)
+      if #options.items > 1 then
+        vim.notify('Multiple items found, opening first one', vim.log.levels.WARN)
+      end
+
+      -- Open the first item in a vertical split
+      local item = options.items[1]
+      local cmd = 'vsplit +' .. item.lnum .. ' ' .. item.filename .. '|' .. 'normal ' .. item.col .. '|'
+
+      vim.cmd(cmd)
+    end,
+  })
+end
+
 local on_attach = function(_, bufnr)
   local map = function(keys, func, desc)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
@@ -6,7 +23,7 @@ local on_attach = function(_, bufnr)
   -- Keybinds
   map('gd', vim.lsp.buf.definition, 'Definition')
   map('<leader>d', vim.lsp.buf.definition, 'Definition')
-  map('gD', vim.lsp.buf.declaration, 'Declaration')
+  map('gD', go_to_definition_split, 'Definition (vsplit)')
   map('gR', vim.lsp.buf.references, 'References')
   map('<leader>D', vim.lsp.buf.type_definition, 'Type definition')
   map('<leader>r', vim.lsp.buf.rename, 'Rename')

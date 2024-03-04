@@ -3,8 +3,8 @@ return {
   event = { 'BufReadPost', 'BufNewFile' },
   config = function()
     require('tint').setup({
-      tint = -60,  -- Darken colors, use a positive value to brighten
-      saturation = 0.3,  -- Saturation to preserve
+      tint = -60, -- Darken colors, use a positive value to brighten
+      saturation = 0.3, -- Saturation to preserve
       -- tint_background_colors = true,  -- Tint background portions of highlight groups
       -- highlight_ignore_patterns = { "WinSeparator", "Status.*" },  -- Highlight group patterns to ignore, see `string.find`
       -- window_ignore_function = function(winid)
