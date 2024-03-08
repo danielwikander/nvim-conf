@@ -2,6 +2,9 @@ require('config.autocmd')
 require('config.opt')
 require('config.keymap')
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Fetch lazy package manager if not already installed.
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
@@ -31,6 +34,7 @@ require('lazy').setup('plugins', {
         'getscriptPlugin',
         'gzip',
         'logipat',
+        'matchit',
         'netrw',
         'netrwFileHandlers',
         'netrwPlugin',

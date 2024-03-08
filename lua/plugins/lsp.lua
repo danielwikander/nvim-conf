@@ -30,10 +30,6 @@ local on_attach = function(_, bufnr)
   map('<leader>e', vim.diagnostic.open_float, 'Line diagnostics')
   map('<leader>ul', ':LspRestart<CR>', 'Restart LSP')
   map('K', vim.lsp.buf.hover, 'Hover documentation')
-
-  -- local telescope_builtin = require('lazy-require').require_on_exported_call('telescope.builtin')
-  -- map('gr', telescope_builtin.lsp_references, 'References')
-  -- map('gi', telescope_builtin.lsp_implementations, 'Implementations')
 end
 
 return {

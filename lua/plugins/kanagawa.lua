@@ -56,6 +56,7 @@ return {
 
           -- Darker, more subtle indent lines
           IblIndent = { fg = '#21201d' }, -- somewhere between bg_m1 and bg_m2
+          NeoTreeIndentMarker = { fg = '#21201d' }, -- somewhere between bg_m1 and bg_m2
           IblScope = { fg = theme.ui.bg_p2 },
 
           -- Misc

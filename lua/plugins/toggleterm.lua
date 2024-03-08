@@ -18,7 +18,7 @@ return {
       float_opts = {
         border = 'none',
         width = vim.o.columns,
-        height = 100,
+        height = vim.o.lines,
       },
       start_in_insert = true,
       -- function to run on opening the terminal
