@@ -5,7 +5,6 @@ local hls = {
 return {
   'ibhagwan/fzf-lua',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
-  branch = 'windows',
   keys = {
     {
       '<C-ö>',

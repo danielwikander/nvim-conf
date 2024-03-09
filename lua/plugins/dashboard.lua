@@ -70,7 +70,7 @@ return {
             key_format = ' %s',
           },
           {
-            action = 'Lazy update',
+            action = 'Lazy update | Dashboard',
             desc = ' Update',
             icon = ' ',
             key = 'u',
