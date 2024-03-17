@@ -3,6 +3,40 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 local map = vim.keymap.set
+local unmap = vim.keymap.del
+
+local swedish_keybinds = true
+
+local function set_programming_binds()
+  map('i', 'ö', '(')
+  map('i', 'ä', ')')
+  map('i', 'Ö', '{')
+  map('i', 'Ä', '}')
+  map('i', '<C-ö>', '[')
+  map('i', '<C-ä>', ']')
+end
+
+local function set_swedish_binds()
+  unmap('i', 'ö')
+  unmap('i', 'ä')
+  unmap('i', 'Ö')
+  unmap('i', 'Ä')
+  unmap('i', '<C-ö>')
+  unmap('i', '<C-ä>')
+end
+
+local function toggle_swedish()
+  if swedish_keybinds then
+    set_programming_binds()
+    swedish_keybinds = false
+  else
+    set_swedish_binds()
+    swedish_keybinds = true
+  end
+end
+
+-- Toggle swedish / programming binds
+map('n', 'Å', toggle_swedish)
 
 -- Unbind defaults
 map('', '<Space>', '<Nop>', { noremap = true, silent = true })
