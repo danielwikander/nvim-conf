@@ -44,9 +44,9 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = 'ö',
-          node_incremental = 'ö',
-          node_decremental = 'Ö',
+          init_selection = 'v',
+          node_incremental = 'v',
+          node_decremental = 'V',
         },
       },
     })
