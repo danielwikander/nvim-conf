@@ -44,7 +44,7 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = 'v',
+          init_selection = nil,
           node_incremental = 'v',
           node_decremental = 'V',
         },
