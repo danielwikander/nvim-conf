@@ -110,7 +110,6 @@ return {
         ['L'] = 'open',
         ['P'] = { 'toggle_preview', config = { use_float = true, use_image_nvim = false } },
         ['R'] = 'refresh',
-        ['Z'] = 'expand_all_nodes',
         ['a'] = { 'add', config = { show_path = 'none' } },
         ['c'] = 'copy',
         ['e'] = 'toggle_auto_expand_width',
@@ -123,7 +122,7 @@ return {
         ['W'] = 'open_with_window_picker',
         ['x'] = 'cut_to_clipboard',
         ['y'] = 'copy_to_clipboard',
-        ['z'] = 'close_all_nodes',
+        ['z'] = 'close_all_subnodes',
       },
     },
     filesystem = {
@@ -152,7 +151,7 @@ return {
           ['on'] = { 'order_by_name', nowait = false },
           ['os'] = { 'order_by_size', nowait = false },
           ['ot'] = { 'order_by_type', nowait = false },
-          ['z'] = 'toggle_hidden',
+          ['t'] = 'toggle_hidden',
         },
         fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
           ['<C-j>'] = 'move_cursor_down',
