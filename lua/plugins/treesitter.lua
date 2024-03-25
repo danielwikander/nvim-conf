@@ -1,7 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
-  event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
     {
       'windwp/nvim-ts-autotag',
@@ -17,7 +16,6 @@ return {
       ensure_installed = {
         'c',
         'cmake',
-        'cpp',
         'c_sharp',
         'css',
         'go',
@@ -34,6 +32,7 @@ return {
         'typescript',
         'vim',
         'vimdoc',
+        'query',
       },
       highlight = {
         enable = true,

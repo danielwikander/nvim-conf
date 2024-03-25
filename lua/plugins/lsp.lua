@@ -63,6 +63,7 @@ return {
         ensure_installed = {
           'cssls',
           'omnisharp',
+          'eslint',
           'html',
           'jsonls',
           'lua_ls',
