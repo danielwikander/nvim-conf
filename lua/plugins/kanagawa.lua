@@ -117,8 +117,10 @@ return {
 
           WhichKeyFloat = { bg = theme.ui.bg_p3 },
 
-          MiniHipatternsTodo = { fg = palette.springGreen },
-          MiniHipatternsNote = { fg = palette.springGreen },
+          MiniHipatternsTodo = { bg = palette.dragonBlue2, fg = theme.ui.bg, bold = true },
+          MiniHipatternsNote = { bg = palette.springGreen, fg = theme.ui.bg, bold = true },
+          MiniHipatternsHack = { bg = palette.surimiOrange, fg = theme.ui.bg, bold = true },
+          MiniHipatternsFixme = { bg = palette.waveRed, fg = theme.ui.bg, bold = true },
 
           FidgetProgress = { fg = palette.dragonBlue2 },
           FidgetCompleted = { fg = palette.springGreen },

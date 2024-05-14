@@ -39,18 +39,18 @@ return {
   cmd = 'Telescope',
   keys = {
     {
-      '<leader>p',
+      '<leader>P',
       function()
         require('telescope.builtin').live_grep({ file_ignore_patterns = { '%.test.tsx' }, disable_coordinates = true })
       end,
-      desc = 'Search string',
+      desc = 'Search string (exclude tests)',
     },
     {
-      '<leader>P',
+      '<leader>p',
       function()
         require('telescope.builtin').live_grep()
       end,
-      desc = 'Search string (include tests)',
+      desc = 'Search string',
     },
     {
       '<leader>fs',
