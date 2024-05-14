@@ -46,7 +46,7 @@ return {
         s = cmp.mapping.confirm({ select = false }),
         c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
       }),
-      ['<C-Space>'] = cmp.mapping.complete(),
+      -- ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-k>'] = cmp.mapping.select_prev_item(),
       ['<C-j>'] = cmp.mapping.select_next_item(),
       ['<C-u>'] = cmp.mapping.scroll_docs(-4),

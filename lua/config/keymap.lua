@@ -46,7 +46,8 @@ map('n', 'q', '<nop>')
 map('v', 'c', '<nop>')
 
 -- Required for C-i (forward in  jumplist) to work
-map('n', '<C-i>', '<C-i>')
+map('n', '<C-i>', '<C-i>', { noremap = true, silent = true })
+map('n', '§', '<C-i>')
 
 -- Center cursor on scroll
 map('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down' })
