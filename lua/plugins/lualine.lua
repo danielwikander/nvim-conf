@@ -6,28 +6,28 @@ return {
     local theme = require('kanagawa.colors').setup().theme
     local kanagawa = {}
     kanagawa.normal = {
-      a = { bg = theme.syn.fun, fg = theme.ui.bg_m3 },
+      a = { bg = theme.syn.fun, fg = theme.ui.bg_m3, gui = 'bold' },
       b = { bg = theme.ui.bg_p2, fg = theme.syn.fun },
       c = { bg = theme.ui.bg_p2, fg = theme.ui.fg },
       y = { bg = theme.ui.bg_p2, fg = theme.ui.fg },
     }
     kanagawa.insert = {
-      a = { bg = theme.diag.ok, fg = theme.ui.bg },
+      a = { bg = theme.diag.ok, fg = theme.ui.bg, gui = 'bold' },
       b = { bg = theme.ui.bg_p2, fg = theme.diag.ok },
       y = { bg = theme.ui.bg_p2, fg = theme.ui.fg },
     }
     kanagawa.command = {
-      a = { bg = theme.syn.operator, fg = theme.ui.bg },
+      a = { bg = theme.syn.operator, fg = theme.ui.bg, gui = 'bold' },
       b = { bg = theme.ui.bg_p2, fg = theme.syn.operator },
       y = { bg = theme.ui.bg_p2, fg = theme.ui.fg },
     }
     kanagawa.visual = {
-      a = { bg = theme.syn.keyword, fg = theme.ui.bg },
+      a = { bg = theme.syn.keyword, fg = theme.ui.bg, gui = 'bold' },
       b = { bg = theme.ui.bg_p2, fg = theme.syn.keyword },
       y = { bg = theme.ui.bg_p2, fg = theme.ui.fg },
     }
     kanagawa.replace = {
-      a = { bg = theme.syn.constant, fg = theme.ui.bg },
+      a = { bg = theme.syn.constant, fg = theme.ui.bg, gui = 'bold' },
       b = { bg = theme.ui.bg_p2, fg = theme.syn.constant },
       y = { bg = theme.ui.bg_p2, fg = theme.ui.fg },
     }

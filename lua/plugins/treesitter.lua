@@ -26,7 +26,6 @@ return {
         'markdown',
         'markdown_inline',
         'python',
-        'rust',
         'scss',
         'toml',
         'typescript',

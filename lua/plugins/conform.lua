@@ -47,7 +47,6 @@ return {
         markdown = { { 'prettierd', 'prettier' } },
         graphql = { { 'prettierd', 'prettier' } },
         lua = { 'stylua' },
-        rust = { 'rustfmt' },
       },
     })
   end,

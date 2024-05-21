@@ -49,7 +49,6 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'b0o/schemastore.nvim',
       'jmederosalvarado/roslyn.nvim',
-      'simrat39/rust-tools.nvim',
       'Decodetalkers/csharpls-extended-lsp.nvim',
     },
     config = function()
@@ -96,21 +95,6 @@ return {
                       [vim.fn.expand('$VIMRUNTIME/lua')] = true,
                       [vim.fn.stdpath('config') .. '/lua'] = true,
                     },
-                  },
-                },
-              },
-            })
-          end,
-
-          ['rust_analyzer'] = function()
-            require('lspconfig').rust_analyzer.setup({
-              on_attach = on_attach,
-              capabilities = capabilities,
-              settings = {
-                ['rust-analyzer'] = {
-                  checkOnSave = {
-                    command = 'clippy',
-                    allTargets = false,
                   },
                 },
               },
@@ -168,13 +152,6 @@ return {
               analyze_open_documents_only = false,
             })
           end,
-        },
-      })
-
-      require('rust-tools').setup({
-        server = {
-          on_attach = on_attach,
-          capabilities = capabilities,
         },
       })
     end,
