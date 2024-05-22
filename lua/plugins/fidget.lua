@@ -5,7 +5,7 @@ return {
     require('fidget').setup({
       progress = {
         display = {
-          done_icon = '󰸞',
+          done_icon = '✓',
           done_style = 'FidgetCompleted',
           progress_style = 'FidgetProgress',
         },
