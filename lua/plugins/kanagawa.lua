@@ -125,6 +125,9 @@ return {
           FidgetProgress = { fg = palette.dragonBlue2 },
           FidgetCompleted = { fg = palette.springGreen },
 
+          StatusLine = { bg = theme.ui.bg_p1, fg = theme.ui.bg_p1 },
+          StatusLineNC = { bg = theme.ui.bg_p1, fg = theme.ui.bg_p1 },
+
           MatchParen = { fg = palette.springGreen },
           YankHighlight = { fg = palette.springGreen, bg = theme.ui.bg_p2 },
         }
