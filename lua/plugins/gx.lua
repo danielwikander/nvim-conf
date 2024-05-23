@@ -14,5 +14,5 @@ return {
   submodules = false, -- not needed, submodules are required only for tests
   cmd = { 'Browse' },
   dependencies = { 'nvim-lua/plenary.nvim' },
-  config = true, -- default settings
+  config = true,
 }

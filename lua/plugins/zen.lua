@@ -10,8 +10,8 @@ return {
     window = {
       backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
       options = {
-        signcolumn = 'no', -- disable signcolumn
-        cursorcolumn = false, -- disable cursor column
+        signcolumn = 'no',
+        cursorcolumn = false,
       },
     },
     plugins = {
