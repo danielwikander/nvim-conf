@@ -4,7 +4,6 @@ return {
   keys = {
     { 'cc', desc = 'Line comment' },
     { 'cc', mode = 'v', desc = 'Line comment visual mode' },
-    { 'gc', desc = 'Comment textobject' },
     { 'gc', mode = 'v', desc = 'Comment textobject' },
   },
   dependencies = {

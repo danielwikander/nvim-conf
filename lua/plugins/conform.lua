@@ -5,12 +5,6 @@ return {
   cmd = { 'ConformInfo' },
   keys = {
     {
-      '=',
-      '',
-      mode = { 'n', 'v' },
-      desc = 'Format',
-    },
-    {
       '==',
       function()
         require('conform').format({
