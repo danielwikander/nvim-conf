@@ -1,6 +1,7 @@
 return {
   'levouh/tint.nvim',
   event = { 'BufReadPost', 'BufNewFile' },
+  priority = 10,
   config = function()
     require('tint').setup({
       tint = -60,
@@ -16,6 +17,14 @@ return {
         'NeoTreeFileStats',
         'NeoTreeMessage',
         'EndOfBuffer',
+        'IblIndent',
+        'IblScope',
+        'IndentBlanklineChar',
+        'IndentBlanklineSpaceChar',
+        'IndentBlanklineSpaceCharBlankline',
+        '@ibl.scope.char.1',
+        '@ibl.indent.char.1*',
+        '@ibl.whitespace.char.1*',
       },
     })
   end,

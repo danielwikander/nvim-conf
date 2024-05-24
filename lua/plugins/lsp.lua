@@ -118,8 +118,16 @@ return {
 
           ['yamlls'] = function()
             require('lspconfig').yamlls.setup({
+              capabilities = capabilities,
+              on_attach = function(client, bufnr)
+                client.resolved_capabilities.document_formatting = true
+                on_attach(client, bufnr)
+              end,
               settings = {
                 yaml = {
+                  format = {
+                    enable = true,
+                  },
                   schemaStore = {
                     -- Schemastore handled separately
                     enable = false,
