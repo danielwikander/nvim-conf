@@ -28,6 +28,7 @@ return {
         'python',
         'scss',
         'toml',
+        'tsx',
         'typescript',
         'vim',
         'vimdoc',

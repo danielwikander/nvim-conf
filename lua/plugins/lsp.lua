@@ -55,7 +55,9 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-      require('mason-tool-installer').setup({ ensure_installed = { 'stylua', 'prettierd', 'prettier', 'eslint' } })
+      require('mason-tool-installer').setup({
+        ensure_installed = { 'stylua', 'prettierd', 'prettier', 'eslint_d', 'eslint', 'yamlls', 'jsonls' },
+      })
 
       require('mason-lspconfig').setup({
         automatic_installation = true,
@@ -87,7 +89,7 @@ return {
                   format = { enable = false },
                   telemetry = { enable = false },
                   diagnostics = {
-                    globals = { 'vim', 'MiniFiles' },
+                    globals = { 'vim' },
                   },
                   workspace = {
                     checkThirdParty = false,

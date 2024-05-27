@@ -31,7 +31,7 @@ return {
     {
       '<leader>p',
       function()
-        require('telescope.builtin').live_grep()
+        require('telescope.builtin').live_grep({ disable_coordinates = true })
       end,
       desc = 'Search string',
     },
