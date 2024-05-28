@@ -163,6 +163,13 @@ return {
       end,
       desc = 'Projects',
     },
+    {
+      '<leader>fh',
+      function()
+        require('telescope.builtin').help_tags()
+      end,
+      desc = 'Help tags',
+    },
   },
   lazy = true,
   config = function()
@@ -219,7 +226,6 @@ return {
             'f',
             '--color',
             'never',
-            '--strip-cwd-prefix',
           },
         },
       },
