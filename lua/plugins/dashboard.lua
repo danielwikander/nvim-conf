@@ -63,13 +63,6 @@ return {
             key_format = ' %s',
           },
           {
-            action = "lua require('persistence').load()",
-            desc = ' Restore Session',
-            icon = ' ',
-            key = 's',
-            key_format = ' %s',
-          },
-          {
             action = 'Lazy update | Dashboard',
             desc = ' Update',
             icon = ' ',
