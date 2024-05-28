@@ -45,21 +45,21 @@ return {
     {
       '<leader>fw',
       function()
-        require('telescope.builtin').grep_string()
+        require('telescope.builtin').grep_string({ disable_coordinates = true })
       end,
       desc = 'Search word',
     },
     {
       '<leader>fr',
       function()
-        require('telescope.builtin').oldfiles()
+        require('telescope.builtin').oldfiles({ only_cwd = true })
       end,
       desc = 'Recent files',
     },
     {
       '<leader>ff',
       function()
-        require('telescope.builtin').find_files()
+        require('telescope.builtin').find_files({ find_command = { 'fd' } })
       end,
       desc = 'Files',
     },
@@ -206,6 +206,20 @@ return {
             ['<down>'] = actions.cycle_history_next,
             ['<up>'] = actions.cycle_history_prev,
             ['<esc>'] = actions.close,
+          },
+        },
+      },
+      pickers = {
+        find_files = {
+          follow = true,
+          hidden = true,
+          find_command = {
+            'fd',
+            '--type',
+            'f',
+            '--color',
+            'never',
+            '--strip-cwd-prefix',
           },
         },
       },
