@@ -88,6 +88,7 @@ return {
         { name = 'buffer' }, -- text within current buffer
         { name = 'path' }, -- file system paths
         { name = 'nvim_lsp_signature_help' }, -- signature
+        { name = 'lazydev' },
       }),
       formatting = {
         format = lspkind.cmp_format({
