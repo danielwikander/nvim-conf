@@ -54,6 +54,13 @@ return {
       function()
         require('telescope.builtin').oldfiles({ only_cwd = true })
       end,
+      desc = 'Recent files (in cwd)',
+    },
+    {
+      '<leader>fR',
+      function()
+        require('telescope.builtin').oldfiles()
+      end,
       desc = 'Recent files',
     },
     {
