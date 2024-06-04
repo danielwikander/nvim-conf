@@ -49,6 +49,14 @@ return {
     popup_border_style = 'solid',
     use_default_mappings = false,
     default_component_configs = {
+      diagnostics = {
+        symbols = {
+          hint = '⚑',
+          info = '',
+          warn = '▲',
+          error = '▲',
+        },
+      },
       container = {
         enable_character_fade = true,
         width = '100%',

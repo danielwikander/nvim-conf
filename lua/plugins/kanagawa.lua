@@ -47,12 +47,6 @@ return {
           NeoTreeTitleBar = { fg = theme.ui.fg },
           NeoTreeFloatTitle = { fg = theme.ui.fg },
 
-          -- Tabline
-          TabLine = { bg = theme.ui.bg_m3 },
-          TabLineSel = { bg = theme.ui.bg },
-          TabLineFill = { bg = theme.ui.bg_m3 },
-          BufferTabpageFill = { bg = theme.ui.bg_m3 },
-
           -- Darker, more subtle indent lines
           IblIndent = { fg = '#21201d' }, -- somewhere between bg_m1 and bg_m2
           NeoTreeIndentMarker = { fg = '#21201d' }, -- somewhere between bg_m1 and bg_m2
@@ -106,12 +100,6 @@ return {
           CmpItemKindInterface = { fg = palette.lightBlue },
           CmpItemKindColor = { fg = palette.lightBlue },
           CmpItemKindTypeParameter = { fg = palette.lightBlue },
-
-          MiniFilesNormal = { fg = palette.fujiWhite, bg = theme.ui.bg_p1 },
-          MiniFilesBorder = { bg = theme.ui.bg_p1, fg = theme.ui.bg_p1 },
-          MiniFilesBorderModified = { fg = palette.surimiOrange, bg = theme.ui.bg_p1 },
-          MiniFilesTitle = { bg = theme.ui.bg_p1, fg = palette.katanaGray },
-          MiniFilesTitleFocused = { bg = theme.ui.bg_p1, fg = palette.waveRed, bold = true },
 
           DashboardDesc = { fg = palette.fujiWhite },
 

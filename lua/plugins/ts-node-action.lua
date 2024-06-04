@@ -3,7 +3,7 @@ return {
   event = { 'BufReadPost', 'BufNewFile' },
   keys = {
     {
-      'J',
+      '<leader>j',
       function()
         require('ts-node-action').node_action()
       end,
