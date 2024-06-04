@@ -88,16 +88,6 @@ return {
                 Lua = {
                   format = { enable = false },
                   telemetry = { enable = false },
-                  diagnostics = {
-                    globals = { 'vim' },
-                  },
-                  workspace = {
-                    checkThirdParty = false,
-                    library = {
-                      [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-                      [vim.fn.stdpath('config') .. '/lua'] = true,
-                    },
-                  },
                 },
               },
             })
