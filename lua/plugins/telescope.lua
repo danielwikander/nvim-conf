@@ -24,14 +24,21 @@ return {
     {
       '<leader>P',
       function()
-        require('telescope.builtin').live_grep({ file_ignore_patterns = { '%.test.tsx' }, disable_coordinates = true })
+        require('telescope.builtin').live_grep({
+          file_ignore_patterns = { '%.lock' },
+          disable_coordinates = true,
+          additional_args = { '--hidden' },
+        })
       end,
       desc = 'Search string (exclude tests)',
     },
     {
       '<leader>p',
       function()
-        require('telescope.builtin').live_grep({ disable_coordinates = true })
+        require('telescope.builtin').live_grep({
+          disable_coordinates = true,
+          file_ignore_patterns = { '%.lock' },
+        })
       end,
       desc = 'Search string',
     },
