@@ -21,7 +21,10 @@ return {
           name = 'Util',
         },
         t = {
-          name = 'Toggle',
+          name = 'Toggle / Tests',
+        },
+        tt = {
+          name = 'Test',
         },
         ['"'] = {
           name = 'Format',

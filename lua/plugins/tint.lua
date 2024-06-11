@@ -22,6 +22,8 @@ return {
         'IndentBlanklineChar',
         'IndentBlanklineSpaceChar',
         'IndentBlanklineSpaceCharBlankline',
+        'NeotestIndent',
+        'NeotestExpandMarker',
         '@ibl.scope.char.1',
         '@ibl.indent.char.1*',
         '@ibl.whitespace.char.1*',

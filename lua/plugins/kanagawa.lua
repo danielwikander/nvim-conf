@@ -118,6 +118,24 @@ return {
 
           MatchParen = { fg = palette.springGreen },
           YankHighlight = { fg = palette.springGreen, bg = theme.ui.bg_p2 },
+
+          NeotestAdapterName = { fg = palette.dragonBlue2, bold = true },
+          NeotestBorder = { fg = palette.springGreen },
+          NeotestDir = { fg = palette.dragonBlue2 },
+          NeotestExpandMarker = { fg = '#21201d' },
+          NeotestFailed = { fg = palette.waveRed },
+          NeotestFile = { fg = palette.dragonBlue2 },
+          NeotestFocused = { fg = palette.springGreen },
+          NeotestIndent = { fg = '#21201d' },
+          NeotestMarked = { fg = palette.surimiOrange },
+          NeotestNamespace = { fg = palette.dragonBlue2 },
+          NeotestPassed = { fg = palette.springGreen },
+          NeotestRunning = { fg = palette.carpYellow },
+          NeotestWinSelect = { fg = palette.springGreen },
+          NeotestSkipped = { fg = palette.dragonBlue2 },
+          NeotestTarget = { fg = palette.waveRed },
+          NeotestUnknown = { fg = palette.springGreen },
+          NeotestWatching = { fg = palette.carpYellow },
         }
       end,
     })
