@@ -17,11 +17,25 @@ return {
       desc = 'Neotest run closest',
     },
     {
+      '<leader>tta',
+      function()
+        require('neotest').run.run(vim.fn.getcwd())
+      end,
+      desc = 'Neotest run all',
+    },
+    {
       '<leader>tts',
       function()
         require('neotest').summary.open()
       end,
       desc = 'Neotest summary',
+    },
+    {
+      '<leader>tto',
+      function()
+        require('neotest').output_panel.open()
+      end,
+      desc = 'Neotest output',
     },
   },
   dependencies = {
@@ -56,6 +70,7 @@ return {
       summary = {
         mappings = {
           expand = { 'H', 'L', '<CR>', '<2-LeftMouse>' },
+          stop = { 'u', 's' },
         },
       },
     })
