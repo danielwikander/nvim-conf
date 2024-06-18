@@ -1,6 +1,7 @@
 return {
   'pmizio/typescript-tools.nvim',
   event = { 'BufReadPost *.ts,*.tsx,*.js,*.jsx', 'BufNewFile *.ts,*.tsx,*.js,*.jsx' },
+  enabled = false,
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-lspconfig',

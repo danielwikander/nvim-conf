@@ -26,7 +26,7 @@ return {
     {
       '<leader>tts',
       function()
-        require('neotest').summary.open()
+        require('neotest').summary.toggle()
       end,
       desc = 'Neotest summary',
     },
@@ -50,7 +50,7 @@ return {
       adapters = {
         require('neotest-jest')({
           jestCommand = 'yarn test',
-          jestConfigFile = 'jest.config.js',
+          jestConfigFile = 'jest.config.ts',
           env = { CI = true },
           cwd = function()
             return vim.fn.getcwd()
@@ -68,9 +68,11 @@ return {
         unknown = '',
       },
       summary = {
+        expand_errors = true,
         mappings = {
           expand = { 'H', 'L', '<CR>', '<2-LeftMouse>' },
           stop = { 'u', 's' },
+          watch = { 'W' },
         },
       },
     })

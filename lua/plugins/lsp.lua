@@ -50,25 +50,39 @@ return {
       'b0o/schemastore.nvim',
       'jmederosalvarado/roslyn.nvim',
       'Decodetalkers/csharpls-extended-lsp.nvim',
+      'yioneko/nvim-vtsls',
+      { 'dmmulroy/ts-error-translator.nvim', config = true },
     },
     config = function()
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
       require('mason-tool-installer').setup({
-        ensure_installed = { 'stylua', 'prettierd', 'prettier', 'eslint_d', 'eslint', 'yamlls', 'jsonls' },
+        ensure_installed = {
+          'eslint',
+          'eslint_d',
+          'jsonls',
+          'prettier',
+          'prettierd',
+          'stylua',
+          -- 'tsserver',
+          'vtsls',
+          'yamlls',
+        },
       })
 
       require('mason-lspconfig').setup({
         automatic_installation = true,
         ensure_installed = {
           'cssls',
-          'omnisharp',
           'eslint',
           'html',
           'jsonls',
           'lua_ls',
           'marksman',
+          'omnisharp',
+          -- 'tsserver',
+          'vtsls',
           'yamlls',
         },
         handlers = {
@@ -89,6 +103,11 @@ return {
                   format = { enable = false },
                   telemetry = { enable = false },
                   diagnostics = { globals = { 'vim' } },
+                  workspace = {
+                    library = {
+                      vim.env.VIMRUNTIME,
+                    },
+                  },
                 },
               },
             })
@@ -148,6 +167,14 @@ return {
               enable_import_completion = true,
               sdk_include_prereleases = true,
               analyze_open_documents_only = false,
+            })
+          end,
+
+          ['vtsls'] = function()
+            require('lspconfig.configs').vtsls = require('vtsls').lspconfig -- set default server config, optional but recommended
+            require('lspconfig').vtsls.setup({
+              capabilities = capabilities,
+              on_attach = on_attach,
             })
           end,
         },

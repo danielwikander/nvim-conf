@@ -83,12 +83,12 @@ return {
       },
       mapping = custom_mapping,
       sources = cmp.config.sources({
+        { name = 'nvim_lsp_signature_help' }, -- signature
         { name = 'nvim_lsp' },
         { name = 'luasnip' }, -- snippets
         { name = 'buffer' }, -- text within current buffer
         { name = 'path' }, -- file system paths
-        { name = 'nvim_lsp_signature_help' }, -- signature
-        { name = 'lazydev' },
+        -- { name = 'lazydev' },
       }),
       formatting = {
         format = lspkind.cmp_format({
@@ -105,7 +105,7 @@ return {
       }, {
         {
           name = 'cmdline',
-          keyword_length = 3,
+          keyword_length = 2,
           option = {
             ignore_cmds = { 'Man', '!' },
           },
@@ -115,7 +115,7 @@ return {
     cmp.setup.cmdline({ '/', '?' }, {
       mapping = cmdline_mapping,
       sources = {
-        { name = 'buffer', keyword_length = 3 },
+        { name = 'buffer', keyword_length = 2 },
       },
     })
   end,
