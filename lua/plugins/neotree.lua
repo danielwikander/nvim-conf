@@ -53,8 +53,8 @@ return {
         symbols = {
           hint = '⚑',
           info = '',
-          warn = '▲',
-          error = '▲',
+          warn = '󰔶',
+          error = '󰔶',
         },
       },
       container = {

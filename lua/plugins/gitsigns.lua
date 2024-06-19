@@ -9,6 +9,11 @@ return {
     { '<leader>gr', '<cmd>Gitsigns reset_hunk<CR>', desc = 'Reset git hunk' },
   },
   config = function()
-    require('gitsigns').setup()
+    require('gitsigns').setup({
+      signs = {
+        add = { text = '▍' },
+        change = { text = '▍' },
+      },
+    })
   end,
 }

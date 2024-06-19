@@ -23,6 +23,11 @@ return {
         if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
           return
         end
+        -- Disable autoformat on certain filenames
+        local ignore_filenames = { 'package.json' }
+        if vim.tbl_contains(ignore_filenames, vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))) then
+          return
+        end
         return {
           timeout_ms = 500,
           lsp_fallback = true,

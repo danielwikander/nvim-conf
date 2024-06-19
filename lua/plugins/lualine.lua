@@ -9,32 +9,38 @@ return {
       a = { bg = theme.syn.fun, fg = theme.ui.bg_m3, gui = 'bold' },
       b = { bg = theme.ui.bg_p2, fg = theme.syn.fun },
       c = { bg = theme.ui.bg_p2, fg = theme.ui.fg },
+      x = { bg = theme.ui.bg_p2, fg = theme.syn.comment },
       y = { bg = theme.ui.bg_p2, fg = theme.ui.fg },
     }
     kanagawa.insert = {
       a = { bg = theme.diag.ok, fg = theme.ui.bg, gui = 'bold' },
       b = { bg = theme.ui.bg_p2, fg = theme.diag.ok },
+      x = { bg = theme.ui.bg_p2, fg = theme.syn.comment },
       y = { bg = theme.ui.bg_p2, fg = theme.ui.fg },
     }
     kanagawa.command = {
       a = { bg = theme.syn.operator, fg = theme.ui.bg, gui = 'bold' },
       b = { bg = theme.ui.bg_p2, fg = theme.syn.operator },
+      x = { bg = theme.ui.bg_p2, fg = theme.syn.comment },
       y = { bg = theme.ui.bg_p2, fg = theme.ui.fg },
     }
     kanagawa.visual = {
       a = { bg = theme.syn.keyword, fg = theme.ui.bg, gui = 'bold' },
       b = { bg = theme.ui.bg_p2, fg = theme.syn.keyword },
+      x = { bg = theme.ui.bg_p2, fg = theme.syn.comment },
       y = { bg = theme.ui.bg_p2, fg = theme.ui.fg },
     }
     kanagawa.replace = {
       a = { bg = theme.syn.constant, fg = theme.ui.bg, gui = 'bold' },
       b = { bg = theme.ui.bg_p2, fg = theme.syn.constant },
+      x = { bg = theme.ui.bg_p2, fg = theme.syn.comment },
       y = { bg = theme.ui.bg_p2, fg = theme.ui.fg },
     }
     kanagawa.inactive = {
       a = { bg = theme.ui.bg_p1, fg = theme.ui.fg_dim },
       b = { bg = theme.ui.bg_p1, fg = theme.ui.fg_dim, gui = 'bold' },
       c = { bg = theme.ui.bg_p1, fg = theme.syn.comment },
+      x = { bg = theme.ui.bg_p2, fg = theme.syn.comment },
       z = { bg = theme.ui.bg_p1, fg = theme.syn.comment },
     }
     if vim.g.kanagawa_lualine_bold then
@@ -69,9 +75,9 @@ return {
           {
             'diagnostics',
             symbols = {
-              error = '▲ ',
-              warn = '▲ ',
-              info = '⚑ ',
+              error = '󰔶 ',
+              warn = '󰔶 ',
+              info = ' ',
               hint = '⚑ ',
             },
           },
