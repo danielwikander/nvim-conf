@@ -82,6 +82,7 @@ return {
           'marksman',
           'omnisharp',
           -- 'tsserver',
+          'graphql',
           'vtsls',
           'yamlls',
         },

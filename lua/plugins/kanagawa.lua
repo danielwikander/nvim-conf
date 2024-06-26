@@ -27,6 +27,7 @@ return {
 
           -- Lazy
           LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+          LazyTaskOutput = { fg = palette.katanaGray },
 
           -- Mason
           MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
