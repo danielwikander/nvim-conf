@@ -34,7 +34,22 @@ return {
       end,
     })
     function ToggleLazygit()
-      lazygit:toggle()
+      local modified = false
+      for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.api.nvim_buf_get_option(buf, 'modified') then
+          modified = true
+          break
+        end
+      end
+      if modified then
+        vim.ui.select({ 'Yes', 'No' }, { prompt = 'Modified buffer open, start lazygit anyway?' }, function(choice)
+          if choice == 'Yes' then
+            lazygit:toggle()
+          end
+        end)
+      else
+        lazygit:toggle()
+      end
     end
   end,
 }
