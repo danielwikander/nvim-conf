@@ -93,6 +93,7 @@ map('n', '<c-l>', '<c-w>l', { desc = 'Navigate to window below' })
 map('t', '<C-h>', [[<C-\><C-N><C-w>h]], { desc = 'Navigate to window on the left', noremap = true, silent = true })
 map('t', '<C-j>', [[<C-\><C-N><C-w>j]], { desc = 'Navigate to window below', noremap = true, silent = true })
 map('t', '<C-k>', [[<C-\><C-N><C-w>k]], { desc = 'Navigate to window above', noremap = true, silent = true })
+map('t', '<C-l>', [[<C-\><C-N><C-w>k]], { desc = 'Navigate to window on the right', noremap = true, silent = true })
 map('t', '<esc>', [[<C-\><C-n>]], { desc = 'Exit terminal mode', noremap = true, silent = true })
 
 -- Window resize

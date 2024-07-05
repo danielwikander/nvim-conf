@@ -1,7 +1,10 @@
 return {
   'nvim-lualine/lualine.nvim',
   event = 'UIEnter',
-  dependencies = { 'nvim-tree/nvim-web-devicons', 'rebelot/kanagawa.nvim' },
+  dependencies = {
+    'echasnovski/mini.icons',
+    'rebelot/kanagawa.nvim',
+  },
   config = function()
     local theme = require('kanagawa.colors').setup().theme
     local kanagawa = {}
