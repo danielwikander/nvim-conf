@@ -37,7 +37,8 @@ return {
       local modified = false
       local buffer
       for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-        if vim.api.nvim_buf_get_option(buf, 'modified') then
+        -- if vim.api.nvim_buf_get_option(buf, 'modified') then
+        if vim.api.nvim_get_option_value('modified', { buf = buf }) then
           modified = true
           buffer = buf
           break
