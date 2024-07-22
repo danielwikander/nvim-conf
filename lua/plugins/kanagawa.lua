@@ -64,6 +64,9 @@ return {
           PmenuSbar = { bg = theme.ui.bg_m1 },
           PmenuThumb = { bg = theme.ui.bg_p2 },
 
+          -- Cursor
+          CursorLine = { bg = theme.ui.bg_p1 },
+
           -- Cmp
           CmpDocumentationBorder = { bg = theme.ui.bg_p1, fg = theme.ui.bg_p1 },
 
