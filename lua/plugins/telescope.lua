@@ -184,6 +184,11 @@ return {
       end,
       desc = 'Help tags',
     },
+    {
+      '<leader>ft',
+      ':Telescope<CR>',
+      desc = 'Other pickers..',
+    },
   },
   lazy = true,
   config = function()
