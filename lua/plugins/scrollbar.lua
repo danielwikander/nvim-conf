@@ -9,6 +9,9 @@ return {
         cursor = false,
         gitsigns = true,
       },
+      handle = {
+        blend = 10,
+      },
     })
   end,
 }

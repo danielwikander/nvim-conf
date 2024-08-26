@@ -8,7 +8,7 @@ return {
       '==',
       function()
         require('conform').format({
-          lsp_fallback = true,
+          lsp_format = 'fallback',
           async = true,
           timeout_ms = 1000,
         })
@@ -30,7 +30,7 @@ return {
         end
         return {
           timeout_ms = 500,
-          lsp_fallback = true,
+          lsp_format = 'fallback',
         }
       end,
       formatters_by_ft = {
