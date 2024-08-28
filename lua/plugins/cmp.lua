@@ -1,5 +1,7 @@
 return {
-  'hrsh7th/nvim-cmp',
+  -- 'hrsh7th/nvim-cmp',
+  'yioneko/nvim-cmp',
+  branch = 'perf',
   event = { 'InsertEnter', 'CmdlineEnter' },
   dependencies = {
     'hrsh7th/cmp-buffer', -- source for text in buffer
