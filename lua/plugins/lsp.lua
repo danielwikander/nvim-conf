@@ -169,6 +169,13 @@ return {
               on_attach = on_attach,
             })
           end,
+
+          ['graphql'] = function()
+            require('lspconfig').graphql.setup({
+              capabilities = capabilities,
+              on_attach = on_attach,
+            })
+          end,
         },
       })
     end,
