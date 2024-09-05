@@ -11,7 +11,8 @@ return {
     'saadparwaiz1/cmp_luasnip', -- for autocompletion
     'rafamadriz/friendly-snippets', -- useful snippets
     'onsails/lspkind.nvim', -- vs-code like pictograms
-    'hrsh7th/cmp-nvim-lsp-signature-help', -- Optional
+    'hrsh7th/cmp-nvim-lsp',
+    -- 'hrsh7th/cmp-nvim-lsp-signature-help', -- Optional
   },
   config = function()
     local cmp = require('cmp')
@@ -85,7 +86,7 @@ return {
       },
       mapping = custom_mapping,
       sources = cmp.config.sources({
-        { name = 'nvim_lsp_signature_help' }, -- signature
+        -- { name = 'nvim_lsp_signature_help' }, -- signature
         { name = 'nvim_lsp' },
         { name = 'luasnip' }, -- snippets
         { name = 'buffer' }, -- text within current buffer

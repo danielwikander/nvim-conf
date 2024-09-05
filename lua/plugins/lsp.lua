@@ -30,6 +30,15 @@ local on_attach = function(_, bufnr)
   map('<leader>e', vim.diagnostic.open_float, 'Line diagnostics')
   map('<leader>ul', ':LspRestart<CR>', 'Restart LSP')
   map('K', vim.lsp.buf.hover, 'Hover documentation')
+
+  vim.keymap.set('i', '<c-s>', function()
+    vim.lsp.buf.signature_help()
+  end, { buffer = true })
+
+  vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers['signature_help'], {
+    border = 'none',
+    close_events = { 'CursorMoved', 'BufHidden', 'InsertCharPre' },
+  })
 end
 
 return {
@@ -65,7 +74,6 @@ return {
           'prettier',
           'prettierd',
           'stylua',
-          -- 'tsserver',
           'vtsls',
           'yamlls',
         },
@@ -81,7 +89,6 @@ return {
           'lua_ls',
           'marksman',
           'omnisharp',
-          -- 'tsserver',
           'graphql',
           'vtsls',
           'yamlls',
