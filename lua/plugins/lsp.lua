@@ -50,7 +50,15 @@ return {
         'williamboman/mason.nvim',
         lazy = true,
         cmd = { 'Mason', 'MasonInstall', 'MasonInstallAll', 'MasonUpdate' },
-        config = true,
+        opts = {
+          ui = {
+            icons = {
+              package_installed = '●',
+              package_uninstalled = '○',
+              package_pending = '➜',
+            },
+          },
+        },
       },
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
@@ -60,7 +68,6 @@ return {
       'jmederosalvarado/roslyn.nvim',
       'Decodetalkers/csharpls-extended-lsp.nvim',
       'yioneko/nvim-vtsls',
-      { 'dmmulroy/ts-error-translator.nvim', config = true },
     },
     config = function()
       local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -69,7 +76,6 @@ return {
       require('mason-tool-installer').setup({
         ensure_installed = {
           'eslint',
-          'eslint_d',
           'jsonls',
           'prettier',
           'prettierd',
@@ -174,6 +180,16 @@ return {
             require('lspconfig').vtsls.setup({
               capabilities = capabilities,
               on_attach = on_attach,
+            })
+          end,
+
+          ['eslint'] = function()
+            require('lspconfig').eslint.setup({
+              capabilities = capabilities,
+              on_attach = on_attach,
+              settings = {
+                packageManager = 'yarn',
+              },
             })
           end,
 
