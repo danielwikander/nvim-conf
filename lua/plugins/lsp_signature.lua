@@ -1,6 +1,7 @@
 return {
   'ray-x/lsp_signature.nvim',
   event = 'VeryLazy',
+  enabled = false,
   opts = {
     hint_inline = function()
       return false
