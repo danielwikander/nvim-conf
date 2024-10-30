@@ -1,6 +1,7 @@
 return {
   'mfussenegger/nvim-lint',
   lazy = true,
+  enabled = false, -- Disabled for now because eslint-lsp handles this already
   event = { 'BufReadPost', 'BufNewFile' },
   config = function()
     local lint = require('lint')
