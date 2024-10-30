@@ -120,6 +120,7 @@ return {
                   workspace = {
                     library = {
                       vim.env.VIMRUNTIME,
+                      '${3rd}/luv/library',
                     },
                   },
                 },
@@ -180,6 +181,27 @@ return {
             require('lspconfig').vtsls.setup({
               capabilities = capabilities,
               on_attach = on_attach,
+              settings = {
+                vtsls = {
+                  experimental = {
+                    completion = {
+                      completion = {
+                        enableServerSideFuzzyMatch = true,
+                      },
+                    },
+                  },
+                },
+                typescript = {
+                  updateImportsOnFileMove = { enabled = 'always' },
+                  importModuleSpecifier = 'non-relative',
+                  suggest = {
+                    completeFunctionCalls = true,
+                  },
+                  inlayHints = {
+                    enumMemberValues = { enabled = true },
+                  },
+                },
+              },
             })
           end,
 
