@@ -22,6 +22,7 @@ return {
         height = vim.o.lines,
       },
       start_in_insert = true,
+      persist_size = false,
       -- function to run on opening the terminal
       on_open = function(term)
         vim.cmd('startinsert!')
