@@ -9,6 +9,7 @@ return {
       size = 25,
       open_mapping = [[<C-t>]],
       start_in_insert = false,
+      autochdir = true,
     })
     local terminal = require('toggleterm.terminal').Terminal
     local lazygit = terminal:new({
