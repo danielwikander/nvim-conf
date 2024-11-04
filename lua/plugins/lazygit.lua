@@ -1,6 +1,7 @@
-vim.g.lazygit_floating_window_scaling_factor = 1
+-- vim.g.lazygit_floating_window_scaling_factor = 1
 
 return {
+  enabled = false,
   'kdheepak/lazygit.nvim',
   lazy = true,
   cmd = {
