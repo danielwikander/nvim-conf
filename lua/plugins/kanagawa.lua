@@ -10,6 +10,7 @@ return {
       overrides = function(colors)
         local theme = colors.theme
         local palette = colors.palette
+
         return {
           -- Telescope
           TelescopeTitle = { fg = theme.ui.bg },
@@ -35,6 +36,7 @@ return {
           -- Diagnostics
           DiagnosticError = { fg = theme.vcs.removed },
           DiagnosticSignError = { fg = theme.vcs.removed },
+          DiagnosticFloatingError = { fg = theme.vcs.removed },
           TreeDiagnosticSignHint = { bg = theme.ui.bg, fg = theme.diag.hint },
           TreeDiagnosticSignInfo = { bg = theme.ui.bg, fg = theme.diag.info },
           TreeDiagnosticSignWarn = { bg = theme.ui.bg, fg = theme.diag.warning },

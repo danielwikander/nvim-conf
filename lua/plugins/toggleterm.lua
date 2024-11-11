@@ -29,6 +29,10 @@ return {
         vim.api.nvim_buf_set_keymap(term.bufnr, 'n', 'q', '<cmd>close<CR>', { noremap = true, silent = true })
         vim.api.nvim_buf_set_keymap(term.bufnr, 'n', '<leader>g', '<cmd>close<CR>', { noremap = true, silent = true })
         vim.api.nvim_buf_set_keymap(term.bufnr, 't', '<esc>', '<esc>', { noremap = true, silent = true })
+        vim.api.nvim_buf_set_keymap(term.bufnr, 't', '<C-h>', '<nop>', { noremap = true, silent = true })
+        vim.api.nvim_buf_set_keymap(term.bufnr, 't', '<C-j>', '<nop>', { noremap = true, silent = true })
+        vim.api.nvim_buf_set_keymap(term.bufnr, 't', '<C-k>', '<nop>', { noremap = true, silent = true })
+        vim.api.nvim_buf_set_keymap(term.bufnr, 't', '<C-l>', '<nop>', { noremap = true, silent = true })
       end,
       -- function to run on closing the terminal
       on_close = function()
@@ -48,7 +52,7 @@ return {
       end
       if modified then
         vim.ui.select(
-          { 'Yes', 'No', 'Open buffer' },
+          { 'Open buffer', 'Yes', 'No' },
           { prompt = 'Modified buffer open, start lazygit anyway?' },
           function(choice)
             if choice == 'Yes' then
