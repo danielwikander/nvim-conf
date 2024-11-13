@@ -68,7 +68,7 @@ return {
 
           -- Cursor
           CursorLine = { bg = theme.ui.bg_p1 },
-          CursorLineNR = { fg = palette.katanaGray, bold = true },
+          CursorLineNR = { fg = palette.springGreen, bold = true },
 
           -- Cmp
           CmpDocumentationBorder = { bg = theme.ui.bg_p1, fg = theme.ui.bg_p1 },
