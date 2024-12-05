@@ -64,6 +64,8 @@ vim.g.dap_virtual_text = true
 
 -- Diagnostics styling
 vim.diagnostic.config({
+  -- Disabled because tiny-inline-diagnostic plugin handles this instead
+  virtual_text = false,
   float = {
     border = 'none',
   },

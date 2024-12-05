@@ -12,6 +12,7 @@ return {
     accept = { auto_brackets = { enabled = true } },
     -- experimental signature help support
     trigger = { signature_help = { enabled = true } },
+    draw = { treesitter = true },
     keymap = {
       ['<C-e>'] = { 'hide' },
       ['<CR>'] = { 'accept', 'snippet_forward', 'fallback' },

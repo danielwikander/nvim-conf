@@ -104,11 +104,11 @@ return {
           required_width = 142, -- min width of window required to show this column
         },
       },
-      window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
+      window = {
         auto_expand_width = true,
         mappings = {
-          ['<'] = 'prev_source',
-          ['>'] = 'next_source',
+          ['<s-tab>'] = 'prev_source',
+          ['<tab>'] = 'next_source',
           ['<2-LeftMouse>'] = 'open',
           ['<cr>'] = 'open',
           ['<esc>'] = 'cancel',

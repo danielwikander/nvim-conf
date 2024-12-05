@@ -1,8 +1,21 @@
+IGNORE_FILE_PATTERNS = { 'cypress/*' }
 -- Search for git files if in git folder, else normal file search
-local function find_project_files()
-  local ok = pcall(require('telescope.builtin').git_files, { show_untracked = true })
-  if not ok then
-    require('telescope.builtin').find_files()
+local function find_project_files(include_all)
+  if include_all then
+    local ok = pcall(require('telescope.builtin').git_files, { show_untracked = true })
+    if not ok then
+      require('telescope.builtin').find_files()
+    end
+  else
+    local ok = pcall(
+      require('telescope.builtin').git_files,
+      { show_untracked = true, file_ignore_patterns = IGNORE_FILE_PATTERNS }
+    )
+    if not ok then
+      require('telescope.builtin').find_files({
+        file_ignore_patterns = IGNORE_FILE_PATTERNS,
+      })
+    end
   end
 end
 
@@ -87,7 +100,14 @@ return {
     {
       '<C-p>',
       function()
-        find_project_files()
+        find_project_files(false)
+      end,
+      desc = 'Search git files, ignore some',
+    },
+    {
+      '<S-C-p>',
+      function()
+        find_project_files(true)
       end,
       desc = 'Search git files',
     },
