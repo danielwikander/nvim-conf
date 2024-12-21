@@ -1,6 +1,7 @@
 return {
   'levouh/tint.nvim',
   event = { 'BufReadPost', 'BufNewFile' },
+  enabled = false,
   priority = 10,
   config = function()
     require('tint').setup({

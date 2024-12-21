@@ -12,7 +12,7 @@ return {
         enabled = true,
         backend = {
           'nui',
-          'telescope',
+          -- 'telescope',
           'fzf_lua',
           'fzf',
           'builtin',

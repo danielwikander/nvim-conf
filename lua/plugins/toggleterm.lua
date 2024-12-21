@@ -1,7 +1,7 @@
 return {
   'akinsho/toggleterm.nvim',
   keys = {
-    { '<C-t>', '<cmd>ToggleTerm<cr>', mode = { 'n', 't' }, desc = 'Toggle terminal' },
+    -- { '<C-t>', '<cmd>ToggleTerm<cr>', mode = { 'n', 't' }, desc = 'Toggle terminal' },
     { '<C-g>', '<cmd>lua ToggleLazygit()<CR>', mode = { 'n', 't' }, desc = 'Toggle lazygit' },
   },
   config = function()

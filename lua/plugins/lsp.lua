@@ -51,6 +51,7 @@ return {
         lazy = true,
         cmd = { 'Mason', 'MasonInstall', 'MasonInstallAll', 'MasonUpdate' },
         opts = {
+          -- registries = { 'github:Crashdummyy/mason-registry' },
           ui = {
             icons = {
               package_installed = '●',
@@ -65,7 +66,14 @@ return {
       'nvim-lua/plenary.nvim',
       'saghen/blink.cmp',
       'b0o/schemastore.nvim',
-      'jmederosalvarado/roslyn.nvim',
+      -- 'jmederosalvarado/roslyn.nvim',
+      {
+        'seblj/roslyn.nvim',
+        ft = 'cs',
+        opts = {
+          -- your configuration comes here; leave empty for default settings
+        },
+      },
       'Decodetalkers/csharpls-extended-lsp.nvim',
       'yioneko/nvim-vtsls',
     },
@@ -93,8 +101,7 @@ return {
           'html',
           'jsonls',
           'lua_ls',
-          'marksman',
-          'omnisharp',
+          -- 'roslyn',
           'graphql',
           'vtsls',
           'yamlls',
@@ -161,18 +168,6 @@ return {
                   schemas = require('schemastore').yaml.schemas(),
                 },
               },
-            })
-          end,
-
-          ['omnisharp'] = function()
-            require('lspconfig').omnisharp.setup({
-              on_attach = on_attach,
-              capabilities = capabilities,
-              enable_roslyn_analysers = true,
-              enable_import_completion = true,
-              organize_imports_on_format = true,
-              enable_decompilation_support = true,
-              filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' },
             })
           end,
 

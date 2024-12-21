@@ -1,10 +1,12 @@
 return {
   'tadaa/vimade',
-  enable = false,
-  event = 'VeryLazy',
+  -- event = 'VeryLazy',
   setup = function()
-    local Minimalist = require('vimade.recipe.minimalist').Minimalist
-    require('vimade').setup(Minimalist({ ncmode = 'windows' }))
+    require('vimade').setup({
+      recipe = { 'duo', { animate = false } },
+      ncmode = 'windows',
+      tint = { bg = { rgb = { 0, 0, 0 }, intensity = 0.3 } },
+      enablefocusfading = true,
+    })
   end,
-  -- opts = {},
 }

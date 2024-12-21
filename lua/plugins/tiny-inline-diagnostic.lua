@@ -1,18 +1,18 @@
 return {
   'rachartier/tiny-inline-diagnostic.nvim',
   event = 'VeryLazy', -- Or `VeryLazy`
-  priority = 1000, -- needs to be loaded in first
+  priority = 999, -- needs to be loaded in first
   config = function()
     require('tiny-inline-diagnostic').setup({
-      preset = 'classic',
-      hi = {
-        -- background = '181616',
-        background = nil,
-      },
+      background = 'TinyDiag',
       options = {
         multilines = true,
-        -- use_icons_from_diagnostic = true,
       },
+      signs = {
+        left = '░',
+        right = '░',
+      },
+      blend = { factor = 0.15 },
     })
   end,
 }
