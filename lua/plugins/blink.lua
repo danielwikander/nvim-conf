@@ -12,8 +12,7 @@ return {
     -- accept = { auto_brackets = { enabled = true } },
     -- experimental signature help support
     -- trigger = { signature_help = { enabled = true } },
-    -- signature = { enabled = true },
-    -- completion = {
+    signature = { enabled = true },
     --   menu = {
     --     draw = {
     -- treesitter = true,
@@ -43,6 +42,15 @@ return {
       ['<C-j>'] = { 'show', 'select_next', 'fallback' },
       ['<Down>'] = { 'select_next', 'fallback' },
       ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+      cmdline = {
+        ['<C-e>'] = { 'hide' },
+        ['<Tab>'] = { 'accept', 'fallback' },
+        ['<Up>'] = { 'select_prev', 'fallback' },
+        ['<C-k>'] = { 'select_prev', 'fallback' },
+        ['<C-j>'] = { 'show', 'select_next', 'fallback' },
+        ['<Down>'] = { 'select_next', 'fallback' },
+        ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+      },
     },
   },
 }
