@@ -47,6 +47,286 @@ return {
       end,
       desc = 'Toggle Zoom',
     },
+    {
+      '<leader>fb',
+      function()
+        Snacks.picker.buffers()
+      end,
+      desc = 'Buffers',
+    },
+    {
+      '<leader>p',
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = 'Grep',
+    },
+    {
+      '<leader>:',
+      function()
+        Snacks.picker.command_history()
+      end,
+      desc = 'Command History',
+    },
+    {
+      '<leader><space>',
+      function()
+        Snacks.picker.smart()
+      end,
+      desc = 'Smart picker',
+    },
+    {
+      '<leader>ff',
+      function()
+        Snacks.picker.files()
+      end,
+      desc = 'Find Files',
+    },
+    {
+      '<C-p>',
+      function()
+        Snacks.picker.files()
+      end,
+      desc = 'Find Files',
+    },
+    -- find
+    {
+      '<leader>fb',
+      function()
+        Snacks.picker.buffers()
+      end,
+      desc = 'Buffers',
+    },
+    {
+      '<leader>fc',
+      function()
+        Snacks.picker.files({ cwd = vim.fn.stdpath('config') })
+      end,
+      desc = 'Find Config File',
+    },
+    {
+      '<leader>fg',
+      function()
+        Snacks.picker.git_files()
+      end,
+      desc = 'Find Git Files',
+    },
+    {
+      '<leader>fr',
+      function()
+        Snacks.picker.recent()
+      end,
+      desc = 'Recent',
+    },
+    -- git
+    {
+      '<leader>gc',
+      function()
+        Snacks.picker.git_log()
+      end,
+      desc = 'Git Log',
+    },
+    {
+      '<leader>gs',
+      function()
+        Snacks.picker.git_status()
+      end,
+      desc = 'Git Status',
+    },
+    -- Grep
+    {
+      '<leader>sb',
+      function()
+        Snacks.picker.lines()
+      end,
+      desc = 'Buffer Lines',
+    },
+    {
+      '<leader>sB',
+      function()
+        Snacks.picker.grep_buffers()
+      end,
+      desc = 'Grep Open Buffers',
+    },
+    {
+      '<leader>sg',
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = 'Grep',
+    },
+    {
+      '<leader>sw',
+      function()
+        Snacks.picker.grep_word()
+      end,
+      desc = 'Visual selection or word',
+      mode = { 'n', 'x' },
+    },
+    -- search
+    {
+      '<leader>s"',
+      function()
+        Snacks.picker.registers()
+      end,
+      desc = 'Registers',
+    },
+    {
+      '<leader>sa',
+      function()
+        Snacks.picker.autocmds()
+      end,
+      desc = 'Autocmds',
+    },
+    {
+      '<leader>sc',
+      function()
+        Snacks.picker.command_history()
+      end,
+      desc = 'Command History',
+    },
+    {
+      '<leader>sC',
+      function()
+        Snacks.picker.commands()
+      end,
+      desc = 'Commands',
+    },
+    {
+      '<leader>sd',
+      function()
+        Snacks.picker.diagnostics()
+      end,
+      desc = 'Diagnostics',
+    },
+    {
+      '<leader>sd',
+      function()
+        Snacks.picker.diagnostics()
+      end,
+      desc = 'Diagnostics',
+    },
+    {
+      '<leader>E',
+      function()
+        Snacks.picker.diagnostics()
+      end,
+      desc = 'Diagnostics',
+    },
+    {
+      '<leader>sh',
+      function()
+        Snacks.picker.help()
+      end,
+      desc = 'Help Pages',
+    },
+    {
+      '<leader>sH',
+      function()
+        Snacks.picker.highlights()
+      end,
+      desc = 'Highlights',
+    },
+    {
+      '<leader>sj',
+      function()
+        Snacks.picker.jumps()
+      end,
+      desc = 'Jumps',
+    },
+    {
+      '<leader>sk',
+      function()
+        Snacks.picker.keymaps()
+      end,
+      desc = 'Keymaps',
+    },
+    {
+      '<leader>sl',
+      function()
+        Snacks.picker.loclist()
+      end,
+      desc = 'Location List',
+    },
+    {
+      '<leader>sM',
+      function()
+        Snacks.picker.man()
+      end,
+      desc = 'Man Pages',
+    },
+    {
+      '<leader>sm',
+      function()
+        Snacks.picker.marks()
+      end,
+      desc = 'Marks',
+    },
+    {
+      '<leader>sR',
+      function()
+        Snacks.picker.resume()
+      end,
+      desc = 'Resume',
+    },
+    {
+      '<leader>sq',
+      function()
+        Snacks.picker.qflist()
+      end,
+      desc = 'Quickfix List',
+    },
+    {
+      '<leader>uC',
+      function()
+        Snacks.picker.colorschemes()
+      end,
+      desc = 'Colorschemes',
+    },
+    {
+      '<leader>qp',
+      function()
+        Snacks.picker.projects()
+      end,
+      desc = 'Projects',
+    },
+    -- LSP
+    {
+      'gd',
+      function()
+        Snacks.picker.lsp_definitions()
+      end,
+      desc = 'Goto Definition',
+    },
+    {
+      'gr',
+      function()
+        Snacks.picker.lsp_references()
+      end,
+      nowait = true,
+      desc = 'References',
+    },
+    {
+      'gI',
+      function()
+        Snacks.picker.lsp_implementations()
+      end,
+      desc = 'Goto Implementation',
+    },
+    {
+      'gy',
+      function()
+        Snacks.picker.lsp_type_definitions()
+      end,
+      desc = 'Goto T[y]pe Definition',
+    },
+    {
+      '<leader>ss',
+      function()
+        Snacks.picker.lsp_symbols()
+      end,
+      desc = 'LSP Symbols',
+    },
   },
   opts = {
     bigfile = { enabled = true },
@@ -75,29 +355,93 @@ return {
         width = 0,
       },
     },
+    picker = {
+      matcher = {
+        frecency = true,
+      },
+      formatters = {
+        file = {
+          filename_first = true,
+        },
+      },
+      win = {
+        -- input window
+        input = {
+          keys = {
+            ['<Down>'] = { 'history_forward', mode = { 'i', 'n' } },
+            ['<Up>'] = { 'history_back', mode = { 'i', 'n' } },
+            ['<Esc>'] = { 'close', mode = 'i' },
+            ['<a-h>'] = { 'toggle_hidden', mode = { 'i', 'n' } },
+            ['<a-i>'] = { 'toggle_ignored', mode = { 'i', 'n' } },
+            ['<a-m>'] = { 'toggle_maximize', mode = { 'i', 'n' } },
+            ['<a-p>'] = { 'toggle_preview', mode = { 'i', 'n' } },
+            ['<c-b>'] = { 'preview_scroll_up', mode = { 'i', 'n' } },
+            ['<c-f>'] = { 'preview_scroll_down', mode = { 'i', 'n' } },
+            ['<c-v>'] = { 'edit_vsplit', mode = { 'i', 'n' } },
+          },
+        },
+      },
+    },
     dashboard = {
       enabled = true,
       preset = {
         keys = {
 
-          { icon = ' ', key = 'f', desc = 'Find File', action = '<cmd>FzfLua files<cr>' },
-          { icon = ' ', key = 'n', desc = 'New File', action = ':ene | startinsert' },
-          { icon = ' ', key = 'p', desc = 'Find Text', action = '<cmd>FzfLua live_grep<cr>' },
-          { icon = ' ', key = 'r', desc = 'Recent Files', action = '<cmd>FzfLua oldfiles<cr>' },
+          {
+            icon = ' ',
+            key = 'f',
+            desc = 'Find File',
+            action = function()
+              Snacks.picker.files()
+            end,
+          },
+          {
+            icon = ' ',
+            key = 'n',
+            desc = 'New File',
+            action = ':ene | startinsert',
+          },
+          {
+            icon = ' ',
+            key = 'p',
+            desc = 'Find Text',
+            action = function()
+              Snacks.picker.files()
+            end,
+          },
+          {
+            icon = ' ',
+            key = 'r',
+            desc = 'Recent Files',
+            action = function()
+              Snacks.picker.recent()
+            end,
+          },
           {
             icon = ' ',
             key = 'c',
             desc = 'Config',
             action = ':e $MYVIMRC | cd%:h',
           },
-          { icon = '󰒲 ', key = 'L', desc = 'Lazy', action = ':Lazy', enabled = package.loaded.lazy ~= nil },
-          { icon = ' ', key = 'q', desc = 'Quit', action = ':qa' },
+          {
+            icon = '󰒲 ',
+            key = 'L',
+            desc = 'Lazy',
+            action = ':Lazy',
+            enabled = package.loaded.lazy ~= nil,
+          },
+          {
+            icon = ' ',
+            key = 'q',
+            desc = 'Quit',
+            action = ':qa',
+          },
         },
       },
       sections = {
         -- { section = 'header' },
         { icon = ' ', title = '', section = 'keys', indent = 0, padding = 4 },
-        { icon = ' ', title = '', section = 'recent_files', indent = 0, padding = 6 },
+        { icon = ' ', title = '', section = 'recent_files', indent = 0, padding = 6, cwd = true },
         { section = 'startup', indent = 0 },
       },
     },

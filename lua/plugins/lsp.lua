@@ -30,6 +30,7 @@ local on_attach = function(_, bufnr)
   map('<leader>e', vim.diagnostic.open_float, 'Line diagnostics')
   map('<leader>ul', ':LspRestart<CR>', 'Restart LSP')
   map('K', vim.lsp.buf.hover, 'Hover documentation')
+  map('<leader><CR>', vim.lsp.buf.code_action, 'Code Action')
 
   vim.keymap.set('i', '<c-s>', function()
     vim.lsp.buf.signature_help()

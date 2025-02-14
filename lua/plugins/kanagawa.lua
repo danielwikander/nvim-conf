@@ -12,35 +12,17 @@ return {
         local palette = colors.palette
 
         return {
-          -- Telescope
-          TelescopeTitle = { fg = theme.ui.bg },
-          TelescopePromptNormal = { bg = theme.ui.bg_p1 },
-          TelescopePromptBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
-          TelescopeResultsNormal = { bg = theme.ui.bg_m1 },
-          TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-          TelescopePreviewNormal = { bg = theme.ui.bg_dim },
-          TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
-          TelescopeDiffChanged = { fg = theme.vcs.changed },
-
-          -- Fzf
-          -- FzfLuaNormal = { bg = theme.ui.bg_p1 },
-          -- FzfLuaPreviewNormal
-          FzfLuaFzfSeparator = { fg = theme.ui.bg_dim },
-          -- FzfLuaFzfPrompt = { bg = theme.ui.bg_m1 },
-          FzfLuaPreviewNormal = { bg = theme.ui.bg_dim },
-          FzfLuaPreviewBorder = { bg = theme.ui.bg_dim },
-          FzfLuaFzfGutter = { bg = theme.ui.bg, fg = theme.ui.bg },
-          FzfLuaFzfHeader = { bg = theme.ui.bg_dim },
-          FzfLuaFzfQuery = { bg = theme.ui.bg_p1 },
-          FzfLuaTitle = { bg = theme.ui.bg },
-          FzfLuaPreviewTitle = { bg = theme.ui.bg },
-          -- FzfLuaNormal = { bg = theme.ui.bg_p1 },
-          FzfLuaFzfPrompt = { bg = theme.ui.bg_p1 },
-          FzfLuaFzfPromptBorder = { bg = theme.ui.bg_p1 },
+          -- Snacks picker
+          SnacksPickerBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
+          SnacksPickerBox = { bg = theme.ui.bg_m1 },
+          SnacksPicker = { bg = theme.ui.bg_m1 },
+          SnacksPickerInput = { bg = theme.ui.bg_m1 },
+          SnacksPickerPrompt = { bg = theme.ui.bg_m1 },
+          SnacksPickerTitle = { bg = theme.ui.bg_m1 },
 
           -- Float
-          NormalFloat = { bg = theme.ui.bg_p1 },
-          FloatBorder = { fg = theme.ui.bg_p1, bg = theme.ui.bg_p1 },
+          NormalFloat = { bg = theme.ui.bg_m1, fg = palette.fujiWhite },
+          FloatBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
           FloatTitle = { bg = 'none' },
 
           -- Lazy
@@ -58,10 +40,6 @@ return {
           TreeDiagnosticSignInfo = { bg = theme.ui.bg, fg = theme.diag.info },
           TreeDiagnosticSignWarn = { bg = theme.ui.bg, fg = theme.diag.warning },
           TreeDiagnosticSignError = { bg = theme.ui.bg, fg = theme.diag.error },
-
-          -- Harpoon
-          HarpoonWindow = { fg = theme.ui.shade0, bg = theme.ui.bg_m1 },
-          HarpoonBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
 
           -- NeoTree
           NeoTreeTitleBar = { fg = theme.ui.fg },
@@ -89,6 +67,11 @@ return {
           -- Cursor
           CursorLine = { bg = theme.ui.bg_p1 },
           CursorLineNR = { fg = palette.springGreen, bold = true },
+
+          -- Noice
+          NoiceCmdLinePopup = { bg = theme.ui.bg_p1 },
+          NoiceCmdLinePrompt = { bg = theme.ui.bg_p1 },
+          NoicePopup = { bg = theme.ui.bg_p1 },
 
           -- Cmp
           CmpDocumentationBorder = { bg = theme.ui.bg_p1, fg = theme.ui.bg_p1 },
@@ -130,7 +113,8 @@ return {
 
           DashboardDesc = { fg = palette.fujiWhite },
 
-          WhichKeyFloat = { bg = theme.ui.bg_p3 },
+          WhichKeyFloat = { bg = theme.ui.bg_p1 },
+          WhichKeyNormal = { bg = theme.ui.bg_p1 },
 
           MiniHipatternsTodo = { bg = palette.surimiOrange, fg = theme.ui.bg, bold = true },
           MiniHipatternsNote = { bg = palette.springGreen, fg = theme.ui.bg, bold = true },

@@ -1,5 +1,6 @@
 return {
   'ibhagwan/fzf-lua',
+  enabled = false,
   opts = function()
     local config = require('fzf-lua.config')
     local actions = require('fzf-lua.actions')
@@ -71,6 +72,7 @@ return {
       },
       oldfiles = {
         include_current_session = true,
+        cwd_only = true,
       },
       lsp = {
         symbols = {
@@ -143,24 +145,6 @@ return {
       },
     }
   end,
-  -- config = function(_, opts)
-  --   if opts[1] == 'default-title' then
-  --     -- use the same prompt for all pickers for profile `default-title` and
-  --     -- profiles that use `default-title` as base profile
-  --     local function fix(t)
-  --       t.prompt = t.prompt ~= nil and ' ' or nil
-  --       for _, v in pairs(t) do
-  --         if type(v) == 'table' then
-  --           fix(v)
-  --         end
-  --       end
-  --       return t
-  --     end
-  --     opts = vim.tbl_deep_extend('force', fix(require('fzf-lua.profiles.default-title')), opts)
-  --     opts[1] = nil
-  --   end
-  --   require('fzf-lua').setup(opts)
-  -- end,
   keys = {
     { '<c-j>', '<c-j>', ft = 'fzf', mode = 't', nowait = true },
     { '<c-k>', '<c-k>', ft = 'fzf', mode = 't', nowait = true },
@@ -182,7 +166,14 @@ return {
     },
     -- find
     { '<leader>fb', '<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>', desc = 'Buffers' },
-    { '<leader>fr', '<cmd>FzfLua oldfiles<cr>', desc = 'Recent' },
+    { '<leader>fr', '<cmd>FzfLua oldfiles<cr>', desc = 'Recent (cwd)' },
+    {
+      '<leader>fR',
+      function()
+        require('fzf-lua').oldfiles({ cwd_only = false })
+      end,
+      desc = 'Recent (all)',
+    },
     -- git
     { '<leader>fg', '<cmd>FzfLua git_files<cr>', desc = 'Find Files (git-files)' },
     { '<leader>gc', '<cmd>FzfLua git_commits<CR>', desc = 'Commits' },
@@ -224,11 +215,6 @@ return {
       end,
       desc = 'Code actions',
     },
-    -- { '<leader>sw', LazyVim.pick('grep_cword'), desc = 'Word (Root Dir)' },
-    -- { '<leader>sW', LazyVim.pick('grep_cword', { root = false }), desc = 'Word (cwd)' },
-    -- { '<leader>sw', LazyVim.pick('grep_visual'), mode = 'v', desc = 'Selection (Root Dir)' },
-    -- { '<leader>sW', LazyVim.pick('grep_visual', { root = false }), mode = 'v', desc = 'Selection (cwd)' },
-    -- { '<leader>uC', LazyVim.pick('colorschemes'), desc = 'Colorscheme with Preview' },
   },
   cmd = 'FzfLua',
 }
