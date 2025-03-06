@@ -381,6 +381,14 @@ return {
           },
         },
       },
+      icons = {
+        diagnostics = {
+          Error = '󰔶 ',
+          Warn = '󰔶 ',
+          Hint = '⚑ ',
+          Info = ' ',
+        },
+      },
     },
     dashboard = {
       enabled = true,
