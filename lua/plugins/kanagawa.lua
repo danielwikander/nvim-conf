@@ -19,6 +19,7 @@ return {
           SnacksPickerInput = { bg = theme.ui.bg_m1 },
           SnacksPickerPrompt = { bg = theme.ui.bg_m1 },
           SnacksPickerTitle = { bg = theme.ui.bg_m1 },
+          SnacksPickerListCursorLine = { bg = theme.ui.bg_p2 },
 
           -- Float
           NormalFloat = { bg = theme.ui.bg_m1, fg = palette.fujiWhite },
