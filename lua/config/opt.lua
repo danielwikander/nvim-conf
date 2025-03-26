@@ -20,6 +20,7 @@ opt.list = true -- Show some invisible characters (tabs...
 opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 opt.mouse = 'a' -- Enable mouse mode
 opt.number = true -- Print line number
+opt.numberwidth = 1
 opt.pumheight = 10 -- Maximum number of entries in a popup
 opt.relativenumber = false -- Relative line numbers
 opt.scrolloff = 10 -- Lines of context
