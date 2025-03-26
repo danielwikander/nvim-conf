@@ -65,7 +65,9 @@ vim.g.dap_virtual_text = true
 
 -- Diagnostics styling
 vim.diagnostic.config({
-  virtual_lines = { current_line = true },
+  -- virtual_lines = { current_line = true },
+  -- virtual_text = { current_line = true },
+  virtual_text = true,
   float = {
     border = 'none',
   },
