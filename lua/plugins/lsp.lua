@@ -36,10 +36,10 @@ local on_attach = function(_, bufnr)
     vim.lsp.buf.signature_help()
   end, { buffer = true })
 
-  vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers['signature_help'], {
-    border = 'none',
-    close_events = { 'CursorMoved', 'BufHidden', 'InsertCharPre' },
-  })
+  -- vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers['signature_help'], {
+  --   border = 'none',
+  --   close_events = { 'CursorMoved', 'BufHidden', 'InsertCharPre' },
+  -- })
 end
 
 return {

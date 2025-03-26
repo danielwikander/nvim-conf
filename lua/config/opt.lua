@@ -17,7 +17,7 @@ opt.inccommand = 'split' -- preview incremental substitute
 opt.incsearch = true
 opt.laststatus = 0
 opt.list = true -- Show some invisible characters (tabs...
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 opt.mouse = 'a' -- Enable mouse mode
 opt.number = true -- Print line number
 opt.pumheight = 10 -- Maximum number of entries in a popup
@@ -55,7 +55,7 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
 vim.o.cmdheight = 0
-vim.o.statuscolumn = '%s%l'
+vim.o.statuscolumn = '%s%l '
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
@@ -64,17 +64,19 @@ vim.g.dap_virtual_text = true
 
 -- Diagnostics styling
 vim.diagnostic.config({
-  -- Disabled because tiny-inline-diagnostic plugin handles this instead
-  virtual_text = false,
+  virtual_text = { current_line = true },
   float = {
     border = 'none',
   },
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '󰔶',
+      [vim.diagnostic.severity.WARN] = '󰔶',
+      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.HINT] = '⚑',
+    },
+  },
 })
-
-vim.fn.sign_define('DiagnosticSignError', { text = '󰔶', texthl = 'DiagnosticSignError' })
-vim.fn.sign_define('DiagnosticSignWarn', { text = '󰔶', texthl = 'DiagnosticSignWarn' })
-vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
-vim.fn.sign_define('DiagnosticSignHint', { text = '⚑', texthl = 'DiagnosticSignHint' })
 
 -- Define .http as HTTP filetype (for kulala)
 vim.filetype.add({
