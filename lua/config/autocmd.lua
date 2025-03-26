@@ -43,8 +43,8 @@ end, {
 })
 
 -- Disable diagnostics in node_modules (0 is current buffer only)
-autocmd('BufRead', { pattern = '*/node_modules/*', command = 'lua vim.diagnostic.disable(0)' })
-autocmd('BufNewFile', { pattern = '*/node_modules/*', command = 'lua vim.diagnostic.disable(0)' })
+autocmd('BufRead', { pattern = '*/node_modules/*', command = 'lua vim.diagnostic.enable(false)' })
+autocmd('BufNewFile', { pattern = '*/node_modules/*', command = 'lua vim.diagnostic.enable(false)' })
 
 -- Enable spellcheck
 autocmd('FileType', {
