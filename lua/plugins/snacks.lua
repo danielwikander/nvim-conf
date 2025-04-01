@@ -55,6 +55,13 @@ return {
       desc = 'Buffers',
     },
     {
+      '<leader>si',
+      function()
+        Snacks.picker.icons()
+      end,
+      desc = 'Icons',
+    },
+    {
       '<leader>p',
       function()
         Snacks.picker.grep()
@@ -74,6 +81,13 @@ return {
         Snacks.picker.smart()
       end,
       desc = 'Smart picker',
+    },
+    {
+      '<leader><space>',
+      function()
+        Snacks.picker.resume()
+      end,
+      desc = 'Resume picker',
     },
     {
       '<leader>ff',
@@ -200,11 +214,11 @@ return {
       desc = 'Diagnostics',
     },
     {
-      '<leader>sd',
+      '<leader>sD',
       function()
-        Snacks.picker.diagnostics()
+        Snacks.picker.diagnostics_buffer()
       end,
-      desc = 'Diagnostics',
+      desc = 'Buffer Diagnostics',
     },
     {
       '<leader>E',
@@ -414,7 +428,7 @@ return {
             key = 'p',
             desc = 'Find Text',
             action = function()
-              Snacks.picker.files()
+              Snacks.picker.grep()
             end,
           },
           {
@@ -437,6 +451,12 @@ return {
             desc = 'Lazy',
             action = ':Lazy',
             enabled = package.loaded.lazy ~= nil,
+          },
+          {
+            icon = '󱁤 ',
+            key = 'M',
+            desc = 'Mason',
+            action = ':Mason',
           },
           {
             icon = ' ',

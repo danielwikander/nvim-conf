@@ -1,3 +1,8 @@
+local function file_exists(name)
+  local f = io.open(name, 'r')
+  return f ~= nil and io.close(f)
+end
+
 return {
   'nvim-neotest/neotest',
   cmd = 'Neotest',
@@ -50,7 +55,12 @@ return {
       adapters = {
         require('neotest-jest')({
           jestCommand = 'yarn test',
-          jestConfigFile = 'jest.config.ts',
+          jestConfigFile = function()
+            if file_exists(vim.fn.getcwd() .. '/jest.config.js') then
+              return vim.fn.getcwd() .. '/jest.config.js'
+            end
+            return vim.fn.getcwd() .. '/jest.config.ts'
+          end,
           env = { CI = true },
           cwd = function()
             return vim.fn.getcwd()
