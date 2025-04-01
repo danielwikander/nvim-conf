@@ -20,6 +20,22 @@ return {
       desc = 'Git blame line',
     },
     {
+      '<leader>gh',
+      function()
+        Snacks.gitbrowse()
+      end,
+      mode = { 'n', 'v' },
+      desc = 'Yank remote git link',
+    },
+    {
+      '<leader>gH',
+      function()
+        Snacks.gitbrowse.open()
+      end,
+      mode = { 'n', 'v' },
+      desc = 'Open remote git link',
+    },
+    {
       '<leader>gf',
       function()
         Snacks.lazygit.log_file()
