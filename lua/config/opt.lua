@@ -63,12 +63,11 @@ vim.g.markdown_recommended_style = 0
 
 vim.g.dap_virtual_text = true
 
-local diagnostic_config_virtual_off = {
+vim.diagnostic.config({
   virtual_text = {
     virt_text_pos = 'eol_right_align',
   },
   virtual_lines = false,
-  severity_sort = true,
   float = {
     border = 'none',
   },
@@ -80,49 +79,18 @@ local diagnostic_config_virtual_off = {
       [vim.diagnostic.severity.HINT] = '⚑',
     },
   },
-}
+})
 
-local diagnostic_config_virtual_on = {
-  virtual_text = false,
-  virtual_lines = {
-    current_line = true,
-  },
-  severity_sort = true,
-  float = {
-    border = 'none',
-  },
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = '󰔶',
-      [vim.diagnostic.severity.WARN] = '󰔶',
-      [vim.diagnostic.severity.INFO] = '',
-      [vim.diagnostic.severity.HINT] = '⚑',
-    },
-  },
-}
-
-vim.diagnostic.config(diagnostic_config_virtual_off)
-
-local virtual_on = false
-local toggle_virtual_diagnostics = function()
-  virtual_on = not virtual_on
-  if virtual_on then
-    vim.diagnostic.config(diagnostic_config_virtual_on)
-  else
-    vim.diagnostic.config(diagnostic_config_virtual_off)
-  end
-end
-
-vim.keymap.set(
-  'n',
-  '<space>e',
-  toggle_virtual_diagnostics,
-  { desc = 'Toggle virtual diagnostics', silent = true, noremap = true }
-)
-
--- Define .http as HTTP filetype (for kulala)
 vim.filetype.add({
   extension = {
-    ['http'] = 'http',
+    env = 'sh',
+  },
+  filename = {
+    ['.env'] = 'sh',
+    ['.env.local'] = 'sh',
+    ['env'] = 'sh',
+  },
+  pattern = {
+    ['%.env%.[%w_.-]+'] = 'sh',
   },
 })

@@ -6,6 +6,14 @@ return {
   lazy = false,
   keys = {
     {
+      '<leader>tp',
+      function()
+        Snacks.toggle.profiler():map('<leader>tp')
+      end,
+      desc = 'Lazygit',
+    },
+
+    {
       '<leader>gg',
       function()
         Snacks.lazygit()
