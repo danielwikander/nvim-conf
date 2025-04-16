@@ -35,6 +35,22 @@ local function toggle_swedish()
   end
 end
 
+local function go_to_definition_split()
+  vim.lsp.buf.definition({
+    on_list = function(options)
+      if #options.items > 1 then
+        vim.notify('Multiple items found, opening first one', vim.log.levels.WARN)
+      end
+
+      -- Open the first item in a vertical split
+      local item = options.items[1]
+      local cmd = 'vsplit +' .. item.lnum .. ' ' .. item.filename .. '|' .. 'normal ' .. item.col .. '|'
+
+      vim.cmd(cmd)
+    end,
+  })
+end
+
 -- Toggle swedish / programming binds
 map('n', 'Å', toggle_swedish)
 
@@ -113,3 +129,14 @@ map('n', '<leader>_', ':vsplit ~/.scratch.md<cr>', { desc = 'Scratch buffer (vsp
 -- Remove highlights after search
 map('n', '<leader>uh', '<cmd>nohl<CR>', { desc = 'Clear search highlights', noremap = true, silent = true })
 map('n', '<esc>', '<cmd>nohl<CR>', { desc = 'Clear search highlights', noremap = true, silent = true })
+
+-- LSP
+map('n', 'gd', vim.lsp.buf.definition, { desc = 'Definition' })
+map('n', 'gD', go_to_definition_split, { desc = 'Definition (vsplit)' })
+map('n', 'gR', vim.lsp.buf.references, { desc = 'References' })
+map('n', '<leader>D', vim.lsp.buf.type_definition, { desc = 'Type definition' })
+map('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename' })
+map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Line diagnostics' })
+map('n', '<leader>ul', ':LspRestart<CR>', { desc = 'Restart LSP' })
+map('n', 'K', vim.lsp.buf.hover, { desc = 'Hover documentation' })
+map('n', '<leader><CR>', vim.lsp.buf.code_action, { desc = 'Code Action' })

@@ -81,15 +81,8 @@ vim.diagnostic.config({
   },
 })
 
+-- Add .env.* files to sh filetype
 vim.filetype.add({
-  extension = {
-    env = 'sh',
-  },
-  filename = {
-    ['.env'] = 'sh',
-    ['.env.local'] = 'sh',
-    ['env'] = 'sh',
-  },
   pattern = {
     ['%.env%.[%w_.-]+'] = 'sh',
   },
