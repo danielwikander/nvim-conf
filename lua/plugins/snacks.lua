@@ -10,7 +10,7 @@ return {
       function()
         Snacks.toggle.profiler():map('<leader>tp')
       end,
-      desc = 'Lazygit',
+      desc = 'Profiler',
     },
 
     {
@@ -152,7 +152,7 @@ return {
     {
       '<leader>fr',
       function()
-        Snacks.picker.recent()
+        Snacks.picker.recent({ filter = { cwd = true } })
       end,
       desc = 'Recent',
     },

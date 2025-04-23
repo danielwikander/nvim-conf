@@ -140,3 +140,6 @@ map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Line diagnostics' })
 map('n', '<leader>ul', ':LspRestart<CR>', { desc = 'Restart LSP' })
 map('n', 'K', vim.lsp.buf.hover, { desc = 'Hover documentation' })
 map('n', '<leader><CR>', vim.lsp.buf.code_action, { desc = 'Code Action' })
+
+-- Lazy
+map('n', '<leader>L', '<cmd>Lazy<CR>', { desc = 'Lazy' })

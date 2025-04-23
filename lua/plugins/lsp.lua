@@ -7,6 +7,13 @@ return {
       'williamboman/mason.nvim',
       lazy = true,
       cmd = { 'Mason', 'MasonInstall', 'MasonInstallAll', 'MasonUpdate' },
+      keys = {
+        {
+          '<leader>M',
+          '<cmd>Mason<CR>',
+          desc = 'Mason',
+        },
+      },
       opts = {
         ui = {
           icons = {
