@@ -4,6 +4,15 @@ return {
   dependencies = {
     'MunifTanjim/nui.nvim',
   },
+  keys = {
+    {
+      'K',
+      function()
+        require('noice.lsp').hover()
+      end,
+      desc = 'Hover documentation',
+    },
+  },
   config = function()
     require('noice').setup({
       views = {

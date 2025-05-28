@@ -12,7 +12,6 @@ return {
       end,
       desc = 'Profiler',
     },
-
     {
       '<leader>gg',
       function()
@@ -79,6 +78,13 @@ return {
       desc = 'Buffers',
     },
     {
+      '<leader>fn',
+      function()
+        Snacks.picker.notifications()
+      end,
+      desc = 'Notifications',
+    },
+    {
       '<leader>si',
       function()
         Snacks.picker.icons()
@@ -127,7 +133,13 @@ return {
       end,
       desc = 'Find Files',
     },
-    -- find
+    {
+      '<leader>fe',
+      function()
+        Snacks.picker.files({ hidden = true, ignored = true })
+      end,
+      desc = 'Find .env files',
+    },
     {
       '<leader>fb',
       function()
@@ -491,7 +503,6 @@ return {
         },
       },
       sections = {
-        -- { section = 'header' },
         { icon = ' ', title = '', section = 'keys', indent = 0, padding = 4 },
         { icon = ' ', title = '', section = 'recent_files', indent = 0, padding = 6, cwd = true },
         { section = 'startup', indent = 0 },

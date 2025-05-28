@@ -1,6 +1,8 @@
 local autocmd = vim.api.nvim_create_autocmd
+local autogrp = vim.api.nvim_create_augroup
+local usercmd = vim.api.nvim_create_user_command
 
-vim.api.nvim_create_augroup('bufcheck', { clear = true })
+autogrp('bufcheck', { clear = true })
 
 -- Disable new line comment
 autocmd('BufEnter', {
@@ -22,7 +24,7 @@ autocmd('TextYankPost', {
 })
 
 -- Disable autoformat
-vim.api.nvim_create_user_command('FormatDisable', function(args)
+usercmd('FormatDisable', function(args)
   if args.bang then
     -- FormatDisable! will disable formatting just for this buffer
     vim.b.disable_autoformat = true
@@ -35,7 +37,7 @@ end, {
 })
 
 -- Enable autoformat
-vim.api.nvim_create_user_command('FormatEnable', function()
+usercmd('FormatEnable', function()
   vim.b.disable_autoformat = false
   vim.g.disable_autoformat = false
 end, {
@@ -43,8 +45,14 @@ end, {
 })
 
 -- Disable diagnostics in node_modules (0 is current buffer only)
-autocmd('BufRead', { pattern = '*/node_modules/*', command = 'lua vim.diagnostic.enable(false, { bufnr = 0 })' })
-autocmd('BufNewFile', { pattern = '*/node_modules/*', command = 'lua vim.diagnostic.enable(false, { bufnr = 0 })' })
+local disable_node_modules_eslint_group = autogrp('DisableNodeModulesEslint', { clear = true })
+autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = { '**/node_modules/**', 'node_modules', '/node_modules/*' },
+  callback = function()
+    vim.diagnostic.enable(false, { bufnr = 0 })
+  end,
+  group = disable_node_modules_eslint_group,
+})
 
 -- Enable spellcheck
 autocmd('FileType', {

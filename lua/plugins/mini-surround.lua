@@ -3,7 +3,7 @@ return {
   config = function()
     require('mini.surround').setup({
       mappings = {
-        add = 'gs', -- Add surrounding in Normal and Visual modes
+        add = 'gsa', -- Add surrounding in Normal and Visual modes
         delete = 'gsd', -- Delete surrounding
         find = '', -- Find surrounding (to the right)
         find_left = '', -- Find surrounding (to the left)

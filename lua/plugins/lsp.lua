@@ -35,85 +35,6 @@ return {
   config = function()
     require('nvim-eslint').setup({})
 
-    local servers = {
-      eslint = {
-        settings = {
-          packageManager = 'yarn',
-          format = false,
-          organize_imports_on_format = true,
-          run = 'onType',
-          validate = 'on',
-        },
-      },
-      lua_ls = {
-        settings = {
-          Lua = {
-            format = { enable = false },
-            telemetry = { enable = false },
-            diagnostics = { globals = { 'vim' } },
-            workspace = {
-              library = {
-                vim.env.VIMRUNTIME,
-                '${3rd}/luv/library',
-              },
-            },
-          },
-        },
-      },
-      yamlls = {
-        settings = {
-          yaml = {
-            format = {
-              enable = true,
-            },
-            schemaStore = {
-              -- Schemastore handled separately
-              enable = false,
-              -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
-              url = '',
-            },
-            schemas = require('schemastore').yaml.schemas(),
-          },
-        },
-      },
-      jsonls = {
-        settings = {
-          json = {
-            schemas = require('schemastore').json.schemas(),
-            validate = {
-              enable = true,
-            },
-          },
-        },
-      },
-      vtsls = {
-        settings = {
-          vtsls = {
-            experimental = {
-              completion = {
-                completion = {
-                  enableServerSideFuzzyMatch = true,
-                },
-              },
-            },
-          },
-          typescript = {
-            updateImportsOnFileMove = { enabled = 'always' },
-            preferences = {
-              importModuleSpecifier = 'relative',
-            },
-            suggest = {
-              completeFunctionCalls = true,
-            },
-            inlayHints = {
-              enumMemberValues = { enabled = true },
-            },
-          },
-        },
-      },
-      graphql = {},
-    }
-
     require('mason-tool-installer').setup({
       ensure_installed = {
         'eslint',
@@ -140,9 +61,8 @@ return {
       },
     })
 
-    for server, settings in pairs(servers) do
-      vim.lsp.config(server, settings)
-      vim.lsp.enable(server)
-    end
+    vim.lsp.config('*', {
+      capabilities = vim.lsp.protocol.make_client_capabilities(),
+    })
   end,
 }
