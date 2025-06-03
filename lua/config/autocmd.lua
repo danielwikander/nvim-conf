@@ -61,3 +61,12 @@ autocmd('FileType', {
     vim.opt_local.spell = true
   end,
 })
+
+-- Exit all lsp clients before exiting Neovim (some clients stay running if not excplicitly closed)
+vim.api.nvim_create_autocmd('VimLeavePre', {
+  callback = function()
+    vim.iter(vim.lsp.get_clients()):each(function(client)
+      client:stop()
+    end)
+  end,
+})
