@@ -8,6 +8,12 @@ return {
       mode = 'n',
       desc = 'Toggle test coverage',
     },
+    {
+      '<leader>ttC',
+      ':CoverageSummary<CR>',
+      mode = 'n',
+      desc = 'Toggle test coverage summary',
+    },
   },
   cmd = {
     'Coverage',
@@ -22,7 +28,6 @@ return {
     require('coverage').setup({
       commands = true, -- create commands
       -- highlights = {
-      -- customize highlight groups created by the plugin
       -- covered = { fg = '#C3E88D' }, -- supports style, fg, bg, sp (see :h highlight-gui)
       -- uncovered = { fg = '#F07178' },
       -- },
@@ -31,12 +36,8 @@ return {
         uncovered = { hl = 'CoverageUncovered', text = '█' },
       },
       summary = {
-        -- customize the summary pop-up
-        min_coverage = 85.0, -- minimum coverage threshold (used for highlighting)
+        min_coverage = 95.0, -- minimum coverage threshold (used for highlighting)
       },
-      -- lang = {
-      -- customize language specific settings
-      -- },
     })
   end,
 }

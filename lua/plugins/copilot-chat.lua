@@ -10,7 +10,7 @@ return {
         desc = 'Toggle Copilot Chat',
       },
     },
-    branch = 'canary',
+    branch = 'main',
     cmd = { 'CopilotChat', 'CopilotChatOpen', 'CopilotChatToggle' },
     dependencies = {
       { 'zbirenbaum/copilot.lua' },
