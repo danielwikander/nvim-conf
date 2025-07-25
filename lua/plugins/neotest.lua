@@ -54,7 +54,7 @@ return {
     require('neotest').setup({
       adapters = {
         require('neotest-jest')({
-          jestCommand = 'yarn test',
+          jestCommand = 'yarn test:coverage',
           jestConfigFile = function()
             if file_exists(vim.fn.getcwd() .. '/jest.config.js') then
               return vim.fn.getcwd() .. '/jest.config.js'

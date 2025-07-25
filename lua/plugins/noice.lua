@@ -67,7 +67,7 @@ return {
           enabled = false,
           view = 'mini',
         },
-        hover = { enabled = true },
+        hover = { enabled = true, silent = true },
         signature = { enabled = false },
         override = {
           -- override the default lsp markdown formatter with Noice

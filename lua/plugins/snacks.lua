@@ -385,8 +385,8 @@ return {
     statuscolumn = { enabled = false },
     words = { enabled = false },
     indent = {
-      char = '▎',
       enabled = true,
+      char = '▎',
       only_current = true,
       scope = {
         enabled = true,

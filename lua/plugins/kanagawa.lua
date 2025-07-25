@@ -159,6 +159,10 @@ return {
           TinyInlineInvDiagnosticVirtualTextWarn = { bg = '#181616', fg = '#E6C384' },
           TinyInlineInvDiagnosticVirtualTextInfo = { bg = '#181616', fg = '#7FB4CA' },
           TinyInlineInvDiagnosticVirtualTextHint = { bg = '#181616', fg = '#7FB4CA' },
+
+          BlinkPairsOrange = { fg = '#807460' },
+          BlinkPairsPurple = { fg = '#806079' },
+          BlinkPairsBlue = { fg = '#616080' },
         }
       end,
     })
