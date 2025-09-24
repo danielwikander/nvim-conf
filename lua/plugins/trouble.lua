@@ -6,7 +6,7 @@ return {
     'TroubleClose',
     'TroubleRefresh',
   },
-  dependencies = { 'echasnovski/mini.icons' },
+  dependencies = { 'nvim-mini/mini.icons' },
   config = function()
     require('trouble').setup({})
   end,

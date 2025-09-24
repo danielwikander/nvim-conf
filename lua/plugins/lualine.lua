@@ -2,7 +2,7 @@ return {
   'nvim-lualine/lualine.nvim',
   event = 'UIEnter',
   dependencies = {
-    'echasnovski/mini.icons',
+    'nvim-mini/mini.icons',
     'rebelot/kanagawa.nvim',
   },
   config = function()

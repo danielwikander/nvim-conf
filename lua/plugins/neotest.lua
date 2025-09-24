@@ -6,6 +6,7 @@ end
 return {
   'nvim-neotest/neotest',
   cmd = 'Neotest',
+  commit = '1d4b3bd89afa8bfa12fffd2bb1ccd26ac3c92ce5',
   keys = {
     {
       '<leader>ttf',

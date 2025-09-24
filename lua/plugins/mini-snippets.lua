@@ -1,5 +1,5 @@
 return {
-  'echasnovski/mini.snippets',
+  'nvim-mini/mini.snippets',
   dependencies = { 'rafamadriz/friendly-snippets' },
   enabled = false,
   lazy = true,

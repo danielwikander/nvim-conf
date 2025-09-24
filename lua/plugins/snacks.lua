@@ -412,6 +412,7 @@ return {
       formatters = {
         file = {
           filename_first = true,
+          git_status_hl = true,
         },
       },
       win = {
