@@ -1,7 +1,7 @@
 return {
   {
     'CopilotC-Nvim/CopilotChat.nvim',
-    enabled = true,
+    enabled = false,
     keys = {
       {
         '<leader>tc',

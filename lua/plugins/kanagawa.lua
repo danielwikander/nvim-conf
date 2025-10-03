@@ -163,6 +163,10 @@ return {
           BlinkPairsOrange = { fg = '#807460' },
           BlinkPairsPurple = { fg = '#806079' },
           BlinkPairsBlue = { fg = '#616080' },
+
+          PackageInfoUpToDateVersion = { fg = '#3C4048' },
+          PackageInfoOutdatedVersion = { fg = '#E6C384' },
+          PackageInfoInErrorVersion = { fg = '#E46876' },
         }
       end,
     })
