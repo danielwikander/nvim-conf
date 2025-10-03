@@ -13,7 +13,10 @@ return {
     vim.api.nvim_create_autocmd('FileType', {
       pattern = 'sidekick_terminal',
       callback = function(event)
-        vim.keymap.set('t', '<esc>', '<nop>', { buffer = event.buf, noremap = true, silent = true })
+        vim.keymap.set('t', '<esc>', function()
+          -- Send ESC character to the terminal
+          vim.api.nvim_chan_send(vim.bo[event.buf].channel, vim.api.nvim_replace_termcodes('<esc>', true, false, true))
+        end, { buffer = event.buf, noremap = true, silent = true })
       end,
     })
   end,
