@@ -483,6 +483,12 @@ return {
             action = ':e $MYVIMRC | cd%:h',
           },
           {
+            icon = ' ',
+            key = 'd',
+            desc = '.dotfiles',
+            action = ':e ~/.dotfiles/ | cd%:h',
+          },
+          {
             icon = '󰒲 ',
             key = 'L',
             desc = 'Lazy',
