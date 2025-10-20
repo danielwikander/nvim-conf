@@ -377,6 +377,13 @@ return {
       end,
       desc = 'LSP Symbols',
     },
+    {
+      '<leader>gp',
+      function()
+        Snacks.picker.gh_pr()
+      end,
+      desc = 'GitHub PR',
+    },
   },
   opts = {
     bigfile = { enabled = true },

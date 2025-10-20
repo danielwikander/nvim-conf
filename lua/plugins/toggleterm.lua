@@ -1,13 +1,11 @@
 return {
   'akinsho/toggleterm.nvim',
   keys = {
-    -- { '<C-t>', '<cmd>ToggleTerm<cr>', mode = { 'n', 't' }, desc = 'Toggle terminal' },
     { '<C-g>', '<cmd>lua ToggleLazygit()<CR>', mode = { 'n', 't' }, desc = 'Toggle lazygit' },
   },
   config = function()
     require('toggleterm').setup({
       size = 25,
-      open_mapping = [[<C-t>]],
       start_in_insert = false,
       autochdir = true,
     })
