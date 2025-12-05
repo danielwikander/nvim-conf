@@ -20,11 +20,15 @@ return {
           SnacksPickerPrompt = { bg = theme.ui.bg_m1 },
           SnacksPickerTitle = { bg = theme.ui.bg_m1 },
           SnacksPickerListCursorLine = { bg = theme.ui.bg_p2 },
+          SnacksPickerTree = { fg = '#312f2b' },
+          SnacksPickerGitStatusAdded = { fg = palette.springGreen },
+          -- SnacksPickerGitStatusStaged = { fg = palette.springGreen },
+          SnacksPickerGitStatusUntracked = { fg = palette.springGreen },
 
           -- Float
           NormalFloat = { bg = theme.ui.bg_m1, fg = palette.fujiWhite },
           FloatBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
-          FloatTitle = { bg = 'none' },
+          FloatTitle = { bg = theme.ui.bg_m1 },
 
           -- Lazy
           LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },

@@ -377,8 +377,25 @@ return {
       end,
       desc = 'LSP Symbols',
     },
+    {
+      '<leader>gp',
+      function()
+        Snacks.picker.gh_pr()
+      end,
+      desc = 'GitHub PR',
+    },
+    {
+      '<leader><tab>',
+      function()
+        Snacks.explorer()
+      end,
+      desc = 'File Explorer',
+    },
   },
   opts = {
+    explorer = {
+      enabled = true,
+    },
     bigfile = { enabled = true },
     notifier = { enabled = false },
     quickfile = { enabled = true },
@@ -406,6 +423,33 @@ return {
       },
     },
     picker = {
+      sources = {
+        explorer = {
+          layout = {
+            layout = {
+              box = 'vertical',
+              position = 'left',
+              width = 60,
+              {
+                win = 'input',
+                border = 'none',
+                height = 1,
+              },
+              {
+                win = 'list',
+                border = 'none',
+              },
+            },
+          },
+          win = {
+            list = {
+              keys = {
+                ['L'] = 'confirm',
+              },
+            },
+          },
+        },
+      },
       matcher = {
         frecency = true,
       },
@@ -433,6 +477,18 @@ return {
         },
       },
       icons = {
+        git = {
+          enabled = true,
+          added = '',
+          deleted = '',
+          modified = '',
+          renamed = '',
+          untracked = '',
+          ignored = '',
+          unstaged = '',
+          staged = '',
+          conflict = '',
+        },
         diagnostics = {
           Error = '󰔶 ',
           Warn = '󰔶 ',
@@ -445,7 +501,6 @@ return {
       enabled = true,
       preset = {
         keys = {
-
           {
             icon = ' ',
             key = 'f',

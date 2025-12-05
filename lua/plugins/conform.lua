@@ -34,6 +34,18 @@ return {
         }
       end,
       formatters_by_ft = {
+        -- javascript = { 'biome', 'biome-organize-imports', 'prettierd', 'prettier' },
+        -- typescript = { 'biome', 'biome-organize-imports', 'prettierd', 'prettier' },
+        -- javascriptreact = { 'biome', 'biome-organize-imports', 'prettierd', 'prettier' },
+        -- typescriptreact = { 'biome', 'biome-organize-imports', 'prettierd', 'prettier' },
+        -- svelte = { 'biome', 'biome-organize-imports', 'prettierd', 'prettier' },
+        -- css = { 'biome', 'biome-organize-imports', 'prettierd', 'prettier' },
+        -- html = { 'biome', 'biome-organize-imports', 'prettierd', 'prettier' },
+        -- json = { 'biome', 'biome-organize-imports', 'prettierd', 'prettier' },
+        -- yaml = { 'biome', 'biome-organize-imports', 'prettierd', 'prettier' },
+        -- markdown = { 'biome', 'biome-organize-imports', 'prettierd', 'prettier' },
+        -- graphql = { 'biome', 'biome-organize-imports', 'prettierd', 'prettier' },
+        -- lua = { 'stylua' },
         javascript = { 'prettierd', 'prettier' },
         typescript = { 'prettierd', 'prettier' },
         javascriptreact = { 'prettierd', 'prettier' },

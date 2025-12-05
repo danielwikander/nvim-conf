@@ -29,7 +29,7 @@ return {
     'nvim-lua/plenary.nvim',
     'saghen/blink.cmp',
     'b0o/schemastore.nvim',
-    'yioneko/nvim-vtsls',
+    -- 'yioneko/nvim-vtsls',
     'esmuellert/nvim-eslint',
   },
   config = function()
@@ -42,7 +42,8 @@ return {
         'prettier',
         'prettierd',
         'stylua',
-        'vtsls',
+        -- 'vtsls',
+        'tsgo',
         'yamlls',
       },
     })
@@ -56,7 +57,8 @@ return {
         'jsonls',
         'lua_ls',
         'graphql',
-        'vtsls',
+        -- 'vtsls',
+        'tsgo',
         'yamlls',
       },
     })
