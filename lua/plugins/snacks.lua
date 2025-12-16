@@ -426,6 +426,7 @@ return {
       sources = {
         explorer = {
           layout = {
+            hidden = { 'input' },
             layout = {
               box = 'vertical',
               position = 'left',
@@ -445,6 +446,8 @@ return {
             list = {
               keys = {
                 ['L'] = 'confirm',
+                ['H'] = 'explorer_close',
+                ['<C-p>'] = 'picker_files',
               },
             },
           },
@@ -541,7 +544,7 @@ return {
             icon = ' ',
             key = 'd',
             desc = '.dotfiles',
-            action = ':e ~/.dotfiles/ | cd%:h',
+            action = ':e ~/.dotfiles | cd%:h',
           },
           {
             icon = '󰒲 ',

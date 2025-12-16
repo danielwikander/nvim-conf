@@ -56,9 +56,23 @@ autocmd({ 'BufNewFile', 'BufRead' }, {
 
 -- Enable spellcheck
 autocmd('FileType', {
-  pattern = { 'gitcommit', 'text' },
+  pattern = { 'gitcommit', 'text', 'markdown' },
   callback = function()
     vim.opt_local.spell = true
+  end,
+})
+
+-- Git commit message settings
+vim.api.nvim_create_autocmd('FileType', {
+  group = autogrp('gitcommit', { clear = true }),
+  pattern = 'gitcommit',
+  desc = 'Set gitcommit formatting',
+  callback = function()
+    vim.bo.textwidth = 72
+    vim.wo.colorcolumn = '50,73'
+    vim.schedule(function()
+      vim.wo.spell = true
+    end)
   end,
 })
 
