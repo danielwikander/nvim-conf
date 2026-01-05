@@ -1,64 +1,3 @@
--- return {
---   'nvim-treesitter/nvim-treesitter',
---   build = ':TSUpdate',
---   branch = 'main',
---   lazy = false,
---   dependencies = {
---     {
---       'windwp/nvim-ts-autotag',
---       config = function()
---         require('nvim-ts-autotag').setup({
---           opts = {
---             enable_close = true,
---             enable_rename = true,
---             enable_close_on_slash = true,
---           },
---         })
---       end,
---     },
---   },
---   config = function()
---     local treesitter = require('nvim-treesitter.configs')
---
---     treesitter.setup({
---       ensure_installed = {
---         'c',
---         'cmake',
---         'c_sharp',
---         'css',
---         'go',
---         'html',
---         'javascript',
---         'json',
---         'lua',
---         'markdown',
---         'markdown_inline',
---         'python',
---         'scss',
---         'toml',
---         'tsx',
---         'typescript',
---         'vim',
---         'vimdoc',
---         'query',
---       },
---       highlight = {
---         enable = true,
---       },
---       indent = {
---         enable = true,
---       },
---       incremental_selection = {
---         enable = true,
---         keymaps = {
---           init_selection = nil,
---           node_incremental = 'v',
---           node_decremental = 'V',
---         },
---       },
---     })
---   end,
--- }
 return {
   'nvim-treesitter/nvim-treesitter',
   dependencies = {
@@ -81,8 +20,7 @@ return {
   config = function()
     local ts = require('nvim-treesitter')
 
-    -- Install core parsers at startup
-    ts.install({
+    local languages = {
       'bash',
       'comment',
       'css',
@@ -100,10 +38,10 @@ return {
       'make',
       'markdown',
       'markdown_inline',
-      'norg',
       'python',
       'query',
       'regex',
+      'rust',
       'scss',
       'svelte',
       'toml',
@@ -114,27 +52,34 @@ return {
       'vimdoc',
       'vue',
       'xml',
-    }, {
-      max_jobs = 8,
-    })
+    }
+
+    local isnt_installed = function(lang)
+      return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0
+    end
+
+    local to_install = vim.tbl_filter(isnt_installed, languages)
+
+    if #to_install > 0 then
+      ts.install(languages, { max_jobs = 8 })
+      require('nvim-treesitter').install(to_install)
+    end
 
     local group = vim.api.nvim_create_augroup('TreesitterSetup', { clear = true })
 
-    local ignore_filetypes = {
-      'checkhealth',
-      'lazy',
-      'mason',
-      'snacks_dashboard',
-      'snacks_notif',
-      'snacks_win',
-    }
+    local filetypes = {}
+    for _, lang in ipairs(languages) do
+      for _, ft in ipairs(vim.treesitter.language.get_filetypes(lang)) do
+        table.insert(filetypes, ft)
+      end
+    end
 
     -- Auto-install parsers and enable highlighting on FileType
     vim.api.nvim_create_autocmd('FileType', {
       group = group,
       desc = 'Enable treesitter highlighting and indentation',
       callback = function(event)
-        if vim.tbl_contains(ignore_filetypes, event.match) then
+        if not vim.tbl_contains(filetypes, event.match) then
           return
         end
 

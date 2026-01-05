@@ -71,13 +71,6 @@ return {
       desc = 'Toggle Zoom',
     },
     {
-      '<leader>fb',
-      function()
-        Snacks.picker.buffers()
-      end,
-      desc = 'Buffers',
-    },
-    {
       '<leader>fn',
       function()
         Snacks.picker.notifications()
@@ -108,16 +101,9 @@ return {
     {
       '<leader><space>',
       function()
-        Snacks.picker.smart()
-      end,
-      desc = 'Smart picker',
-    },
-    {
-      '<leader><space>',
-      function()
         Snacks.picker.resume()
       end,
-      desc = 'Resume picker',
+      desc = 'Resume',
     },
     {
       '<leader>ff',
@@ -544,7 +530,7 @@ return {
             icon = ' ',
             key = 'd',
             desc = '.dotfiles',
-            action = ':e ~/.dotfiles | cd%:h',
+            action = ':e ~/.dotfiles/',
           },
           {
             icon = '󰒲 ',
