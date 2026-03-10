@@ -410,6 +410,13 @@ return {
     },
     picker = {
       sources = {
+        files = {
+          transform = function(item)
+            if item.file and item.file:match('%.cy%.') then
+              item.score_add = (item.score_add or 0) - 30
+            end
+          end,
+        },
         explorer = {
           layout = {
             hidden = { 'input' },
