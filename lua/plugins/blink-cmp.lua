@@ -2,7 +2,7 @@ return {
   'saghen/blink.cmp',
   lazy = false, -- lazy loading handled internally
   dependencies = { 'rafamadriz/friendly-snippets', 'nvim-mini/mini.icons' },
-  version = '*',
+  version = '1.*',
   opts = {
     signature = { enabled = true },
     completion = {

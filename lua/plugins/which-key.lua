@@ -11,7 +11,6 @@ return {
       { '<leader>"', group = 'Format' },
       { '<leader>f', group = 'Find' },
       { '<leader>g', group = 'Github' },
-      { '<leader>o', group = 'Obsidian' },
       { '<leader>t', group = 'Toggle / Tests' },
       { '<leader>tt', group = 'Test' },
       { '<leader>u', group = 'Util' },

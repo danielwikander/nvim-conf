@@ -4,6 +4,7 @@ return {
   dependencies = 'saghen/blink.download',
   opts = {
     mappings = {
+      cmdline = false,
       disabled_filetypes = { 'snacks_picker_input' },
     },
     highlights = {
