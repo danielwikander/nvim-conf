@@ -143,3 +143,19 @@ map('n', '<leader><CR>', vim.lsp.buf.code_action, { desc = 'Code Action' })
 
 -- Lazy
 map('n', '<leader>L', '<cmd>Lazy<CR>', { desc = 'Lazy' })
+
+map({ 'n', 'x', 'o' }, '<A-o>', function()
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    require('vim.treesitter._select').select_parent(vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(vim.v.count1)
+  end
+end, { desc = 'Select parent treesitter node or outer incremental lsp selections' })
+
+map({ 'n', 'x', 'o' }, '<A-i>', function()
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    require('vim.treesitter._select').select_child(vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(-vim.v.count1)
+  end
+end, { desc = 'Select child treesitter node or inner incremental lsp selections' })
