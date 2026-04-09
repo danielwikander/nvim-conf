@@ -61,8 +61,7 @@ return {
     local to_install = vim.tbl_filter(isnt_installed, languages)
 
     if #to_install > 0 then
-      ts.install(languages, { max_jobs = 8 })
-      require('nvim-treesitter').install(to_install)
+      ts.install(to_install, { max_jobs = 8 })
     end
 
     local group = vim.api.nvim_create_augroup('TreesitterSetup', { clear = true })
@@ -74,27 +73,33 @@ return {
       end
     end
 
-    -- Auto-install parsers and enable highlighting on FileType
+    local pre_installed_parsers = {
+      'c',
+      'lua',
+      'markdown',
+      'markdown_inline',
+      'query',
+      'vim',
+      'vimdoc',
+    }
+
     vim.api.nvim_create_autocmd('FileType', {
       group = group,
-      desc = 'Enable treesitter highlighting and indentation',
-      callback = function(event)
-        if not vim.tbl_contains(filetypes, event.match) then
-          return
+      callback = function(args)
+        local treesitter = require('nvim-treesitter')
+        local lang = vim.treesitter.language.get_lang(args.match)
+        if vim.list_contains(treesitter.get_available(), lang) then
+          if
+            not vim.list_contains(treesitter.get_installed(), lang)
+            and not vim.list_contains(pre_installed_parsers, lang)
+          then
+            treesitter.install(lang):wait()
+          end
+          vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          vim.treesitter.start(args.buf)
         end
-
-        local lang = vim.treesitter.language.get_lang(event.match) or event.match
-        local buf = event.buf
-
-        -- Start highlighting immediately (works if parser exists)
-        pcall(vim.treesitter.start, buf, lang)
-
-        -- Enable treesitter indentation
-        vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-
-        -- Install missing parsers (async, no-op if already installed)
-        ts.install({ lang })
       end,
+      desc = 'Enable nvim-treesitter and install parser if not installed',
     })
   end,
 }
