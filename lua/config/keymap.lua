@@ -142,7 +142,7 @@ map('n', '<leader>ul', ':LspRestart<CR>', { desc = 'Restart LSP' })
 map('n', '<leader><CR>', vim.lsp.buf.code_action, { desc = 'Code Action' })
 
 -- Lazy
-map('n', '<leader>L', '<cmd>Lazy<CR>', { desc = 'Lazy' })
+map('n', '<leader>L', '<cmd>lua vim.pack.update()<CR>', { desc = 'Update plugins' })
 
 map({ 'n', 'x', 'o' }, '<A-o>', function()
   if vim.treesitter.get_parser(nil, nil, { error = false }) then

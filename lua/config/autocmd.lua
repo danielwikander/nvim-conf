@@ -63,7 +63,7 @@ autocmd('FileType', {
 })
 
 -- Git commit message settings
-vim.api.nvim_create_autocmd('FileType', {
+autocmd('FileType', {
   group = autogrp('gitcommit', { clear = true }),
   pattern = 'gitcommit',
   desc = 'Set gitcommit formatting',
@@ -77,7 +77,7 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- Exit all lsp clients before exiting Neovim (some clients stay running if not excplicitly closed)
-vim.api.nvim_create_autocmd('VimLeavePre', {
+autocmd('VimLeavePre', {
   callback = function()
     vim.iter(vim.lsp.get_clients()):each(function(client)
       client:stop()
