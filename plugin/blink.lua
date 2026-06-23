@@ -30,6 +30,9 @@ require('blink.cmp').setup({
   },
 })
 
+-- require('blink.pairs').download():pwait(60000)
+require('blink.pairs').build():pwait(60000)
+
 require('blink.pairs').setup({
   mappings = {
     cmdline = false,

@@ -39,6 +39,7 @@ vim.pack.add({
   'https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim',
   'https://github.com/b0o/schemastore.nvim',
   'https://github.com/esmuellert/nvim-eslint',
+  'https://github.com/saghen/blink.lib',
   { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1.x') },
   'https://github.com/saghen/blink.download',
   { src = 'https://github.com/saghen/blink.pairs', version = vim.version.range('*') },
