@@ -11,18 +11,43 @@ require('nvim-ts-autotag').setup({
 
 require('ts-error-translator').setup({
   auto_attach = true,
-  servers = { 'astro', 'svelte', 'ts_ls', 'tsserver', 'typescript-tools', 'volar', 'vtsls', 'tsgo' },
+  servers = { 'astro', 'svelte', 'ts_ls', 'tsserver', 'typescript-tools', 'volar', 'vtsls', 'tsgo', 'tsc' },
 })
 
 local ts = require('nvim-treesitter')
 
 local languages = {
-  'bash', 'comment', 'css', 'diff',
-  'git_config', 'git_rebase', 'gitcommit', 'gitignore',
-  'html', 'javascript', 'json', 'latex', 'lua', 'luadoc', 'make',
-  'markdown', 'markdown_inline', 'python', 'query', 'regex', 'rust',
-  'scss', 'svelte', 'toml', 'tsx', 'typescript', 'typst',
-  'vim', 'vimdoc', 'vue', 'xml',
+  'bash',
+  'comment',
+  'css',
+  'diff',
+  'git_config',
+  'git_rebase',
+  'gitcommit',
+  'gitignore',
+  'html',
+  'javascript',
+  'json',
+  'latex',
+  'lua',
+  'luadoc',
+  'make',
+  'markdown',
+  'markdown_inline',
+  'python',
+  'query',
+  'regex',
+  'rust',
+  'scss',
+  'svelte',
+  'toml',
+  'tsx',
+  'typescript',
+  'typst',
+  'vim',
+  'vimdoc',
+  'vue',
+  'xml',
 }
 
 local isnt_installed = function(lang)
@@ -58,4 +83,6 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- ts-node-action
-vim.keymap.set('n', '<leader>j', function() require('ts-node-action').node_action() end, { desc = 'Node action' })
+vim.keymap.set('n', '<leader>j', function()
+  require('ts-node-action').node_action()
+end, { desc = 'Node action' })

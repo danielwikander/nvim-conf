@@ -59,7 +59,7 @@ vim.pack.add({
   'https://github.com/stevearc/conform.nvim',
 
   -- Testing
-  'https://github.com/nvim-neotest/neotest',
+  { src = 'https://github.com/nvim-neotest/neotest', version = '9613039' },
   'https://github.com/nvim-neotest/nvim-nio',
   'https://github.com/nvim-neotest/neotest-jest',
   'https://github.com/antoinemadec/FixCursorHold.nvim',
