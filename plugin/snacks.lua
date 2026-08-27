@@ -1,5 +1,89 @@
 vim.g.snacks_animate = false
 
+local git_status_cache = {}
+
+---@param cwd string
+local function git_root(cwd)
+  local uv = vim.uv or vim.loop
+  local dir = cwd
+  while dir and dir ~= '' do
+    if uv.fs_stat(dir .. '/.git') then
+      return dir
+    end
+    local parent = dir:match('^(.*)/[^/]+$')
+    if not parent or parent == dir then
+      break
+    end
+    dir = parent
+  end
+  return cwd
+end
+
+local git_root_cache = {} -- cwd -> resolved git root, memoized per cwd
+
+---@param cwd string
+local function cached_git_root(cwd)
+  local root = git_root_cache[cwd]
+  if not root then
+    root = git_root(cwd)
+    git_root_cache[cwd] = root
+  end
+  return root
+end
+
+-- Kicks off an async `git status` refresh for the picker's cwd, then
+-- mutates the already-fetched items in place and redraws once it lands.
+---@param picker snacks.Picker
+local function refresh_git_status(picker)
+  local cwd = picker.input.filter.cwd
+  if not cwd then
+    return
+  end
+  local root = git_root(cwd)
+  local now = (vim.uv or vim.loop).now()
+  local cached = git_status_cache[root]
+  if cached and (cached.pending or now - cached.time < 3000) then
+    return
+  end
+  git_status_cache[root] = { time = now, map = cached and cached.map or {}, pending = true }
+
+  vim.system({
+    'git',
+    '--no-pager',
+    '--no-optional-locks',
+    'status',
+    '--porcelain=v1',
+    '--ignored=matching',
+    '-z',
+    '-unormal',
+  }, { cwd = root, text = true }, function(out)
+    local map = {}
+    if out.code == 0 and out.stdout then
+      for _, line in ipairs(vim.split(out.stdout, '\0', { plain = true })) do
+        if line ~= '' then
+          local status, file = line:match('^(..) (.+)$')
+          if status then
+            map[root .. '/' .. file] = status
+          end
+        end
+      end
+    end
+    git_status_cache[root] = { time = (vim.uv or vim.loop).now(), map = map, pending = false }
+    vim.schedule(function()
+      if picker.closed or not picker.finder then
+        return
+      end
+      for _, item in ipairs(picker.finder.items) do
+        if item.file and item.cwd then
+          local abs = item.file:match('^/') and item.file or (item.cwd .. '/' .. item.file)
+          item.status = map[abs]
+        end
+      end
+      picker.list:update({ force = true })
+    end)
+  end)
+end
+
 require('snacks').setup({
   explorer = {
     enabled = true,
@@ -33,9 +117,17 @@ require('snacks').setup({
   picker = {
     sources = {
       files = {
+        on_show = function(picker)
+          refresh_git_status(picker)
+        end,
         transform = function(item)
           if item.file and item.file:match('%.cy%.') then
             item.score_add = (item.score_add or 0) - 30
+          end
+          if item.file and item.cwd then
+            local abs = item.file:match('^/') and item.file or (item.cwd .. '/' .. item.file)
+            local cached = git_status_cache[cached_git_root(item.cwd)]
+            item.status = cached and cached.map[abs]
           end
         end,
       },
