@@ -11,8 +11,12 @@ local lazygit = terminal:new({
   direction = 'float',
   float_opts = {
     border = 'none',
-    width = vim.o.columns,
-    height = vim.o.lines,
+    width = function()
+      return vim.o.columns
+    end,
+    height = function()
+      return vim.o.lines
+    end,
   },
   start_in_insert = true,
   persist_size = false,
