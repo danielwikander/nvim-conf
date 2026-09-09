@@ -31,15 +31,22 @@ local function cached_git_root(cwd)
   return root
 end
 
--- Kicks off an async `git status` refresh for the picker's cwd, then
+---@param item snacks.picker.finder.Item
+local function abs_path(item)
+  if not item.file then
+    return nil
+  end
+  if item.file:match('^/') then
+    return item.file
+  end
+  return item.cwd and (item.cwd .. '/' .. item.file) or nil
+end
+
+-- Kicks off an async `git status` refresh for the given repo root, then
 -- mutates the already-fetched items in place and redraws once it lands.
 ---@param picker snacks.Picker
-local function refresh_git_status(picker)
-  local cwd = picker.input.filter.cwd
-  if not cwd then
-    return
-  end
-  local root = git_root(cwd)
+---@param root string
+local function refresh_git_status(picker, root)
   local now = (vim.uv or vim.loop).now()
   local cached = git_status_cache[root]
   if cached and (cached.pending or now - cached.time < 3000) then
@@ -74,14 +81,35 @@ local function refresh_git_status(picker)
         return
       end
       for _, item in ipairs(picker.finder.items) do
-        if item.file and item.cwd then
-          local abs = item.file:match('^/') and item.file or (item.cwd .. '/' .. item.file)
+        local abs = abs_path(item)
+        if abs and cached_git_root(item.cwd or vim.fn.fnamemodify(abs, ':h')) == root then
           item.status = map[abs]
         end
       end
       picker.list:update({ force = true })
     end)
   end)
+end
+
+-- Attaches live git status to a file item, (re)triggering a memoized
+-- `git status` refresh for its repo root as needed. Works for any source
+-- whose items carry `item.file` (files, recent, buffers, git_files, ...),
+-- including ones whose items span multiple repo roots.
+---@param item snacks.picker.finder.Item
+---@param ctx snacks.picker.finder.ctx
+local function attach_git_status(item, ctx)
+  local abs = abs_path(item)
+  if not abs then
+    return
+  end
+  -- `item.cwd`, when set, is shared by every item from the source (files,
+  -- git_files), so resolving from it memoizes to a single lookup for the
+  -- whole picker. Sources without it (recent, buffers) fall back to the
+  -- file's own directory, since their items can span many repos.
+  local root = cached_git_root(item.cwd or vim.fn.fnamemodify(abs, ':h'))
+  local cached = git_status_cache[root]
+  item.status = cached and cached.map[abs]
+  refresh_git_status(ctx.picker, root)
 end
 
 require('snacks').setup({
@@ -117,19 +145,21 @@ require('snacks').setup({
   picker = {
     sources = {
       files = {
-        on_show = function(picker)
-          refresh_git_status(picker)
-        end,
-        transform = function(item)
+        transform = function(item, ctx)
           if item.file and item.file:match('%.cy%.') then
             item.score_add = (item.score_add or 0) - 30
           end
-          if item.file and item.cwd then
-            local abs = item.file:match('^/') and item.file or (item.cwd .. '/' .. item.file)
-            local cached = git_status_cache[cached_git_root(item.cwd)]
-            item.status = cached and cached.map[abs]
-          end
+          attach_git_status(item, ctx)
         end,
+      },
+      recent = {
+        transform = attach_git_status,
+      },
+      buffers = {
+        transform = attach_git_status,
+      },
+      git_files = {
+        transform = attach_git_status,
       },
       explorer = {
         layout = {
