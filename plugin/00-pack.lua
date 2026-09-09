@@ -78,5 +78,5 @@ vim.pack.add({
   'https://github.com/nvim-lua/plenary.nvim',
 
   -- AI / Copilot
-  'https://github.com/zbirenbaum/copilot.lua',
+  -- 'https://github.com/zbirenbaum/copilot.lua',
 })
