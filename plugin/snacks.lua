@@ -161,6 +161,15 @@ require('snacks').setup({
       git_files = {
         transform = attach_git_status,
       },
+      grep = {
+        transform = attach_git_status,
+      },
+      grep_buffers = {
+        transform = attach_git_status,
+      },
+      grep_word = {
+        transform = attach_git_status,
+      },
       explorer = {
         layout = {
           hidden = { 'input' },
