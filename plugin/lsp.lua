@@ -1,3 +1,12 @@
+-- Gives lua_ls type info for plugins (e.g. Snacks.*, vim.uv) so it stops
+-- flagging their fields as undefined. Must run before lua_ls attaches.
+require('lazydev').setup({
+  library = {
+    { path = 'snacks.nvim', words = { 'Snacks' } },
+    { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+  },
+})
+
 require('mason').setup({
   ui = { icons = { package_installed = '●', package_uninstalled = '○', package_pending = '➜' } },
 })
