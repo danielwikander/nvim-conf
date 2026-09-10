@@ -27,7 +27,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "copilot.lua": {
-      "rev": "901a6c564abb45c7703401ecc6416bb0d15afd37",
+      "rev": "69fa45f8bcde5aaf436b43ff208c36d7c6ee5b42",
       "src": "https://github.com/zbirenbaum/copilot.lua"
     },
     "fidget.nvim": {
@@ -35,11 +35,11 @@
       "src": "https://github.com/j-hui/fidget.nvim"
     },
     "friendly-snippets": {
-      "rev": "30bfd475adadfd4f286f86168831348dfd8aecdc",
+      "rev": "a5a73e586521fe5c12d751ad81a0db67649a94ed",
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "gitsigns.nvim": {
-      "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
+      "rev": "f2421c550618d257048afa650413d9e542ddbe67",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "gx.nvim": {
@@ -128,7 +128,7 @@
       "src": "https://github.com/esmuellert/nvim-eslint"
     },
     "nvim-lspconfig": {
-      "rev": "19576de1c1b6d1b5e231ea6ef9cba9a811c322bb",
+      "rev": "ac9d2f7c4757db6320cab6697fe73e5e8adb2457",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -140,7 +140,7 @@
       "src": "https://github.com/petertriho/nvim-scrollbar"
     },
     "nvim-treesitter": {
-      "rev": "5cb0114e6242625db56dd6440e945ed1ece10bc7",
+      "rev": "d4d59cb369da46b95699bd2200efbcffc6dadb3b",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
@@ -161,7 +161,7 @@
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "schemastore.nvim": {
-      "rev": "10c76a652d7b1a81bacf5449df76e6e83d367bff",
+      "rev": "890d8f5cfca338a1f3e59c686569e461f6182f80",
       "src": "https://github.com/b0o/schemastore.nvim"
     },
     "snacks.nvim": {

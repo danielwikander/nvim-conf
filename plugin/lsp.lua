@@ -24,11 +24,4 @@ require('mason-lspconfig').setup({
 
 vim.lsp.config('*', { capabilities = vim.lsp.protocol.make_client_capabilities() })
 
--- NOTE: tsc crashes without this? why?
-vim.lsp.config('tsc', {
-  cmd = { 'tsc', '--lsp', '--stdio' },
-  filetypes = { 'typescript', 'typescriptreact', 'javascript', 'javascriptreact' },
-  root_markers = { 'tsconfig.json', 'jsconfig.json', 'package.json', '.git' },
-})
-
 vim.keymap.set('n', '<leader>M', '<cmd>Mason<CR>', { desc = 'Mason' })
